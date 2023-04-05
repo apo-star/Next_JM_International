@@ -3,28 +3,40 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* padding: 6rem; */
   min-height: 100vh;
-  /* margin-top: 30px; */
-  /* position: relative; */
-  /* margin-top: 80px; */
+  margin: 0;
+}
+
+.title {
+  position: absolute;
+  max-width: 20%;
+  top: 25%;
+  left: 70%;
+  z-index: 3;
+  color: white;
+  padding: 30px;
+  border-radius: 2px;
 }
 
 .banner {
+  flex: auto;
+  flex-direction: column;
   height: 70vh;
   width: 100%;
-  border-color: red;
-  border-width: 5px;
-  /* background-color: red; */
-  color: black;
+  z-index: 0;
+  background: black;
+  position: relative;
+  isolation: isolate;
 }
 
 .banner video {
   width: 100%;
-  display: block;
+  position: relative;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.banner:before {
+.banner::after {
   content: "";
   position: absolute;
   background: rgba(0, 0, 0, 0.2);
@@ -35,17 +47,23 @@
   left: 0;
 }
 
+.video::before{
+  filter: blur(0px);
+  /* transition: all 5s; */
+}
 .video {
+  /* -webkit-filter: blur(9px); */
   object-fit: cover;
   width: 100%;
   height: 100%;
   justify-content: start;
-  /* position: fixed; */
-  z-index: -1;
-  background: rgba(0, 0, 0, 0.1);
+  z-index: -2;
+  background: rgba(0, 0, 0, 0.4);
   background-size: cover;
-  background-blend-mode: multiply;
+  filter: blur(2px);
+  transition: all 5s ease;
 }
+
 
 .description {
   display: inherit;
@@ -144,52 +162,6 @@
   transform: translateZ(0);
 }
 
-.logo,
-.thirteen {
-  position: relative;
-}
-
-.thirteen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75px;
-  height: 75px;
-  padding: 25px 10px;
-  margin-left: 16px;
-  transform: translateZ(0);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0px 2px 8px -1px #0000001a;
-}
-
-.thirteen::before,
-.thirteen::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-}
-
-/* Conic Gradient Animation */
-.thirteen::before {
-  animation: 6s rotate linear infinite;
-  width: 200%;
-  height: 200%;
-  background: var(--tile-border);
-}
-
-/* Inner Square */
-.thirteen::after {
-  inset: 0;
-  padding: 1px;
-  border-radius: var(--border-radius);
-  background: linear-gradient(
-    to bottom right,
-    rgba(var(--tile-start-rgb), 1),
-    rgba(var(--tile-end-rgb), 1)
-  );
-  background-clip: content-box;
-}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
