@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
+  max-width: fit-content;
   margin: 0;
 }
 
@@ -23,10 +24,15 @@
   flex-direction: column;
   height: 70vh;
   width: 100%;
-  z-index: 0;
-  background: black;
   position: relative;
-  isolation: isolate;
+}
+
+.brands {
+  flex: auto;
+  /* flex-direction: row; */
+  height: 100%;
+  width: 100%;
+  /* max-width: 1200px; */
 }
 
 .banner video {
@@ -47,7 +53,7 @@
   left: 0;
 }
 
-.video::before{
+.video::before {
   filter: blur(0px);
   /* transition: all 5s; */
 }
@@ -63,7 +69,6 @@
   filter: blur(2px);
   transition: all 5s ease;
 }
-
 
 .description {
   display: inherit;
@@ -161,7 +166,6 @@
   filter: blur(45px);
   transform: translateZ(0);
 }
-
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {

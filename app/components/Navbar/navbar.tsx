@@ -2,19 +2,28 @@
 import Link from "next/link";
 import "./navbar.css";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [active, setActive] = useState(false);
   const changeBackround = () => {
     if (window.scrollY >= 80) {
       setActive(true);
-    }
-    else{
+    } else {
       setActive(false);
     }
   };
-  window.addEventListener("scroll", changeBackround);
+
+  useEffect(() => {
+    if (window) {
+      window.addEventListener("scroll", changeBackround);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", changeBackround);
+    };
+  }, []);
+
   return (
     <>
       <nav className={active ? "navbar active" : "navbar"}>
@@ -23,7 +32,7 @@ export default function Navbar() {
             <Image
               src="/jm-logo-transparent-bg.png"
               alt="Brand"
-              width={200}
+              width={150}
               height={50}
               priority
             />
