@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
 import { createContext } from "react";
+import { CacheProvider } from "@chakra-ui/next-js";
+import { ChakraProvider, Flex } from "@chakra-ui/react";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,17 +19,23 @@ export default function RootLayout({
   const context = createContext<{ language: number }>({ language: 0 });
   return (
     <html lang="en">
-      <body>
-        <header>
-          <Navbar />
-        </header>
-        <main>
-          <context.Provider value={{ language: 0 }}>
-            {children}
-            <Footer />
-          </context.Provider>
-        </main>
-      </body>
+      <head />
+      <context.Provider value={{ language: 0 }}>
+        <CacheProvider>
+          <body>
+            {/* <header></header> */}
+            <main>
+              <ChakraProvider>
+                <Navbar />
+                <Flex direction="column" minH="100vh">
+                  {children}
+                </Flex>
+                <Footer />
+              </ChakraProvider>
+            </main>
+          </body>
+        </CacheProvider>
+      </context.Provider>
     </html>
   );
 }
