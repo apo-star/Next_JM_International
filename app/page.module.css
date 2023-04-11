@@ -283,3 +283,10 @@
     transform: rotate(0deg);
   }
 } */
+
+.bgTop {
+  background-image: "/wave-haikei-top.png";
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}

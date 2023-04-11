@@ -36,8 +36,11 @@ export default function Home() {
         overflow="hidden"
         zIndex={-1}
       ></Box>
-      <Flex justify="center">
-        <Heading zIndex={1}>Fleet of automotive offerings</Heading>
+      <Flex bgImage="url('/wave-haikei-top.png')" justify="center">
+        <Heading zIndex={1}>
+          {/* <Image width="full" alt="bgTop" src="" /> */}
+          Fleet of automotive offerings
+        </Heading>
       </Flex>
       <Flex justify="center">
         <Heading zIndex={1}>Our Family of Brands</Heading>
@@ -45,7 +48,7 @@ export default function Home() {
       <Flex justify="center">
         <Heading zIndex={1}>Exclusive Partners</Heading>
       </Flex>
-      <Flex justify="center">
+      <Flex bgImage="url('/stacked-steps-haikei-bottom.png')" bgSize={"contain"} justify="center">
         <Heading zIndex={1}>New Products</Heading>
       </Flex>
     </Box>
