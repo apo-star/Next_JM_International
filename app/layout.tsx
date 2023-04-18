@@ -5,6 +5,7 @@ import Footer from "./components/Footer/footer";
 import { createContext } from "react";
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider, Flex } from "@chakra-ui/react";
+import { FloatingWhatsApp as Whatsapp } from "react-floating-whatsapp";
 
 export const metadata = {
   title: "Create Next App",
@@ -30,6 +31,10 @@ export default function RootLayout({
                 <Flex direction="column" minH="100vh">
                   {children}
                 </Flex>
+                <Whatsapp
+                  phoneNumber="+50762250666"
+                  accountName="JM Internacional"
+                />
                 <Footer />
               </ChakraProvider>
             </main>
