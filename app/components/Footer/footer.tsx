@@ -22,7 +22,7 @@ export default function Footer() {
         align={{ base: "center", md: "center" }}
       >
         <Image
-          src="/jm-logo-transparent-bg.png"
+          src="/jm-logo-transparent-bg-min.png"
           alt="Brand"
           width={150}
           height={50}

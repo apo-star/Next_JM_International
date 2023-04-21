@@ -1,3 +1,4 @@
+"use Client";
 import {
   Box,
   Flex,
@@ -14,6 +15,7 @@ import {
   useColorModeValue,
   useDisclosure,
   Image,
+  useStyleConfig,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -21,16 +23,43 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { useEffect, useState } from "react";
+import "./navbar.css";
 
-export default function Navbar() {
+const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
+  const [active, setActive] = useState(false);
+  const changeBackround = () => {
+    if (window.scrollY >= 80) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  };
+
+  //Nabar styles constants
+  const blackNavbar = [useColorModeValue("black", "gray.800")];
+
+  const transparentNavbar = "transparent";
+
+  useEffect(() => {
+    if (window) {
+      window.addEventListener("scroll", changeBackround);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", changeBackround);
+    };
+  }, []);
+
   const { isOpen, onToggle } = useDisclosure();
-
+  const customStyle = useStyleConfig("Flex", {});
   return (
     <Box as="header" position="fixed" w="100%" zIndex={1}>
       <Flex
         // overflowY="hidden"
-        bg={useColorModeValue("black", "gray.800")}
+        bg={!active && isHomePage ? transparentNavbar : blackNavbar}
         color={useColorModeValue("gray.600", "white")}
+        className={"navTransition"}
         minH={"80px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
@@ -58,7 +87,7 @@ export default function Navbar() {
         >
           <Link href="/">
             <Image
-              src="/jm-logo-transparent-bg.png"
+              src="/jm-logo-transparent-bg-min.webp"
               alt="Brand"
               width={150}
               height={50}
@@ -88,7 +117,7 @@ export default function Navbar() {
       </Collapse>
     </Box>
   );
-}
+};
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("white", "gray.200");
@@ -296,3 +325,5 @@ const NAV_ITEMS: Array<NavItem> = [
     href: "/contact",
   },
 ];
+
+export default Navbar;

@@ -1,9 +1,20 @@
 "use client";
-// Swiper imports
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, EffectCube } from "swiper";
-import "swiper/swiper-bundle.min.css";
-// import "swiper/css/navigation";
+
+import { useState } from "react";
+
+// Components imports
+import Carousel from "./components/Swiper/swiper";
+import {
+  Image,
+  Spacer,
+  Stat,
+  StatArrow,
+  StatGroup,
+  StatHelpText,
+  StatLabel,
+  StatNumber,
+} from "@chakra-ui/react";
+import Navbar from "./components/Navbar/navbar";
 
 //reCaptcha API Key 6Lfab5olAAAAAA0wH9-1vXhWsfGg_KR-FyhN64NX
 
@@ -16,154 +27,163 @@ import {
   Heading,
   Text,
   Flex,
-  Image,
   Button,
   Container,
   VStack,
   HStack,
   Link,
   useColorModeValue,
+  Divider,
 } from "@chakra-ui/react";
+
+import FormModal from "./components/Modal/modal";
+import ContactForm from "./components/ContactForm/contactForm";
+import { SP } from "next/dist/shared/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 const brands = [
-  { id: 1, name: "Eagle Parts", logo: "/eaglePartsLogo.png" },
-  { id: 2, name: "Quantum Trux Parts", logo: "/quantumTruxPartsLogo.png" },
-  { id: 3, name: "USA PRO", logo: "/usaProLogo.png" },
-  { id: 4, name: "JM Internacional", logo: "/jm-logo-transparent-bg.png" },
-  { id: 5, name: "Brand 5", logo: "/eaglePartsLogo.png" },
-  { id: 6, name: "Brand 6", logo: "/quantumTruxPartsLogo.png" },
-  { id: 7, name: "Brand 7", logo: "/usaProLogo.png" },
+  { id: 1, name: "Eagle Parts", logo: "/eaglePartsLogo.webp" },
+  { id: 2, name: "Quantum Trux Parts", logo: "/quantumTruxPartsLogo.webp" },
+  { id: 3, name: "USA PRO", logo: "/usaProLogo.webp" },
+  { id: 4, name: "JM Internacional", logo: "/jm-logo-transparent-bg-min.webp" },
+  { id: 5, name: "Brand 5", logo: "/eaglePartsLogo.webp" },
+  { id: 6, name: "Brand 6", logo: "/quantumTruxPartsLogo.webp" },
+  { id: 7, name: "Brand 7", logo: "/usaProLogo.webp" },
 ];
 
 export default function Home() {
   const bg = useColorModeValue("gray.100", "gray.800");
+  const [modalToggle, setModalToggle] = useState(false);
 
+  const handleModalToggle = (state: boolean) => {
+    setModalToggle(state);
+  };
   return (
-    <Flex direction="column">
-      <Box boxSize={"full"}>
-        <Heading pos="absolute" zIndex={1}>
-          Best Brands For You
-        </Heading>
-        <Flex
-          as="video"
-          autoPlay
-          loop
-          muted
-          src="/homePageBanner.mp4"
-          objectFit="contain"
-          sx={{
-            aspectRatio: "16/9",
-          }}
-          pos="relative"
-          overflow="hidden"
-          zIndex={-1}
-        ></Flex>
-      </Box>
-      <VStack alignItems="center" w="100%">
-        <VStack
-          w="100%"
-          border="2px"
-          as="div"
-          bgImage="url('/wave-haikei-top.png')"
-          justify="center"
-          bgRepeat="repeat-x"
-        >
-          <Heading mt={10} as="h1" size="2xl">
-            Trailer Truck Parts Wholesale
+    <>
+      <Navbar isHomePage={true} />
+      <Flex direction="column">
+        {/* Hero */}
+        <Box boxSize={"full"}>
+          <Heading pos="absolute" zIndex={1}>
+            Best Brands For You
           </Heading>
-          <Text fontSize="xl" textAlign="center">
-            Your one-stop solution for high-quality trailer truck parts at
-            competitive prices. Discover our wide range of parts and benefit
-            from our exceptional customer service.
-          </Text>
-          <Button
-            size="lg"
-            colorScheme="teal"
-            onClick={() => {
-              // Add your contact page route or any specific action
-              alert("Contact Us button clicked");
+          <Flex
+            as="video"
+            autoPlay
+            loop
+            muted
+            src="/homePageBanner.mp4"
+            objectFit="contain"
+            sx={{
+              aspectRatio: "16/9",
             }}
-          >
-            Contact Us
-          </Button>
-        </VStack>
-        <Box mt={10}>
-          <VStack spacing={6} alignItems="center" w="100%">
-            <Heading as="h2" size="xl">
-              Our Brands
-            </Heading>
-            <HStack spacing={10} wrap="wrap" justifyContent="center" mt={5}>
-              {brands.map((brand) => (
-                <Link
-                  key={brand.id}
-                  onClick={() => {
-                    console.log(`Clicked on ${brand.name}`);
-                  }}
-                >
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    boxSize="200px"
-                    objectFit="contain"
-                    // Add hover styles and animation here
-                  />
-                </Link>
-              ))}
-            </HStack>
-          </VStack>
+            pos="relative"
+            overflow="hidden"
+            zIndex={-1}
+          ></Flex>
         </Box>
-        <VStack spacing={6} alignItems="center" w="100%" py={6} bg={bg}>
-          <Heading as="h2" size="xl">
-            Featured Products
-          </Heading>
-          <Box width="100%" maxW="container.lg">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={3}
-              slidesPerGroup={3}
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
-              navigation
-              // pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: false,
+        <VStack alignItems="center" w="100%">
+          {/* Presentation */}
+          <VStack w="100%" as="div" justify="center" spacing={8}>
+            <Heading as="h1" size="2xl">
+              Trailer Truck Parts Wholesale
+            </Heading>
+            <Divider
+              maxWidth={500}
+              // colorScheme="red"
+              // borderRadius="lg"
+              // variant="thick"
+              // size="md"
+              // orientation="horizontal"
+            />
+            <Text maxW={800} fontSize="xl" textAlign="center">
+              Your one-stop solution for high-quality trailer truck parts at
+              competitive prices. Discover our wide range of parts and benefit
+              from our exceptional customer service.
+            </Text>
+            <Button
+              size="lg"
+              colorScheme="teal"
+              onClick={() => {
+                // Add your contact page route or any specific action
+                handleModalToggle(!modalToggle);
               }}
             >
-              {brands.map((brand) => (
-                <SwiperSlide key={brand.id}>
-                  <Box p={4} textAlign="center">
+              Contact Us
+            </Button>
+          </VStack>
+          {/* Brands Section */}
+          <Flex py={6} bg={bg} alignItems="center" justify={"center"} w="100%">
+            <VStack w={"75%"}>
+              <Heading as="h2" size="xl">
+                Our Brands
+              </Heading>
+              <HStack spacing={10} wrap="wrap" justifyContent="center" mt={5}>
+                {brands.map((brand) => (
+                  <Link key={brand.id} onClick={() => {}}>
                     <Image
                       src={brand.logo}
                       alt={brand.name}
                       boxSize="200px"
                       objectFit="contain"
-                      mb={4}
+                      // Add hover styles and animation here
                     />
-                    <Text fontSize="lg" fontWeight="bold">
-                      {brand.name}
-                    </Text>
-                  </Box>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </Box>
+                  </Link>
+                ))}
+              </HStack>
+            </VStack>
+          </Flex>
+          {/* Featured Products Section */}
+          <VStack py={6} w="75%">
+            <Heading as="h2" size="xl">
+              Featured Products
+            </Heading>
+            <HStack w="75%" dir="row" alignItems={"center"} justify={"center"}>
+              <Box minW={"container.xs"} maxW="container.lg">
+                <StatGroup>
+                  <Stat>
+                    <StatLabel>Sent</StatLabel>
+                    <StatNumber>345,670</StatNumber>
+                    <StatHelpText>
+                      <StatArrow type="increase" />
+                      23.36%
+                    </StatHelpText>
+                  </Stat>
+                </StatGroup>
+              </Box>
+              <Spacer />
+              <Box maxW="container.md">
+                <Carousel products={brands} />
+              </Box>
+            </HStack>
+          </VStack>
+          {/* Contact Us Section */}
+          <VStack bg={bg} w="100%">
+            <Heading mt={8} zIndex={1}>
+              Contact Us
+            </Heading>
+            <HStack w="75%">
+              <Flex>
+                <Image
+                  boxSize="300px"
+                  objectFit="contain"
+                  alt="Contact Us"
+                  src={"/salesman-min-min.webp"}
+                />
+              </Flex>
+              <Spacer />
+              <Flex>
+                <ContactForm />
+              </Flex>
+            </HStack>
+          </VStack>
+          <Flex justify="center">
+            <Heading zIndex={1}>Catalogs</Heading>
+          </Flex>
         </VStack>
-        <Flex justify="center">
-          <Heading zIndex={1}>Our Family of Brands</Heading>
-        </Flex>
-        <Flex justify="center">
-          <Heading zIndex={1}>Exclusive Partners</Heading>
-        </Flex>
-        <Flex
-          bgImage="url('/stacked-steps-haikei-bottom.png')"
-          bgSize={"contain"}
-          justify="center"
-        >
-          <Heading zIndex={1}>New Products</Heading>
-        </Flex>
-      </VStack>
-    </Flex>
+      </Flex>
+      {/*Form Modal */}
+      <FormModal open={modalToggle} setOpen={handleModalToggle} />
+    </>
   );
 }
