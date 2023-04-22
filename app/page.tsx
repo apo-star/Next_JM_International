@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import "./page.css";
 
 // Components imports
 import Carousel from "./components/Swiper/swiper";
