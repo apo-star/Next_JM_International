@@ -1,7 +1,14 @@
 "use client";
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, EffectCube } from "swiper";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectCube,
+  Autoplay,
+} from "swiper";
 import "swiper/swiper-bundle.min.css";
 
 //Chakra UI imports
@@ -13,41 +20,48 @@ type Product = {
   name: string;
 };
 
-export default function Carousel({ products }: { products: Array<Product> }) {
+export default function Carousel({
+  products,
+  perView,
+}: {
+  products: Array<Product>;
+  perView: number;
+}) {
   return (
     <>
       <Swiper
         spaceBetween={10}
-        slidesPerView={3}
-        slidesPerGroup={3}
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        slidesPerView={perView}
+        slidesPerGroup={perView}
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         // navigation
-        pagination={{ clickable: true }}
+        // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
         autoplay={{
-          delay: 1,
+          delay: 2500,
           // disableOnInteraction: false,
         }}
       >
         {products.map((product: Product) => (
           <SwiperSlide key={product.id}>
-            <VStack p={10} alignItems={"center"} justifyContent={"center"}>
-              <Box>
-                <Image
-                  src={product.logo}
-                  alt={product.name}
-                  objectFit="contain"
-                  minH={"120px"}
-                  justifyContent={"center"}
-                  align={"center"}
-                  // mb={4}
-                />
-              </Box>
-              <Box>
+            <VStack p={4} alignItems={"center"} justifyContent={"center"}>
+              {/* <Box> */}
+              <Image
+                src={product.logo}
+                alt={product.name}
+                // objectFit="fill"
+                minH={"100px"}
+                minW={"150px"}
+                justifyContent={"center"}
+                align={"center"}
+                // mb={4}
+              />
+              {/* </Box> */}
+              {/* <Box>
                 <Text textAlign={"center"} fontSize="lg" fontWeight="bold">
                   {product.name}
                 </Text>
-              </Box>
+              </Box> */}
             </VStack>
           </SwiperSlide>
         ))}

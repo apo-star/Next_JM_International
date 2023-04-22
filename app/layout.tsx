@@ -4,7 +4,7 @@ import { createContext } from "react";
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { FloatingWhatsApp as Whatsapp } from "react-floating-whatsapp";
-import { NextRouter } from "next/router";
+import { ParallaxProvider } from "react-scroll-parallax";
 import { NextPage } from "next";
 
 interface RootLayoutProps {
@@ -22,11 +22,12 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
     <html lang="en">
       <head />
       {/* <context.Provider value={{ language: 0 }}> */}
-        <CacheProvider>
-          <body>
-            {/* <header></header> */}
-            <main>
-              <ChakraProvider>
+      <CacheProvider>
+        <body>
+          {/* <header></header> */}
+          <main>
+            <ChakraProvider>
+              <ParallaxProvider>
                 <Flex direction="column" minH="100vh">
                   {children}
                 </Flex>
@@ -35,10 +36,11 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
                   accountName="JM Internacional"
                 />
                 <Footer />
-              </ChakraProvider>
-            </main>
-          </body>
-        </CacheProvider>
+              </ParallaxProvider>
+            </ChakraProvider>
+          </main>
+        </body>
+      </CacheProvider>
       {/* </context.Provider> */}
     </html>
   );
