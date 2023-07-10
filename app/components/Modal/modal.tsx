@@ -1,5 +1,7 @@
 import {
   Button,
+  Divider,
+  HStack,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -7,8 +9,11 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Text,
+  VStack,
   useDisclosure,
 } from "@chakra-ui/react";
+import { PhoneIcon, EmailIcon } from "@chakra-ui/icons";
 import ContactForm from "../ContactForm/contactForm";
 import { useEffect, useState } from "react";
 
@@ -36,17 +41,33 @@ const FormModal = (props: { setOpen: Function; open: boolean }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader></ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <ContactForm />
           </ModalBody>
 
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
+          <ModalFooter alignContent={"center"} justifyContent={"center"}>
+            <VStack justify={"center"} alignContent={"center"}>
+              <Button
+                leftIcon={<EmailIcon />}
+                colorScheme="red"
+                variant="outline"
+                onClick={onClose}
+                minW={"130px"}
+              >
+                Send
+              </Button>
+              <Divider />
+              <Text>Or contact us directly.</Text>
+              <Button
+                leftIcon={<PhoneIcon />}
+                colorScheme="whatsapp"
+                size={"md"}
+              >
+                Whatsapp
+              </Button>
+            </VStack>
           </ModalFooter>
         </ModalContent>
       </Modal>

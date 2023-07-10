@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 // Components imports
 import Carousel from "./components/Swiper/swiper";
+import BrandCarousel from "./components/Swiper/brandSwiper";
 import {
+  Container,
   Image,
   Spacer,
   Stat,
@@ -15,9 +17,8 @@ import {
   StatNumber,
 } from "@chakra-ui/react";
 import Navbar from "./components/Navbar/navbar";
-import { useParallax, Parallax, ParallaxBanner } from "react-scroll-parallax";
 
-//reCaptcha API Key 6Lfab5olAAAAAA0wH9-1vXhWsfGg_KR-FyhN64NX
+//reCaptcha API Key 6Lfab5olAAAAAA0wH9-1vXhWsfGg_FKR-FyhN64NX
 
 //Fonts import
 import { Inter } from "next/font/google";
@@ -29,16 +30,19 @@ import {
   Text,
   Flex,
   Button,
-  Container,
   VStack,
   HStack,
-  Link,
   useColorModeValue,
   Divider,
+  Stack,
+  useBreakpointValue,
+  AspectRatio,
 } from "@chakra-ui/react";
 
 import FormModal from "./components/Modal/modal";
 import ContactForm from "./components/ContactForm/contactForm";
+import { brandImages, featuredProdcuts } from "./utils/assetIndex";
+import ProductCarousel from "./components/Swiper/productSwiper";
 
 const inter = Inter({ subsets: ["latin"] });
 const brands = [
@@ -54,8 +58,6 @@ const brands = [
 export default function Home() {
   const bg = useColorModeValue("gray.100", "gray.800");
   const [modalToggle, setModalToggle] = useState(false);
-  // const boxRef = useRef(null);
-  // const { ref } = useParallax({ speed: 10 });
 
   const handleModalToggle = (state: boolean) => {
     setModalToggle(state);
@@ -63,42 +65,86 @@ export default function Home() {
   return (
     <>
       <Navbar isHomePage={true} />
-      <VStack spacing={0} width={"100%"}>
-        {/* Hero */}
-        <Flex
+      <Box pos={"relative"} h={"60vh"} overflow={"hidden"}>
+        <Box
           as="video"
           autoPlay
           loop
           muted
+          playsInline
           src="/homePageBanner.mp4"
-          objectFit="cover"
-          sx={{ aspectRatio: "16/9" }}
-          // pos="absolute"
-          zIndex={-1}
-          w={"100%"}
-          h={"700px"}
+          objectFit={"cover"}
+          width={"100%"}
+          height={"100%"}
+          bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+        />
+        <Flex
+          pos="absolute"
+          alignItems="center"
+          justifyContent="center"
+          w={"full"}
+          h={"65vh"}
+          top={0}
+          bottom={0}
+          right={0}
+          left={0}
         >
-          {/* <Heading pos="relative" zIndex={1}>
-            Best Brands For You
-          </Heading> */}
-          {/* <Flex /> */}
+          <VStack
+            w={"full"}
+            h={"full"}
+            justify={"center"}
+            px={useBreakpointValue({ base: 4, md: 8 })}
+            bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+          >
+            <VStack
+              maxW={"2xl"}
+              align={"center"}
+              justifyContent={"center"}
+              spacing={6}
+            >
+              <Text
+                textAlign={"center"}
+                color={"white"}
+                fontWeight={700}
+                lineHeight={1.2}
+                fontSize={useBreakpointValue({ base: "3xl", md: "4xl" })}
+              >
+                International Authorized Distributor of Top-Notch Engineered
+                Parts
+              </Text>
+              <Button
+                bg={"red"}
+                size={"lg"}
+                rounded={"2xl"}
+                color={"white"}
+                _hover={{ bg: "white", color: "red" }}
+                onClick={() => {
+                  // Add your contact page route or any specific action
+                  handleModalToggle(!modalToggle);
+                }}
+              >
+                Contact Us
+              </Button>
+            </VStack>
+          </VStack>
         </Flex>
-        {/* <VStack alignItems="center" w="100%"> */}
-        {/* Brands Section */}
-        <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
-          <VStack spacing={4} w={"75%"}>
-            <Heading as="h3" size="2xl">
-              Our Brands
-            </Heading>
-            <Text as="h4" fontSize="xl">
-              Top-tier parts for your company
-            </Text>
+      </Box>
+      {/* <VStack alignItems="center" w="100%"> */}
+      {/* Brands Section */}
+      <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
+        <VStack spacing={4} w={"75%"}>
+          <Heading as="h3" size="2xl">
+            Our Brands
+          </Heading>
+          <Text as="h4" fontSize="xl">
+            Top-tier parts for your company
+          </Text>
 
-            {/* <HStack spacing={10} wrap="wrap" justifyContent="center" mt={5}> */}
-            <Box maxW="container.xl">
-              <Carousel products={brands} perView={5} />
-            </Box>
-            {/* {brands.map((brand) => (
+          {/* <HStack spacing={10} wrap="wrap" justifyContent="center" mt={5}> */}
+          <Box maxW="container.xl">
+            <BrandCarousel brands={brandImages} perView={5} />
+          </Box>
+          {/* {brands.map((brand) => (
                 <Link key={brand.id} onClick={() => {}}>
                   <Image
                     src={brand.logo}
@@ -109,119 +155,153 @@ export default function Home() {
                   />
                 </Link>
               ))} */}
-            {/* </HStack> */}
-          </VStack>
-        </Flex>
-        {/* Presentation */}
-        <VStack
-          pb={20}
-          pt={10}
-          bg={"rgba(220, 28, 36,1)"}
-          w="100%"
-          as="div"
-          justify="center"
-          spacing={8}
-        >
-          <Heading color={"white"} as="h1" size="2xl">
-            Trailer Truck Parts Wholesale
-          </Heading>
-          <Divider maxWidth={500} />
-          <Text color={"white"} maxW={800} fontSize="xl" textAlign="center">
-            Your one-stop solution for high-quality trailer truck parts at
-            competitive prices. Discover our wide range of parts and benefit
-            from our exceptional customer service.
-          </Text>
-          <Button
-            size="lg"
-            colorScheme="teal"
-            onClick={() => {
-              // Add your contact page route or any specific action
-              handleModalToggle(!modalToggle);
-            }}
-          >
-            Contact Us
-          </Button>
+          {/* </HStack> */}
         </VStack>
-        {/* Featured Products Section */}
-        <Flex w={"100%"} justify={"center"}>
-          <VStack py={6} w="75%">
-            <Heading as="h2" size="xl">
-              Featured Products
-            </Heading>
-            <HStack w="75%" dir="row" alignItems={"center"} justify={"center"}>
-              <Box minW={"container.xs"} maxW="container.lg">
-                <StatGroup>
-                  <Stat>
-                    <StatLabel>Sent</StatLabel>
-                    <StatNumber>345,670</StatNumber>
-                    <StatHelpText>
-                      <StatArrow type="increase" />
-                      23.36%
-                    </StatHelpText>
-                  </Stat>
-                </StatGroup>
-              </Box>
-              <Spacer />
-              <Box maxW="container.md">
-                <Carousel products={brands} perView={3} />
-              </Box>
-            </HStack>
-          </VStack>
-        </Flex>
-        {/*Catalog Section*/}
-        <Flex bg={"#b3b3b3"} justify="center">
-          <Heading zIndex={1}>Catalogs</Heading>
-        </Flex>
-        {/* Contact Us Section */}
-        <VStack w="100%">
-          <Heading mt={8} zIndex={1}>
-            Contact Us
+      </Flex>
+      {/* Presentation */}
+      <VStack
+        pb={20}
+        pt={10}
+        bg={"rgba(220, 28, 36,1)"}
+        w="100%"
+        as="div"
+        justify="center"
+        spacing={8}
+      >
+        <Heading color={"white"} as="h1" size="2xl">
+          Trailer Truck Parts Wholesale
+        </Heading>
+        <Divider maxWidth={500} />
+        <Text color={"white"} maxW={800} fontSize="xl" textAlign="center">
+          Your one-stop solution for high-quality trailer truck parts at
+          competitive prices. Discover our wide range of parts and benefit from
+          our exceptional customer service.
+        </Text>
+        <Button
+          size="lg"
+          colorScheme="whiteAlpha"
+          _hover={{ bg: "white", color: "red" }}
+          onClick={() => {
+            // Add your contact page route or any specific action
+            handleModalToggle(!modalToggle);
+          }}
+        >
+          Contact Us
+        </Button>
+      </VStack>
+      {/* Featured Products Section */}
+      <Flex w={"100%"} justify={"center"}>
+        <VStack py={6} w="75%">
+          <Heading p={4} as="h2" size="xl">
+            Featured Products
           </Heading>
-          <HStack w="75%">
-            <Flex>
-              <Image
-                boxSize="300px"
-                objectFit="contain"
-                alt="Contact Us"
-                src={"/salesman-min-min.webp"}
-              />
-            </Flex>
+          <HStack w="75%" dir="row" alignItems={"center"} justify={"center"}>
+            <Box minW={"container.xs"} maxW="container.lg">
+              <StatGroup>
+                <HStack w={"lg"} spacing={8}>
+                  <Stat>
+                    <StatLabel fontSize={"2xl"}>Products</StatLabel>
+                    <HStack>
+                      <StatArrow type="increase" />
+                      <StatNumber>150,000</StatNumber>
+                    </HStack>
+                    <StatHelpText>Currently Available</StatHelpText>
+                  </Stat>
+                  <Stat>
+                    <StatLabel fontSize={"2xl"}>Brands</StatLabel>
+                    <HStack>
+                      <StatNumber>7</StatNumber>
+                    </HStack>
+                    <StatHelpText>Quality Driven</StatHelpText>
+                  </Stat>
+                </HStack>
+              </StatGroup>
+            </Box>
             <Spacer />
-            <Flex>
-              <ContactForm />
-            </Flex>
+            <Box maxW="container.md">
+              <ProductCarousel products={featuredProdcuts} perView={3} />
+            </Box>
           </HStack>
         </VStack>
-        <Box
-          // ref={ref}
+      </Flex>
+      {/* Catalog Section */}
+      <Divider></Divider>
+      <Flex bg={"#FFF"} justify="center" py={6}>
+        <VStack>
+          <Heading p={10} zIndex={1}>
+            Catalogs
+          </Heading>
+          <HStack>
+            <Image
+              boxSize="300px"
+              objectFit="contain"
+              alt="Contact Us"
+              src={"/quantumCatalogo2022.jpg"}
+            ></Image>
+            <Image
+              boxSize="300px"
+              objectFit="contain"
+              alt="Contact Us"
+              src={"/eagCatalogo2022.jpg"}
+            ></Image>
+          </HStack>
+        </VStack>
+      </Flex>
+      {/* Contact Us Section */}
+      <HStack
+        w="100%"
+        bgImage={"/white-red-arrow.png"}
+        bgSize={"cover"}
+        bgRepeat={"no-repeat"}
+        bgPos={"right"}
+        bgColor={"#b3b3b3"}
+      >
+        <Image
+          boxSize="500px"
+          w={"650px"}
           h={"500px"}
-          w={"100%"}
-          pos={"relative"}
-          bg="white"
-          // overflow="hidden"
-        >
-          <ParallaxBanner
-            style={{
-              width: "100%",
-              height: "100%",
-              backgroundSize: "cover",
-              backgroundPosition: "bottom",
-            }}
-            layers={[{ image: "/pageEnd.jpg", speed: 20 }]}
-          />
-          <Box
-            position="absolute"
-            top="0"
-            left="0"
-            right="0"
-            bottom="0"
-            bgImage="linear-gradient(to top, rgba(255,255,255,.2), rgba(255,255,255,1))"
-            // bgSize="cover"
-            // bgPosition="bottom"
-          />
-        </Box>
-        {/* </VStack> */}
-      </VStack>
+          objectFit="cover"
+          alt="Contact Us"
+          src={"/comp4H.jpg"}
+        />
+        <VStack dir="row" w={"50%"}>
+          {/* <div style={{ backgroundColor: "#fff", justifyContent: "center" }}> */}
+          {/* <Flex justifyContent="center"> */}
+          <Box bg={"#fff"} p={20}>
+            <Heading zIndex={1}>Contact Us</Heading>
+            {/* <Spacer/> */}
+            <ContactForm />
+          </Box>
+          {/* </Flex> */}
+          {/* </div> */}
+        </VStack>
+      </HStack>
+
+      <Box
+        // ref={ref}
+        h={"350px"}
+        w={"100%"}
+        pos={"sticky"}
+        bg="white"
+        // bgPosition
+        overflow="hidden"
+        bgPos={"bottom"}
+        bgImage={"/pageEnd.jpg"}
+      >
+        {/* <Image alt="pageEnd" src="/pageEnd.jpg" /> */}
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
+          bgImage="linear-gradient(to top, rgba(255,255,255,.2), rgba(255,255,255,1))"
+          // bgSize="cover"
+          // bgPosition="bottom"
+        />
+      </Box>
+      {/* </VStack> */}
+      {/* </VStack> */}
       {/*Form Modal */}
       <FormModal open={modalToggle} setOpen={handleModalToggle} />
     </>

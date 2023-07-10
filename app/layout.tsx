@@ -6,7 +6,6 @@ import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { FloatingWhatsApp as Whatsapp } from "react-floating-whatsapp";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { NextPage } from "next";
-
 interface RootLayoutProps {
   children: React.ReactNode;
 }

@@ -52,6 +52,8 @@ export default function Carousel({
                 // objectFit="fill"
                 minH={"100px"}
                 minW={"150px"}
+                maxW={"170px"}
+                maxH={"100px"}
                 justifyContent={"center"}
                 align={"center"}
                 // mb={4}

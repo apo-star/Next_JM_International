@@ -54,10 +54,16 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
   const { isOpen, onToggle } = useDisclosure();
   const customStyle = useStyleConfig("Flex", {});
   return (
-    <Box as="header" position="fixed" w="100%" zIndex={1}>
+    <Box
+      as="header"
+      position={isHomePage ? "fixed" : "fixed"}
+      w="100%"
+      zIndex={10}
+    >
       <Flex
         // overflowY="hidden"
         bg={!active && isHomePage ? transparentNavbar : blackNavbar}
+        mb={!isHomePage ? 0 : 0}
         color={useColorModeValue("gray.600", "white")}
         className={"navTransition"}
         minH={"80px"}
@@ -133,7 +139,7 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href}
-                fontSize={"sm"}
+                fontSize={"lg"}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -283,31 +289,24 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
     href: "/",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "/",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "/",
-      },
-    ],
   },
   {
     label: "Brands",
     href: "/brands",
     children: [
       {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
+        label: "JM Internacional",
+        subLabel: "Own brand",
         href: "/brands",
       },
       {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
+        label: "Quantum Trux Parts",
+        subLabel: "An exclusive partner",
+        href: "/brands",
+      },
+      {
+        label: "USA Pro",
+        subLabel: "An exclusive partner",
         href: "/brands",
       },
     ],
