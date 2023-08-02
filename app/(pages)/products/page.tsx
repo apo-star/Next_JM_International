@@ -2,6 +2,8 @@
 import { Inter } from "next/font/google";
 import {
   Box,
+  Center,
+  Divider,
   Flex,
   HStack,
   Heading,
@@ -28,7 +30,7 @@ export default function Products() {
   //   setproduct();
 
   //   return () => {
-    // "/pageEnd.webp"
+  // "/pageEnd.webp"
   //   }
   // }, [])
 
@@ -53,35 +55,58 @@ export default function Products() {
           </Text>
         </VStack>
       </Flex>
-      <Flex width={"100%"} justifyContent={"center"} h={"100%"}>
-        <HStack
-          width={"70%"}
-          h={"100%"}
-          justifyContent={"center"}
-          bgColor={"red"}
-        >
-          <VStack backgroundColor={"blue"} flex={0.5} maxW={400}>
-            <Heading>Carousel</Heading>
-            <ProductCarousel
-              products={products[brand].products}
-              perView={1}
-            ></ProductCarousel>
+      <Flex pt={10} width={"100%"} justifyContent={"center"} h={"100%"}>
+        <HStack width={"70%"} h={"100%"} justifyContent={"center"}>
+          <VStack flex={1} maxW={400}>
+            <Box
+              maxW={"100%"}
+              borderWidth={2}
+              borderRadius={8}
+              borderColor={"gray.300"}
+            >
+              <ProductCarousel
+                products={products[brand].products}
+                perView={1}
+              ></ProductCarousel>
+            </Box>
             <Box maxW="container.md">
+              <Text justifyContent={"center"} textAlign={"center"}>
+                Other products from this brand
+              </Text>
               <Carousel
                 products={products[brand].products}
-                perView={4}
+                perView={3}
               ></Carousel>
             </Box>
           </VStack>
+          <Center
+            flex={1}
+            justifyContent={"center"}
+            alignContent={"center"}
+            height="300px"
+          >
+            <Divider orientation="vertical" />
+          </Center>
           <VStack flex={1}>
             <Heading>{products[brand].products[selectedProduct].title}</Heading>
-            <Box>
-              Product Description:{" "}
-              {products[brand].products[selectedProduct].description}
+            <Box maxW={"50%"} justifyContent={"center"} alignContent={"center"}>
+              <Text textAlign={"center"}>
+                {products[brand].products[selectedProduct].description}
+              </Text>
             </Box>
             <Image alt="brand" src={products[brand].logo}></Image>
           </VStack>
         </HStack>
+      </Flex>
+      <Flex pt={10} width={"100%"} justifyContent={"center"} h={"100%"}>
+        <VStack pb={20} justify={"center"} align={"center"}>
+          <Heading>About The Vendor</Heading>
+          <Box maxW={"50%"}>
+            <Text pt={5} textAlign={"justify"}>
+              {brandImages[brand].description}
+            </Text>
+          </Box>
+        </VStack>
       </Flex>
     </>
   );

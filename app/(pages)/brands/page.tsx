@@ -67,7 +67,7 @@ const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
 
 export default function BrandsPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [currentBrand, setcurrentBrand] = useState({ name: "", logo: "" });
+  const [currentBrand, setcurrentBrand] = useState({ name: "", logo: "", description: "" });
   return (
     <>
       <Modal
@@ -96,9 +96,9 @@ export default function BrandsPage() {
                 ></Image>
               </VStack>
             </Flex>
-            <VStack pt={10} justify={"center"} alignContent={"center"}>
+            <VStack justify={"center"} alignContent={"center"}>
               <Heading>{currentBrand.name}</Heading>
-              <Text>{currentBrand.description}</Text>
+              <Text textAlign={"justify"}>{currentBrand.description}</Text>
             </VStack>
           </ModalBody>
 
@@ -106,7 +106,7 @@ export default function BrandsPage() {
             <VStack justify={"center"} alignContent={"center"}>
               <Divider />
               <Button
-                leftIcon={<EmailIcon />}
+                // leftIcon={<EmailIcon />}
                 colorScheme="red"
                 variant="outline"
                 onClick={onClose}

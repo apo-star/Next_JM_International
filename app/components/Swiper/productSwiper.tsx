@@ -54,8 +54,8 @@ export default function ProductCarousel({
                 // objectFit="fill"
                 minH={"100px"}
                 minW={"150px"}
-                maxW={"170px"}
-                maxH={"100px"}
+                maxW={"270px"}
+                maxH={"300px"}
                 justifyContent={"center"}
                 align={"center"}
                 // mb={4}

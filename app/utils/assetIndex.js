@@ -1,13 +1,57 @@
 export const brandImages = [
-  { id: 1, name: "JM Internacional", logo: "/jm-logo-transparent-bg-min.webp", owned: true },
-  { id: 2, name: "Eagle Parts", logo: "/eaglePartsLogo.webp",  owned: true },
-  { id: 3, name: "Quantum Trux Parts", logo: "/quantumTruxPartsLogo.webp",  owned: true },
-  { id: 4, name: "USA PRO", logo: "/usaProLogo.webp",  owned: true },
-  { id: 5, name: "GoodYear", logo: "/goodyear.png", owned: false },
-  { id: 6, name: "GRC", logo: "/grc.png", owned: false },
-  { id: 7, name: "Firestone", logo: "/Firestone.png", owned: false },
-  { id: 8, name: "Wuhlermann", logo: "/Wuhlermann.png", owned: false },
-  { id: 9, name: "Sampa", logo: "/sampa.png", owned: false },
+  {
+    id: 1,
+    name: "JM Internacional",
+    logo: "/jm-logo-transparent-bg-min.webp",
+    owned: true,
+    description: "",
+  },
+  {
+    id: 2,
+    name: "Eagle Parts",
+    logo: "/eaglePartsLogo.webp",
+    owned: true,
+    description:
+      "Eagle Chassis Parts is our line of wide portfolio of products for the chassis of your heavy equipment. These include brake shoes and brake shoe kits, brake drums, rims, wheel clamps, wheel studs, inner nuts, landing gear, fifth wheels, springs, suspension bushings, suspension bars, equalizers, spring hangers, insulator pads, trunnion, bases, spring saddles, U-bolt kits, spring pins, tie rod end, drag links, King pin sets. Eagle Chassis Parts is supplied by original equipment manufacturers and each component has been previously tested so that the quality and performance is adequate for our American roads, which demand high performance products.",
+  },
+  {
+    id: 3,
+    name: "Quantum Trux Parts",
+    logo: "/quantumTruxPartsLogo.webp",
+    owned: true,
+    description:
+      "Quantum is our line of spare parts and accessories for heavy equipment. Among them are parts for drive shaft, air systems, axles and wheels, electrical components, accessories for doors, mirrors and chrome accessories, tarps and cargo straps, exhaust, hood latches, mud flaps and mud flaps hangers, cables, radiator, flywheels, fuel transfer pumps, crown and pinion, filters and filter covers, bumper and fenders, backup alarms and telescopic cylinders. The Quantum line is supplied by original equipment manufacturers, with excellent quality and performance.",
+  },
+  {
+    id: 4,
+    name: "USA PRO",
+    logo: "/usaProLogo.webp",
+    owned: true,
+    description: "USA Pro is our new line of engine parts. Extensively tested and guaranteed performance. This line includes products such as: engine liners, connecting rod bearings, camshaft components, valve guides, exhaust valves, intake valves, valve seats, pistons and piston rings, seals, gaskets, fuel pumps, water temperature sensors, coolant tanks, oil coolers, injector sleeves, oil pumps, oil sensors, engine valves, turbos, crankshaft components, sprinklers. Our USA Pro products go above and beyond to ensure your heavy equipment keeps working.",
+  },
+  {
+    id: 5,
+    name: "GoodYear",
+    logo: "/goodyear.png",
+    owned: false,
+    description: "",
+  },
+  { id: 6, name: "GRC", logo: "/grc.png", owned: false, description: "" },
+  {
+    id: 7,
+    name: "Firestone",
+    logo: "/Firestone.png",
+    owned: false,
+    description: "",
+  },
+  {
+    id: 8,
+    name: "Wuhlermann",
+    logo: "/Wuhlermann.png",
+    owned: false,
+    description: "",
+  },
+  { id: 9, name: "Sampa", logo: "/sampa.png", owned: false, description: "" },
 ];
 
 export const products = [
@@ -222,8 +266,7 @@ export const bannerImages = [
   { image: "/comp2H.jpg" },
   { image: "/comp3V.jpg" },
   { image: "/comp4H.jpg" },
-  { image: "/comp5H.jpg" },
-  { image: "/comp6H.jpg" },
-  { image: "/comp7H.jpg" },
   { image: "/comp8V.jpg" },
+  { image: "/comp7H.jpg" },
+  { image: "/comp6H.jpg" },
 ];
