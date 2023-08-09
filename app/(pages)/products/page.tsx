@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 import { Inter } from "next/font/google";
 import {
@@ -10,30 +12,93 @@ import {
   Image,
   Text,
   VStack,
-  useBreakpointValue,
+  useBreakpointValue
 } from "@chakra-ui/react";
 import Navbar from "@/app/components/Navbar/navbar";
 import ProductCarousel from "@/app/components/Swiper/productSwiper";
 import Carousel from "@/app/components/Swiper/swiper";
 import { useState, useEffect } from "react";
-import { brandImages, products, bannerImages } from "./../../utils/assetIndex";
+import {
+  brandImages,
+  products as DATA,
+  bannerImages
+} from "./../../utils/assetIndex";
 // import "./footer.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Products() {
-  const [brand, setbrand] = useState(1);
-  const [product, setproduct] = useState(1);
+const getFilterProduct = async (info: {
+  DATA: [
+    {
+      brand: string;
+      logo: string;
+      id: number;
+      products: {
+        id: number;
+        title: string;
+        images: string[];
+        description: string;
+      };
+    }
+  ];
+  brandName: string;
+}) => {
+  const noSpaces = info.brandName.replace(/\s/g, "");
+  const dataProductos = info.DATA.filter(
+    (prod) => prod.brand.toUpperCase() === noSpaces.toUpperCase()
+  );
+
+  return dataProductos ?? info.DATA[0];
+};
+
+const getFilterBrand = async (info: any) => {
+  const dataProductos = info.brandImages.filter(
+    (prod: any) => prod.name.toUpperCase() === info.brandName.toUpperCase()
+  );
+
+  return dataProductos ?? info.brandImages[0];
+};
+
+// interface prod{
+//   product: [
+//     {
+//       brand: string;
+//       logo: string;
+//       id: number;
+//       products: {
+//         id: number;
+//         title: string;
+//         images: string[];
+//         description: string;
+//       };
+//     }
+//   ];
+// }
+
+export default function Products({ searchParams }: any) {
+  const brandName = searchParams?.brandName;
+  const [brand] = useState(brandName);
+  const [products, setProducts] = useState<any>({});
   const [selectedProduct, setselectedProduct] = useState(1);
-  console.log(products[brand].products);
-  // useEffect(() => {
-  //   setproduct();
+  const [currentBrand, setCurrentBrand] = useState({});
 
-  //   return () => {
-  // "/pageEnd.webp"
-  //   }
-  // }, [])
+  useEffect(() => {
+    (async () => {
+      const brandInfo = await getFilterBrand({ brandImages, brandName });
+      const productFilter = await getFilterProduct({ DATA, brandName });
+      if (productFilter.length > 0) {
+        setProducts(productFilter[0]);
+      }
+      if (brandInfo.length > 0) {
+        setCurrentBrand(brandInfo[0]);
+      }
+    })();
+    return () => {};
+  }, []);
 
+  // console.log("products", products);
+  // console.log("selectedProduct", selectedProduct);
+  // console.log("Current: ", currentBrand);
   return (
     <>
       <Navbar isHomePage={false} />
@@ -43,14 +108,13 @@ export default function Products() {
         bgSize={"cover"}
         // bgColor={"red"}
         pt={50}
-        alignItems="center"
+        alignItems='center'
         justify={"center"}
-        w="100%"
-        h={useBreakpointValue({ base: "20vh", sm: "20vh", lg: "40vh" })}
-      >
+        w='100%'
+        h={useBreakpointValue({ base: "20vh", sm: "20vh", lg: "40vh" })}>
         <VStack w={"100%"}>
           <Heading color={"white"}>Products</Heading>
-          <Text as="h4" fontSize="xl" color={"white"}>
+          <Text as='h4' fontSize='xl' color={"white"}>
             Selection of High-Quality Partners
           </Text>
         </VStack>
@@ -62,39 +126,48 @@ export default function Products() {
               maxW={"100%"}
               borderWidth={2}
               borderRadius={8}
-              borderColor={"gray.300"}
-            >
-              <ProductCarousel
-                products={products[brand].products}
-                perView={1}
-              ></ProductCarousel>
+              borderColor={"gray.300"}>
+              {products?.products?.length > 0 && (
+                <ProductCarousel
+                  products={products?.products ?? []}
+                  perView={1}
+                />
+              )}
             </Box>
-            <Box maxW="container.md">
+            <Box maxW='container.md'>
               <Text justifyContent={"center"} textAlign={"center"}>
                 Other products from this brand
               </Text>
-              <Carousel
-                products={products[brand].products}
-                perView={3}
-              ></Carousel>
+              {products?.products?.length > 0 && (
+                <Carousel
+                  products={products?.products ?? []}
+                  perView={3}
+                  setSelect={setselectedProduct}
+                />
+              )}
             </Box>
           </VStack>
           <Center
             flex={1}
             justifyContent={"center"}
             alignContent={"center"}
-            height="300px"
-          >
-            <Divider orientation="vertical" />
+            height='300px'>
+            <Divider orientation='vertical' />
           </Center>
           <VStack flex={1}>
-            <Heading>{products[brand].products[selectedProduct].title}</Heading>
+            {products?.products?.length > 0 && (
+              <Heading>{products?.products[selectedProduct]?.title}</Heading>
+            )}
             <Box maxW={"50%"} justifyContent={"center"} alignContent={"center"}>
-              <Text textAlign={"center"}>
-                {products[brand].products[selectedProduct].description}
-              </Text>
+              {products?.products?.length > 0 && (
+                <Text textAlign={"center"}>
+                  {products?.products[selectedProduct]?.description}
+                </Text>
+              )}
             </Box>
-            <Image alt="brand" src={products[brand].logo}></Image>
+            {products?.products?.length > 0 && (
+              <Image alt='brand' src={products.logo}></Image>
+            )}
           </VStack>
         </HStack>
       </Flex>
@@ -103,7 +176,7 @@ export default function Products() {
           <Heading>About The Vendor</Heading>
           <Box maxW={"50%"}>
             <Text pt={5} textAlign={"justify"}>
-              {brandImages[brand].description}
+              {currentBrand.description}
             </Text>
           </Box>
         </VStack>

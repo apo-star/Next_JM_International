@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,7 +9,7 @@ import {
   Scrollbar,
   A11y,
   EffectCube,
-  Autoplay,
+  Autoplay
 } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
@@ -18,15 +20,19 @@ type Product = {
   id: number;
   logo: string;
   name: string;
+  images: string[];
 };
 
 export default function Carousel({
   products,
   perView,
+  setSelect
 }: {
   products: Array<Product>;
   perView: number;
+  setSelect: (num: number) => void;
 }) {
+  // console.log("Hola: ", products);
   return (
     <>
       <Swiper
@@ -38,16 +44,16 @@ export default function Carousel({
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
         autoplay={{
-          delay: 2500,
+          delay: 5000
+
           // disableOnInteraction: false,
-        }}
-      >
-        {products.map((product: Product) => (
+        }}>
+        {products?.map((product: Product) => (
           <SwiperSlide key={product.id}>
             <VStack p={4} alignItems={"center"} justifyContent={"center"}>
               {/* <Box> */}
               <Image
-                src={product.logo}
+                src={product.images[0]}
                 alt={product.name}
                 // objectFit="fill"
                 minH={"100px"}
@@ -56,6 +62,8 @@ export default function Carousel({
                 maxH={"100px"}
                 justifyContent={"center"}
                 align={"center"}
+                onClick={() => setSelect(product.id)}
+
                 // mb={4}
               />
               {/* </Box> */}

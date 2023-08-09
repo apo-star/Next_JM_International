@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 import { useState } from "react";
 import {
@@ -6,8 +8,6 @@ import {
   Text,
   Flex,
   VStack,
-  Grid,
-  SimpleGrid,
   Button,
   Divider,
   Modal,
@@ -19,8 +19,7 @@ import {
   ModalOverlay,
   useDisclosure,
   Image,
-  HStack,
-  useBreakpointValue,
+  useBreakpointValue
 } from "@chakra-ui/react";
 import Navbar from "@/app/components/Navbar/navbar";
 import ContactForm from "@/app/components/ContactForm/contactForm";
@@ -28,10 +27,35 @@ import { EmailIcon, PhoneIcon } from "@chakra-ui/icons";
 import { brandImages, bannerImages } from "./../../utils/assetIndex";
 import { transform } from "framer-motion";
 import Head from "next/head";
+import "./style.css";
+import TextWithLine from "@/app/components/TextDecoration/textDecoration";
 
 const handleModal = (brand: Object, setBrand: Function, open: Function) => {
   setBrand(brand);
   open();
+};
+import Link from "next/link";
+console.log("Bran: ", brandImages);
+
+/**
+ * Función para recortar un párrafo de texto hasta que tenga 10 palabras exactas y no termine
+ * con una palabra menor a 4 caracteres.
+ *@param {string} paragraph El párrafo de texto a recortar.
+ *@returns {string} El párrafo de texto recortado.
+ */
+
+const trimParagraph = (paragraph: string) => {
+  const words = paragraph.split(" ");
+
+  const first10Words = words.slice(0, 10);
+
+  if (first10Words[9]?.length < 4) {
+    first10Words.pop();
+  }
+
+  const trimmedParagraph = first10Words.join(" ");
+
+  return trimmedParagraph;
 };
 
 const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
@@ -41,22 +65,27 @@ const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
         brand.id !== 1 ? (
           brand.owned !== ownership ? null : (
             <>
-              <Box
-                onClick={() => handleModal(brand, setBrand, onOpen)}
-                alignItems="center"
-                justifyContent={"center"}
-                w="100%"
-                h="100%"
-              >
-                <Image
-                  src={brand.logo}
-                  alt={brand.name}
-                  maxH={"140px"}
-                  maxW={"190px"}
-                  justifyContent={"center"}
-                  align={"center"}
-                ></Image>
-              </Box>
+              <div className='card'>
+                <div className='card-details'>
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    maxH={"100px"}
+                    maxW={"140px"}
+                    justifyContent={"center"}
+                    align={"center"}
+                    objectFit={"contain"}
+                  />
+                  <p className='text-body'>
+                    {trimParagraph(brand.description)}...
+                  </p>
+                </div>
+                <button
+                  onClick={() => handleModal(brand, setBrand, onOpen)}
+                  className='card-button'>
+                  More info
+                </button>
+              </div>
             </>
           )
         ) : null
@@ -67,17 +96,22 @@ const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
 
 export default function BrandsPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [currentBrand, setcurrentBrand] = useState({ name: "", logo: "", description: "" });
+  const [currentBrand, setcurrentBrand] = useState({
+    name: "",
+    logo: "",
+    description: "",
+    id: 0
+  });
+  console.log("currentBrand", currentBrand);
   return (
     <>
       <Modal
         size={"xl"}
         isOpen={isOpen}
         onClose={onClose}
-        onCloseComplete={onClose}
-      >
-        <ModalOverlay bg="none" backdropFilter="auto" backdropBlur="2px" />
-        <ModalContent h="600px" w="3500px">
+        onCloseComplete={onClose}>
+        <ModalOverlay bg='none' backdropFilter='auto' backdropBlur='2px' />
+        <ModalContent w='3500px' margin={10}>
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -93,11 +127,10 @@ export default function BrandsPage() {
                   maxW={"250px"}
                   justifyContent={"center"}
                   align={"center"}
-                ></Image>
+                />
               </VStack>
             </Flex>
             <VStack justify={"center"} alignContent={"center"}>
-              <Heading>{currentBrand.name}</Heading>
               <Text textAlign={"justify"}>{currentBrand.description}</Text>
             </VStack>
           </ModalBody>
@@ -105,15 +138,22 @@ export default function BrandsPage() {
           <ModalFooter alignContent={"center"} justifyContent={"center"}>
             <VStack justify={"center"} alignContent={"center"}>
               <Divider />
-              <Button
-                // leftIcon={<EmailIcon />}
-                colorScheme="red"
-                variant="outline"
-                onClick={onClose}
-                minW={"130px"}
-              >
-                See Products
-              </Button>
+              <Link
+                href={{
+                  pathname: "/products",
+                  query: { brandName: currentBrand.name }
+                }}>
+                <Button
+                  // leftIcon={<EmailIcon />}
+                  colorScheme='red'
+                  variant='outline'
+                  onClick={() => {
+                    onClose();
+                  }}
+                  minW={"130px"}>
+                  See Productsa
+                </Button>
+              </Link>
             </VStack>
           </ModalFooter>
         </ModalContent>
@@ -127,41 +167,52 @@ export default function BrandsPage() {
         bgPos={"center"}
         bgSize={"cover"}
         pt={50}
-        alignItems="center"
+        alignItems='center'
         justify={"center"}
-        w="100%"
-        h={useBreakpointValue({ base: "20vh", sm: "20vh", lg: "40vh" })}
-      >
+        w='100%'
+        h={useBreakpointValue({ base: "20vh", sm: "20vh", lg: "40vh" })}>
         <VStack w={"100%"}>
-          <Heading color={"white"}>Leading Brands</Heading>
-          <Text as="h4" fontSize="xl" color={"white"}>
+          <Heading color={"white"} textAlign={"center"}>
+            Leading Brands
+          </Heading>
+          <div
+            style={{
+              borderWidth: "1px",
+              width: `${"Leading Brands".length - 3}em`
+            }}
+          />
+          <Text as='h4' fontSize='xl' color={"white"}>
             Selection of High-Quality Products
           </Text>
         </VStack>
       </Flex>
-      <VStack pt={10} alignItems="center" justify={"center"}>
-        <Heading>Our Family of Brands</Heading>
-        <Text as="h4" fontSize="xl">
+      <VStack pt={10} alignItems='center' justify={"center"}>
+        <TextWithLine text='Our Family of Brands' />
+        <Text as='h4' fontSize='xl' color={"#b1b3b5"}>
           Under JM Internacional ownership, we deliver all you need.
         </Text>
         <Divider></Divider>
-        <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
-          <SimpleGrid columns={3} spacing={10}>
-            {brandsGrid(onOpen, setcurrentBrand, true)}
-          </SimpleGrid>
-        </Flex>
+        <VStack maxWidth={"4xl"}>
+          <Flex pb={20} pt={10} alignItems='center' justify={"center"} w='100%'>
+            <div className='warp'>
+              {brandsGrid(onOpen, setcurrentBrand, true)}
+            </div>
+          </Flex>
+        </VStack>
       </VStack>
-      <VStack alignItems="center" justify={"center"}>
-        <Heading>Our Allies</Heading>
-        <Text as="h4" fontSize="xl">
+      <VStack alignItems='center' justify={"center"}>
+        <TextWithLine text='Our Allies' />
+        <Text as='h4' fontSize='xl'>
           Partners that deliver the best quality and assortment of products
         </Text>
         <Divider></Divider>
-        <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
-          <SimpleGrid columns={5} spacing={10}>
-            {brandsGrid(onOpen, setcurrentBrand, false)}
-          </SimpleGrid>
-        </Flex>
+        <VStack maxWidth={"3xl"}>
+          <Flex pb={20} pt={10} alignItems='center' justify={"center"} w='100%'>
+            <div className='warp'>
+              {brandsGrid(onOpen, setcurrentBrand, false)}
+            </div>
+          </Flex>
+        </VStack>
       </VStack>
     </>
   );
