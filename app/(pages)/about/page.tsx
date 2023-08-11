@@ -96,7 +96,7 @@ export default function About() {
         </VStack>
         <VStack>
           <Image
-            borderRadius="180px"
+            borderRadius="55px"
             maxH={"400px"}
             minW={"700px"}
             objectFit="contain"
@@ -109,7 +109,7 @@ export default function About() {
       <HStack spacing={20} pt={8} justify={"center"}>
         <VStack>
           <Image
-            borderRadius="180px"
+            borderRadius="55px"
             maxH={"400px"}
             minW={"700px"}
             objectFit="contain"

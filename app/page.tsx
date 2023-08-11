@@ -195,6 +195,9 @@ export default function Home() {
           <Heading p={4} as="h2" size="xl">
             Featured Products
           </Heading>
+          <Text fontSize="xl" textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
+            Vast assortment of up-to-date generation parts for your business
+          </Text>
           <HStack w="75%" dir="row" alignItems={"center"} justify={"center"}>
             <Box minW={"container.xs"} maxW="container.lg">
               <StatGroup>
