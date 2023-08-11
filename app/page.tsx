@@ -136,7 +136,7 @@ export default function Home() {
           <Heading as="h3" size="2xl">
             Our Brands
           </Heading>
-          <Text as="h4" fontSize="xl">
+          <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.4)"}>
             Top-tier parts for your company
           </Text>
 
@@ -267,7 +267,7 @@ export default function Home() {
         <VStack dir="row" w={"50%"}>
           {/* <div style={{ backgroundColor: "#fff", justifyContent: "center" }}> */}
           {/* <Flex justifyContent="center"> */}
-          <Box bg={"#fff"} p={20}>
+          <Box bg={"#fff"} p={20} marginLeft={-60} borderRadius={"50px"}>
             <Heading zIndex={1}>Contact Us</Heading>
             {/* <Spacer/> */}
             <ContactForm />

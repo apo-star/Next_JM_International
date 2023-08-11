@@ -10,7 +10,7 @@ import {
   VStack,
   useBreakpointValue,
   Text,
-  SimpleGrid
+  SimpleGrid,
 } from "@chakra-ui/react";
 import Navbar from "@/app/components/Navbar/navbar";
 import ContactForm from "@/app/components/ContactForm/contactForm";
@@ -22,20 +22,22 @@ export default function Contact() {
     <>
       <Navbar isHomePage={false} />
       <Flex
-        bgImage='/comp7H.jpg'
+        bgImage="/comp7H.jpg"
         bgPos={"bottom"}
         w={"full"}
         h={useBreakpointValue({ base: "30vh", sm: "30vh", lg: "50vh" })}
         backgroundSize={"cover"}
         pos={"relative"}
         marginBottom={50}
-        top={55}>
+        top={55}
+      >
         <VStack
           w={"full"}
           justify={"center"}
           px={useBreakpointValue({ base: 4, md: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
-          pos={"relative"}>
+          pos={"relative"}
+        >
           <Stack maxW={"xl"} align={"center"} spacing={6} pos={"relative"}>
             <Text
               color={"white"}
@@ -45,10 +47,11 @@ export default function Contact() {
                 base: "2xl",
                 md: "4xl",
                 lg: "6xl",
-                sm: "xl"
+                sm: "xl",
               })}
               maxW={800}
-              textAlign={"end"}>
+              textAlign={"end"}
+            >
               Contact Us
             </Text>
             <Text
@@ -61,10 +64,11 @@ export default function Contact() {
                 base: "xl",
                 md: "xl",
                 lg: "xl",
-                sm: "xl"
+                sm: "xl",
               })}
               textAlign={"center"}
-              wordBreak={"break-word"}>
+              wordBreak={"break-word"}
+            >
               We would Be Happy To Assist You Call Us +1 000 000 000 Email:
               XXXX@XXXXXX.com
             </Text>
@@ -75,20 +79,21 @@ export default function Contact() {
         <Box>
           <Heading textAlign={"center"}>
             We are here for you! Our team eagerly awaits your message.
-          </Heading>
+          </Heading>  
           <Text
-            color={"black"}
+            color={"rgba(1,1,1,0.4)"}
             fontWeight={200}
             lineHeight={1.2}
             fontSize={useBreakpointValue({
               base: "xl",
               md: "2xl",
               lg: "3xl",
-              sm: "xl"
+              sm: "xl",
             })}
             maxW={800}
             textAlign={"center"}
-            margin={5}>
+            margin={5}
+          >
             Connect and let us make your wishes come true! Your step is the
             beginning of something great. Contact us now!
           </Text>
