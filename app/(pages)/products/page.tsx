@@ -25,7 +25,7 @@ import {
   bannerImages
 } from "./../../utils/assetIndex";
 import TextWithLine from "@/app/components/TextDecoration/textDecoration";
-// import "./footer.css";
+import "./style.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -153,14 +153,17 @@ export default function Products({ searchParams }: any) {
         justifyContent={"center"}
         alignItems={"center"}>
         <Box marginLeft={10} justifyContent={"center"} alignItems={"center"}>
-          <Box borderWidth={2} borderRadius={8} borderColor={"gray.300"}>
-            {products?.products?.length > 0 && (
-              <ProductCarousel
-                products={products?.products ?? []}
-                perView={1}
-              />
-            )}
+          <Box>
+            <div className='card'>
+              {products?.products?.length > 0 && (
+                <ProductCarousel
+                  products={products?.products ?? []}
+                  perView={1}
+                />
+              )}
+            </div>
           </Box>
+
           <Box>
             <Text justifyContent={"center"} textAlign={"center"}>
               Other products from this brand
@@ -174,20 +177,23 @@ export default function Products({ searchParams }: any) {
             )}
           </Box>
         </Box>
-        <Box marginLeft={10} justifyContent={"center"} alignItems={"center"}>
+
+        <Box marginLeft={10}>
           {products?.products?.length > 0 && (
             <Heading>{products?.products[selectedProduct]?.title}</Heading>
           )}
-          <Box maxW={"50%"} justifyContent={"center"} alignContent={"center"}>
+          <Box maxW={"80%"} justifyContent={"center"} alignItems={"center"}>
             {products?.products?.length > 0 && (
-              <Text textAlign={"center"}>
+              <Text textAlign={"left"}>
                 {products?.products[selectedProduct]?.description}
               </Text>
             )}
+            <Box>
+              {products?.products?.length > 0 && (
+                <Image alt='brand' src={products.logo}></Image>
+              )}
+            </Box>
           </Box>
-          {products?.products?.length > 0 && (
-            <Image alt='brand' src={products.logo}></Image>
-          )}
         </Box>
       </SimpleGrid>
       <Flex pt={10} width={"100%"} justifyContent={"center"} h={"100%"}>

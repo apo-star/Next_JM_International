@@ -52,11 +52,9 @@ export default function ProductCarousel({
               <Image
                 src={product.images[0]}
                 alt={product.title}
-                // objectFit="fill"
-                minH={"100px"}
-                minW={"150px"}
-                maxW={"270px"}
-                maxH={"300px"}
+                objectFit='cover'
+                width={"100%"}
+                height={"100%"}
                 justifyContent={"center"}
                 align={"center"}
                 // mb={4}
