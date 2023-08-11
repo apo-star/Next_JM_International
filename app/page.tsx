@@ -43,6 +43,7 @@ import FormModal from "./components/Modal/modal";
 import ContactForm from "./components/ContactForm/contactForm";
 import { brandImages, featuredProdcuts } from "./utils/assetIndex";
 import ProductCarousel from "./components/Swiper/productSwiper";
+import TextWithLine from "./components/TextDecoration/textDecoration";
 
 const inter = Inter({ subsets: ["latin"] });
 const brands = [
@@ -113,11 +114,11 @@ export default function Home() {
                 Parts
               </Text>
               <Button
-                bg={"red"}
+                bg={"#ED1C24"}
                 size={"lg"}
                 rounded={"2xl"}
                 color={"white"}
-                _hover={{ bg: "white", color: "red" }}
+                _hover={{ bg: "white", color: "#ED1C24" }}
                 onClick={() => {
                   // Add your contact page route or any specific action
                   handleModalToggle(!modalToggle);
@@ -133,16 +134,14 @@ export default function Home() {
       {/* Brands Section */}
       <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
         <VStack spacing={4} w={"75%"}>
-          <Heading as="h3" size="2xl">
-            Our Brands
-          </Heading>
-          <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.4)"}>
+          <TextWithLine text="Our Brands" />
+          <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.5)"}>
             Top-tier parts for your company
           </Text>
 
           {/* <HStack spacing={10} wrap="wrap" justifyContent="center" mt={5}> */}
           <Box maxW="container.xl">
-            <BrandCarousel brands={brandImages} perView={5} />
+            <BrandCarousel brands={brandImages} perView={useBreakpointValue({base: 1, sm: 1, xl: 5, l: 5, md: 3})} />
           </Box>
           {/* {brands.map((brand) => (
                 <Link key={brand.id} onClick={() => {}}>
@@ -162,7 +161,7 @@ export default function Home() {
       <VStack
         pb={20}
         pt={10}
-        bg={"rgba(220, 28, 36,1)"}
+        bg={"#ED1C24"}
         w="100%"
         as="div"
         justify="center"
@@ -172,15 +171,15 @@ export default function Home() {
           Trailer Truck Parts Wholesale
         </Heading>
         <Divider maxWidth={500} />
-        <Text color={"white"} maxW={800} fontSize="xl" textAlign="center">
+        <Text color={"white"} maxW={"xl"} fontSize="xl" textAlign="center">
           Your one-stop solution for high-quality trailer truck parts at
           competitive prices. Discover our wide range of parts and benefit from
-          our exceptional customer service.
+          our exceptional customer service
         </Text>
         <Button
           size="lg"
           colorScheme="whiteAlpha"
-          _hover={{ bg: "white", color: "red" }}
+          _hover={{ bg: "white", color: "#ED1C24" }}
           onClick={() => {
             // Add your contact page route or any specific action
             handleModalToggle(!modalToggle);
@@ -192,10 +191,13 @@ export default function Home() {
       {/* Featured Products Section */}
       <Flex w={"100%"} justify={"center"}>
         <VStack py={6} w="75%">
-          <Heading p={4} as="h2" size="xl">
-            Featured Products
-          </Heading>
-          <Text fontSize="xl" textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
+          <TextWithLine text="About The Vendor" />
+          <Text
+            fontSize="xl"
+            maxW={"md"}
+            textAlign={"center"}
+            color={"rgba(1,1,1,0.5)"}
+          >
             Vast assortment of up-to-date generation parts for your business
           </Text>
           <HStack w="75%" dir="row" alignItems={"center"} justify={"center"}>
@@ -229,12 +231,18 @@ export default function Home() {
       </Flex>
       {/* Catalog Section */}
       <Divider></Divider>
-      <Flex bg={"#FFF"} justify="center" py={6}>
-        <VStack>
-          <Heading p={10} zIndex={1}>
-            Catalogs
-          </Heading>
-          <HStack>
+      <Flex bg={"#B3B3B3"} justify="center" py={6}>
+        <VStack>  
+          <TextWithLine color="#ED1C24" lineColor="black" text="Review Our Catalogs" />
+          <Text
+            fontSize="xl"
+            maxW={"md"}
+            textAlign={"center"}
+            color={"rgba(1,1,1,0.5)"}
+          >
+            What your customers need, we'll provide for you.
+          </Text>
+          <HStack pt={8}>
             <Image
               boxSize="300px"
               objectFit="contain"

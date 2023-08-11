@@ -114,10 +114,10 @@ export default function BrandsPage() {
         onCloseComplete={onClose}
       >
         <ModalOverlay bg="none" backdropFilter="auto" backdropBlur="2px" />
-        <ModalContent w="3500px" margin={10}>
+        <ModalContent w="3500px">
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody p={10}>
             <Flex justifyContent={"center"} p={10}>
               <VStack>
                 <Heading></Heading>
@@ -134,14 +134,17 @@ export default function BrandsPage() {
               </VStack>
             </Flex>
             <VStack justify={"center"} alignContent={"center"}>
-              <Text textAlign={"justify"}>{currentBrand.description}</Text>
+              <Text color={"rgba(1,1,1,0.5)"} textAlign={"justify"}>
+                {currentBrand.description}
+              </Text>
             </VStack>
           </ModalBody>
 
           <ModalFooter alignContent={"center"} justifyContent={"center"}>
-            <VStack justify={"center"} alignContent={"center"}>
+            <VStack pb={12} justify={"center"} alignContent={"center"}>
               <Divider />
               <Link
+                style={{ paddingTop: 12 }}
                 href={{
                   pathname: "/products",
                   query: { brandName: currentBrand.name },
