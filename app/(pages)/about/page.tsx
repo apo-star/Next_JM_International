@@ -167,24 +167,23 @@ export default function About() {
                 ahead of the rest is easy, just check out our total quality. JM
                 International is your best option.
               </Text>
-              <Image src={brandImages[0].logo}></Image>
+              <Image src={brandImages[0].logo} alt={brandImages[0].name} />
             </VStack>
           </HStack>
         </VStack>
-      </HStack>
+      </Flex>
       <HStack
         spacing={20}
         p={20}
         justify={"center"}
         w={"full"}
-        bgColor={"rgba(0,0,0,.8)"}
-      >
+        bgColor={"rgba(0,0,0,.8)"}>
         <VStack maxW={"4xl"} spacing={"6"}>
           <Heading size={"2xl"} color={"white"}>
             We Are Your Ally
           </Heading>
           <Divider />
-          <Text fontSize="xl" textAlign={"justify"} color={"white"}>
+          <Text fontSize='xl' textAlign={"justify"} color={"white"}>
             Given the above, by marketing our products, you eliminate complaints
             and claims, generating the trust and loyalty of the mechanics. But,
             JM Internacional gives you much more: product guarantee, more than
