@@ -10,6 +10,7 @@ import {
   HStack,
   Heading,
   Image,
+  SimpleGrid,
   Text,
   VStack,
   useBreakpointValue
@@ -23,6 +24,7 @@ import {
   products as DATA,
   bannerImages
 } from "./../../utils/assetIndex";
+import TextWithLine from "@/app/components/TextDecoration/textDecoration";
 // import "./footer.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -59,29 +61,13 @@ const getFilterBrand = async (info: any) => {
   return dataProductos ?? info.brandImages[0];
 };
 
-// interface prod{
-//   product: [
-//     {
-//       brand: string;
-//       logo: string;
-//       id: number;
-//       products: {
-//         id: number;
-//         title: string;
-//         images: string[];
-//         description: string;
-//       };
-//     }
-//   ];
-// }
-
 export default function Products({ searchParams }: any) {
   const brandName = searchParams?.brandName;
   const [brand] = useState(brandName);
   const [products, setProducts] = useState<any>({});
   const [selectedProduct, setselectedProduct] = useState(1);
   const [currentBrand, setCurrentBrand] = useState({});
-
+  console.log("searchParams", searchParams);
   useEffect(() => {
     (async () => {
       if (brandName?.length > 0) {
@@ -99,7 +85,7 @@ export default function Products({ searchParams }: any) {
       }
     })();
     return () => {};
-  }, []);
+  }, [searchParams]);
   // console.log("products", products);
   // console.log("selectedProduct", selectedProduct);
   // console.log("Current: ", currentBrand);
@@ -108,77 +94,106 @@ export default function Products({ searchParams }: any) {
       <Navbar isHomePage={false} />
       <Flex
         bgImage={"/pageEnd.webp"}
-        bgPos={"center"}
-        bgSize={"cover"}
-        // bgColor={"red"}
-        pt={50}
-        alignItems='center'
-        justify={"center"}
-        w='100%'
-        h={useBreakpointValue({ base: "20vh", sm: "20vh", lg: "40vh" })}>
-        <VStack w={"100%"}>
-          <Heading color={"white"}>Products</Heading>
-          <Text as='h4' fontSize='xl' color={"white"}>
+        bgPos={"bottom"}
+        w={"full"}
+        h={useBreakpointValue({ base: "30vh", sm: "30vh", lg: "50vh" })}
+        backgroundSize={"cover"}
+        pos={"relative"}
+        marginBottom={50}
+        top={55}>
+        <VStack
+          w={"full"}
+          justify={"center"}
+          px={useBreakpointValue({ base: 4, md: 8 })}
+          bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
+          pos={"relative"}>
+          <Heading
+            color={"white"}
+            fontWeight={700}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({
+              base: "2xl",
+              md: "4xl",
+              lg: "6xl",
+              sm: "xl"
+            })}
+            maxW={800}
+            textAlign={"end"}>
+            Products
+          </Heading>
+          <div
+            style={{
+              borderWidth: "1px",
+              width: `${"Products".length}em`
+            }}
+          />
+          <Text
+            maxW={300}
+            flexWrap={"initial"}
+            color={"white"}
+            fontWeight={30}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({
+              base: "xl",
+              md: "xl",
+              lg: "xl",
+              sm: "xl"
+            })}
+            textAlign={"center"}
+            wordBreak={"break-word"}>
             Selection of High-Quality Partners
           </Text>
         </VStack>
       </Flex>
-      <Flex pt={10} width={"100%"} justifyContent={"center"} h={"100%"}>
-        <HStack width={"70%"} h={"100%"} justifyContent={"center"}>
-          <VStack flex={1} maxW={400}>
-            <Box
-              maxW={"100%"}
-              borderWidth={2}
-              borderRadius={8}
-              borderColor={"gray.300"}>
-              {products?.products?.length > 0 && (
-                <ProductCarousel
-                  products={products?.products ?? []}
-                  perView={1}
-                />
-              )}
-            </Box>
-            <Box maxW='container.md'>
-              <Text justifyContent={"center"} textAlign={"center"}>
-                Other products from this brand
+      <SimpleGrid
+        spacing={20}
+        minChildWidth={200}
+        margin={10}
+        paddingTop={10}
+        justifyContent={"center"}
+        alignItems={"center"}>
+        <Box marginLeft={10} justifyContent={"center"} alignItems={"center"}>
+          <Box borderWidth={2} borderRadius={8} borderColor={"gray.300"}>
+            {products?.products?.length > 0 && (
+              <ProductCarousel
+                products={products?.products ?? []}
+                perView={1}
+              />
+            )}
+          </Box>
+          <Box>
+            <Text justifyContent={"center"} textAlign={"center"}>
+              Other products from this brand
+            </Text>
+            {products?.products?.length > 0 && (
+              <Carousel
+                products={products?.products ?? []}
+                perView={3}
+                setSelect={setselectedProduct}
+              />
+            )}
+          </Box>
+        </Box>
+        <Box marginLeft={10} justifyContent={"center"} alignItems={"center"}>
+          {products?.products?.length > 0 && (
+            <Heading>{products?.products[selectedProduct]?.title}</Heading>
+          )}
+          <Box maxW={"50%"} justifyContent={"center"} alignContent={"center"}>
+            {products?.products?.length > 0 && (
+              <Text textAlign={"center"}>
+                {products?.products[selectedProduct]?.description}
               </Text>
-              {products?.products?.length > 0 && (
-                <Carousel
-                  products={products?.products ?? []}
-                  perView={3}
-                  setSelect={setselectedProduct}
-                />
-              )}
-            </Box>
-          </VStack>
-          <Center
-            flex={1}
-            justifyContent={"center"}
-            alignContent={"center"}
-            height='300px'>
-            <Divider orientation='vertical' />
-          </Center>
-          <VStack flex={1}>
-            {products?.products?.length > 0 && (
-              <Heading>{products?.products[selectedProduct]?.title}</Heading>
             )}
-            <Box maxW={"50%"} justifyContent={"center"} alignContent={"center"}>
-              {products?.products?.length > 0 && (
-                <Text textAlign={"center"}>
-                  {products?.products[selectedProduct]?.description}
-                </Text>
-              )}
-            </Box>
-            {products?.products?.length > 0 && (
-              <Image alt='brand' src={products.logo}></Image>
-            )}
-          </VStack>
-        </HStack>
-      </Flex>
+          </Box>
+          {products?.products?.length > 0 && (
+            <Image alt='brand' src={products.logo}></Image>
+          )}
+        </Box>
+      </SimpleGrid>
       <Flex pt={10} width={"100%"} justifyContent={"center"} h={"100%"}>
         <VStack pb={20} justify={"center"} align={"center"}>
-          <Heading>About The Vendor</Heading>
-          <Box maxW={"50%"}>
+          <TextWithLine text='About The Vendor' />
+          <Box maxW={"80%"}>
             <Text pt={5} textAlign={"justify"}>
               {currentBrand.description}
             </Text>

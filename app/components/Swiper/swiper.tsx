@@ -55,11 +55,9 @@ export default function Carousel({
               <Image
                 src={product.images[0]}
                 alt={product.name}
-                // objectFit="fill"
-                minH={"100px"}
-                minW={"150px"}
-                maxW={"170px"}
-                maxH={"100px"}
+                objectFit='cover'
+                width={"100%"}
+                height={"100%"}
                 justifyContent={"center"}
                 align={"center"}
                 onClick={() => setSelect(product.id)}
