@@ -84,18 +84,22 @@ export default function Products({ searchParams }: any) {
 
   useEffect(() => {
     (async () => {
-      const brandInfo = await getFilterBrand({ brandImages, brandName });
-      const productFilter = await getFilterProduct({ DATA, brandName });
-      if (productFilter.length > 0) {
-        setProducts(productFilter[0]);
-      }
-      if (brandInfo.length > 0) {
-        setCurrentBrand(brandInfo[0]);
+      if (brandName?.length > 0) {
+        const brandInfo = await getFilterBrand({ brandImages, brandName });
+        const productFilter = await getFilterProduct({ DATA, brandName });
+        if (productFilter.length > 0) {
+          setProducts(productFilter[0]);
+        }
+        if (brandInfo.length > 0) {
+          setCurrentBrand(brandInfo[0]);
+        }
+      } else {
+        setProducts(DATA[0]);
+        setCurrentBrand(brandImages[1]);
       }
     })();
     return () => {};
   }, []);
-
   // console.log("products", products);
   // console.log("selectedProduct", selectedProduct);
   // console.log("Current: ", currentBrand);
