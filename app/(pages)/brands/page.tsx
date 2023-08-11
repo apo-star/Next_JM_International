@@ -19,7 +19,7 @@ import {
   ModalOverlay,
   useDisclosure,
   Image,
-  useBreakpointValue
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import Navbar from "@/app/components/Navbar/navbar";
 import ContactForm from "@/app/components/ContactForm/contactForm";
@@ -65,8 +65,8 @@ const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
         brand.id !== 1 ? (
           brand.owned !== ownership ? null : (
             <>
-              <div className='card'>
-                <div className='card-details'>
+              <div className="card">
+                <div className="card-details">
                   <Image
                     src={brand.logo}
                     alt={brand.name}
@@ -76,13 +76,14 @@ const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
                     align={"center"}
                     objectFit={"contain"}
                   />
-                  <p className='text-body'>
+                  <p className="text-body">
                     {trimParagraph(brand.description)}...
                   </p>
                 </div>
                 <button
                   onClick={() => handleModal(brand, setBrand, onOpen)}
-                  className='card-button'>
+                  className="card-button"
+                >
                   More info
                 </button>
               </div>
@@ -100,7 +101,7 @@ export default function BrandsPage() {
     name: "",
     logo: "",
     description: "",
-    id: 0
+    id: 0,
   });
   console.log("currentBrand", currentBrand);
   return (
@@ -109,9 +110,10 @@ export default function BrandsPage() {
         size={"xl"}
         isOpen={isOpen}
         onClose={onClose}
-        onCloseComplete={onClose}>
-        <ModalOverlay bg='none' backdropFilter='auto' backdropBlur='2px' />
-        <ModalContent w='3500px' margin={10}>
+        onCloseComplete={onClose}
+      >
+        <ModalOverlay bg="none" backdropFilter="auto" backdropBlur="2px" />
+        <ModalContent w="3500px" margin={10}>
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -141,16 +143,18 @@ export default function BrandsPage() {
               <Link
                 href={{
                   pathname: "/products",
-                  query: { brandName: currentBrand.name }
-                }}>
+                  query: { brandName: currentBrand.name },
+                }}
+              >
                 <Button
                   // leftIcon={<EmailIcon />}
-                  colorScheme='red'
-                  variant='outline'
+                  colorScheme="red"
+                  variant="outline"
                   onClick={() => {
                     onClose();
                   }}
-                  minW={"130px"}>
+                  minW={"130px"}
+                >
                   See Productsa
                 </Button>
               </Link>
@@ -167,48 +171,60 @@ export default function BrandsPage() {
         bgPos={"center"}
         bgSize={"cover"}
         pt={50}
-        alignItems='center'
+        alignItems="center"
         justify={"center"}
-        w='100%'
-        h={useBreakpointValue({ base: "20vh", sm: "20vh", lg: "40vh" })}>
+        w="100%"
+        h={useBreakpointValue({ base: "20vh", sm: "20vh", lg: "40vh" })}
+      >
         <VStack w={"100%"}>
-          <Heading color={"white"} textAlign={"center"}>
+          <Heading
+            color={"white"}
+            textAlign={"center"}
+            fontWeight={700}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({
+              base: "2xl",
+              md: "4xl",
+              lg: "6xl",
+              sm: "xl",
+            })}
+          >
             Leading Brands
           </Heading>
           <div
             style={{
               borderWidth: "1px",
-              width: `${"Leading Brands".length - 3}em`
+              width: `${"Leading Brands".length - 3}em`,
             }}
           />
-          <Text as='h4' fontSize='xl' color={"white"}>
+          <Text as="h4" fontSize="xl" color={"white"}>
             Selection of High-Quality Products
           </Text>
         </VStack>
       </Flex>
-      <VStack pt={10} alignItems='center' justify={"center"}>
-        <TextWithLine text='Our Family of Brands' />
-        <Text as='h4' fontSize='xl' color={"#b1b3b5"}>
+      <VStack pt={10} alignItems="center" justify={"center"}>
+        <TextWithLine text="Our Family of Brands" />
+        <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.4)"}>
           Under JM Internacional ownership, we deliver all you need.
         </Text>
         <Divider></Divider>
         <VStack maxWidth={"4xl"}>
-          <Flex pb={20} pt={10} alignItems='center' justify={"center"} w='100%'>
-            <div className='warp'>
+          <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
+            <div className="warp">
               {brandsGrid(onOpen, setcurrentBrand, true)}
             </div>
           </Flex>
         </VStack>
       </VStack>
-      <VStack alignItems='center' justify={"center"}>
-        <TextWithLine text='Our Allies' />
-        <Text as='h4' fontSize='xl'>
+      <VStack alignItems="center" justify={"center"}>
+        <TextWithLine text="Our Allies" />
+        <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.4)"}>
           Partners that deliver the best quality and assortment of products
         </Text>
         <Divider></Divider>
         <VStack maxWidth={"3xl"}>
-          <Flex pb={20} pt={10} alignItems='center' justify={"center"} w='100%'>
-            <div className='warp'>
+          <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
+            <div className="warp">
               {brandsGrid(onOpen, setcurrentBrand, false)}
             </div>
           </Flex>

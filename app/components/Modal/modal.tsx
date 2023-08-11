@@ -49,15 +49,6 @@ const FormModal = (props: { setOpen: Function; open: boolean }) => {
 
           <ModalFooter alignContent={"center"} justifyContent={"center"}>
             <VStack justify={"center"} alignContent={"center"}>
-              <Button
-                leftIcon={<EmailIcon />}
-                colorScheme="red"
-                variant="outline"
-                onClick={onClose}
-                minW={"130px"}
-              >
-                Send
-              </Button>
               <Divider />
               <Text>Or contact us directly.</Text>
               <Button

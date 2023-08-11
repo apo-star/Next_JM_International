@@ -23,7 +23,7 @@ export default function ContactForm() {
     <FormControl>
       <FormLabel>Name</FormLabel>
       <Input type='string'></Input>
-      <FormLabel>Email address</FormLabel>
+      <FormLabel pt={5}>Email address</FormLabel>
       <Input type='email' />
       <Button marginTop={5} colorScheme={"red"}>
         Submit
