@@ -172,33 +172,6 @@ export default function About() {
           </HStack>
         </VStack>
       </Flex>
-      <HStack
-        spacing={20}
-        p={20}
-        justify={"center"}
-        w={"full"}
-        bgColor={"rgba(0,0,0,.8)"}>
-        <VStack maxW={"4xl"} spacing={"6"}>
-          <Heading size={"2xl"} color={"white"}>
-            We Are Your Ally
-          </Heading>
-          <Divider />
-          <Text fontSize='xl' textAlign={"justify"} color={"white"}>
-            Given the above, by marketing our products, you eliminate complaints
-            and claims, generating the trust and loyalty of the mechanics. But,
-            JM Internacional gives you much more: product guarantee, more than
-            2,000 products in our warehouses available for immediate dispatch
-            and launch of new products every month, all certified by our
-            quality. We are located in Panama, which allows us to have frequent
-            departures of land and sea cargo to all of Latin America and the
-            Caribbean. In these times timely communication is vital. So we have
-            these tools for our products: Website with online catalogs, social
-            networks. Staying one step ahead of the rest is easy, just check out
-            our total quality. JM International is your best option.
-          </Text>
-          <Image src={brandImages[0].logo}></Image>
-        </VStack>
-      </HStack>
     </>
   );
 }

@@ -194,7 +194,7 @@ export default function Products({ searchParams }: any) {
         <VStack pb={20} justify={"center"} align={"center"}>
           <TextWithLine text='About The Vendor' />
           <Box maxW={"80%"}>
-            <Text pt={5} textAlign={"justify"}>
+            <Text pt={5} textAlign={"justify"} maxW={"5xl"}>
               {currentBrand.description}
             </Text>
           </Box>

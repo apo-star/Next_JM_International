@@ -20,7 +20,7 @@ interface RootLayoutProps {
 const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
   const context = createContext<{ language: number }>({ language: 0 });
   return (
-    <html lang='en'>
+    <html lang="en">
       <head />
       {/* <context.Provider value={{ language: 0 }}> */}
       <CacheProvider>
@@ -29,12 +29,14 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
           <main>
             <ChakraProvider>
               <ParallaxProvider>
-                <Flex direction='column' minH='100vh'>
+                <Flex direction="column" minH="100vh">
                   {children}
                 </Flex>
                 <Whatsapp
-                  phoneNumber='+50762250666'
-                  accountName='JM Internacional'
+                  phoneNumber="+50762250666"
+                  accountName="JM Internacional"
+                  avatar="./jm-logo-transparent-bg-min.webp"
+                  style={{ backgroundColor: "white" }}
                 />
                 <Footer />
               </ParallaxProvider>

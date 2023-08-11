@@ -156,7 +156,7 @@ export default function BrandsPage() {
                   }}
                   minW={"130px"}
                 >
-                  See Productsa
+                  See Products
                 </Button>
               </Link>
             </VStack>
