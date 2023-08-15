@@ -16,7 +16,7 @@ import {
   StatGroup,
   StatHelpText,
   StatLabel,
-  StatNumber,
+  StatNumber
 } from "@chakra-ui/react";
 import Navbar from "./components/Navbar/navbar";
 
@@ -38,7 +38,7 @@ import {
   Divider,
   Stack,
   useBreakpointValue,
-  AspectRatio,
+  AspectRatio
 } from "@chakra-ui/react";
 
 import FormModal from "./components/Modal/modal";
@@ -57,7 +57,7 @@ const brands = [
   { id: 4, name: "JM Internacional", logo: "/jm-logo-transparent-bg-min.webp" },
   { id: 5, name: "Brand 5", logo: "/eaglePartsLogo.webp" },
   { id: 6, name: "Brand 6", logo: "/quantumTruxPartsLogo.webp" },
-  { id: 7, name: "Brand 7", logo: "/usaProLogo.webp" },
+  { id: 7, name: "Brand 7", logo: "/usaProLogo.webp" }
 ];
 
 export default function Home() {
@@ -74,41 +74,38 @@ export default function Home() {
       <Navbar isHomePage={true} />
       <Box pos={"relative"} h={"60vh"} overflow={"hidden"}>
         <Box
-          as="video"
+          as='video'
           autoPlay
           loop
           muted
           playsInline
-          src="/homePageBanner.mp4"
+          src='/homePageBanner.mp4'
           objectFit={"cover"}
           width={"100%"}
           height={"100%"}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
         />
         <Flex
-          pos="absolute"
-          alignItems="center"
-          justifyContent="center"
+          pos='absolute'
+          alignItems='center'
+          justifyContent='center'
           w={"full"}
           h={"65vh"}
           top={0}
           bottom={0}
           right={0}
-          left={0}
-        >
+          left={0}>
           <VStack
             w={"full"}
             h={"full"}
             justify={"center"}
             px={useBreakpointValue({ base: 4, md: 8 })}
-            bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
-          >
+            bgGradient={"linear(to-r, blackAlpha.600, transparent)"}>
             <VStack
               maxW={"2xl"}
               align={"center"}
               justifyContent={"center"}
-              spacing={6}
-            >
+              spacing={6}>
               <Text
                 textAlign={"center"}
                 color={"white"}
@@ -116,9 +113,8 @@ export default function Home() {
                 lineHeight={1.2}
                 fontSize={useBreakpointValue({
                   base: "3xl",
-                  md: "4xl",
-                })}
-              >
+                  md: "4xl"
+                })}>
                 {t("TITLE_HOME")}
               </Text>
               <Button
@@ -130,8 +126,7 @@ export default function Home() {
                 onClick={() => {
                   // Add your contact page route or any specific action
                   handleModalToggle(!modalToggle);
-                }}
-              >
+                }}>
                 {t("CONTACT")}
               </Button>
             </VStack>
@@ -140,15 +135,15 @@ export default function Home() {
       </Box>
       {/* <VStack alignItems="center" w="100%"> */}
       {/* Brands Section */}
-      <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
+      <Flex pb={20} pt={10} alignItems='center' justify={"center"} w='100%'>
         <VStack spacing={4} w={"75%"}>
-          <TextWithLine text="Our Brands" />
-          <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.5)"}>
-            Top-tier parts for your company
+          <TextWithLine text={t("Our_Brands")} />
+          <Text as='h4' fontSize='xl' color={"rgba(1,1,1,0.5)"}>
+            {t("TOP_TIER")}
           </Text>
 
           {/* <HStack spacing={10} wrap="wrap" justifyContent="center" mt={5}> */}
-          <Box maxW="container.xl">
+          <Box maxW='container.xl'>
             <BrandCarousel
               brands={brandImages}
               perView={useBreakpointValue({
@@ -156,7 +151,7 @@ export default function Home() {
                 sm: 1,
                 xl: 5,
                 l: 5,
-                md: 3,
+                md: 3
               })}
             />
           </Box>
@@ -179,68 +174,63 @@ export default function Home() {
         pb={20}
         pt={10}
         bg={"#ED1C24"}
-        w="100%"
-        as="div"
-        justify="center"
-        spacing={8}
-      >
-        <Heading color={"white"} as="h1" size="2xl">
-          Trailer Truck Parts Wholesale
+        w='100%'
+        as='div'
+        justify='center'
+        spacing={8}>
+        <Heading color={"white"} as='h1' size='2xl' textAlign={"center"}>
+          {t("TRAILER_TRUK")}
         </Heading>
         <Divider maxWidth={500} />
-        <Text color={"white"} maxW={"xl"} fontSize="xl" textAlign="center">
-          Your one-stop solution for high-quality trailer truck parts at
-          competitive prices. Discover our wide range of parts and benefit from
-          our exceptional customer service
+        <Text color={"white"} maxW={"xl"} fontSize='xl' textAlign='center'>
+          {t("TRAILER_TRUNK_CONTENT")}
         </Text>
         <Button
-          size="lg"
-          colorScheme="whiteAlpha"
+          size='lg'
+          colorScheme='whiteAlpha'
           _hover={{ bg: "white", color: "#ED1C24" }}
           onClick={() => {
             // Add your contact page route or any specific action
             handleModalToggle(!modalToggle);
-          }}
-        >
-          Contact Us
+          }}>
+          {t("CONTACT")}
         </Button>
       </VStack>
       {/* Featured Products Section */}
       <Flex w={"100%"} justify={"center"}>
-        <VStack py={6} w="75%">
-          <TextWithLine text="About The Vendor"/>
+        <VStack py={6} w='75%'>
+          <TextWithLine text={t("About_Vendor")} />
           <Text
-            fontSize="xl"
+            fontSize='xl'
             maxW={"md"}
             textAlign={"center"}
-            color={"rgba(1,1,1,0.5)"}
-          >
-            Vast assortment of up-to-date generation parts for your business
+            color={"rgba(1,1,1,0.5)"}>
+            {t("Vast_Assortment")}
           </Text>
-          <HStack w="75%" dir="row" alignItems={"center"} justify={"center"}>
-            <Box minW={"container.xs"} maxW="container.lg">
+          <HStack w='75%' dir='row' alignItems={"center"} justify={"center"}>
+            <Box minW={"container.xs"} maxW='container.lg'>
               <StatGroup>
                 <HStack w={"lg"} spacing={8}>
                   <Stat>
-                    <StatLabel fontSize={"2xl"}>Products</StatLabel>
+                    <StatLabel fontSize={"2xl"}>{t("Products")}</StatLabel>
                     <HStack>
-                      <StatArrow type="increase" />
+                      <StatArrow type='increase' />
                       <StatNumber>150,000</StatNumber>
                     </HStack>
-                    <StatHelpText>Currently Available</StatHelpText>
+                    <StatHelpText>{t("Currently_Available")}</StatHelpText>
                   </Stat>
                   <Stat>
-                    <StatLabel fontSize={"2xl"}>Brands</StatLabel>
+                    <StatLabel fontSize={"2xl"}>{t("Brands")}</StatLabel>
                     <HStack>
                       <StatNumber>7</StatNumber>
                     </HStack>
-                    <StatHelpText>Quality Driven</StatHelpText>
+                    <StatHelpText>{t("Quality_Driven")}</StatHelpText>
                   </Stat>
                 </HStack>
               </StatGroup>
             </Box>
             <Spacer />
-            <Box maxW="container.sm">
+            <Box maxW='container.sm'>
               <ProductCarousel
                 products={featuredProdcuts}
                 perView={useBreakpointValue({
@@ -248,7 +238,7 @@ export default function Home() {
                   sm: 1,
                   xl: 3,
                   l: 3,
-                  md: 1,
+                  md: 1
                 })}
               />
             </Box>
@@ -257,59 +247,51 @@ export default function Home() {
       </Flex>
       {/* Catalog Section */}
       <Divider></Divider>
-      <Flex bg={"#B3B3B3"} justify="center" py={6}>
+      <Flex bg={"#B3B3B3"} justify='center' py={6}>
         <VStack>
-          <TextWithLine
-            color="#ED1C24"
-            lineColor="black"
-            text="Review Our Catalogs"
-          />
+          <TextWithLine color='#ED1C24' lineColor='black' text={t("Review")} />
           <Text
-            fontSize="xl"
+            fontSize='xl'
             maxW={"md"}
             textAlign={"center"}
-            color={"rgba(1,1,1,0.5)"}
-          >
-            What your customers need, we&apos;ll provide for you.
+            color={"rgba(1,1,1,0.5)"}>
+            {t("Need_Clients")}
           </Text>
           <HStack pt={8}>
             <Image
-              boxSize="300px"
-              objectFit="contain"
-              alt="Contact Us"
-              src={"/quantumCatalogo2022.jpg"}
-            ></Image>
+              boxSize='300px'
+              objectFit='contain'
+              alt='Contact Us'
+              src={"/quantumCatalogo2022.jpg"}></Image>
             <Image
-              boxSize="300px"
-              objectFit="contain"
-              alt="Contact Us"
-              src={"/eagCatalogo2022.jpg"}
-            ></Image>
+              boxSize='300px'
+              objectFit='contain'
+              alt='Contact Us'
+              src={"/eagCatalogo2022.jpg"}></Image>
           </HStack>
         </VStack>
       </Flex>
       {/* Contact Us Section */}
       <HStack
-        w="100%"
+        w='100%'
         bgImage={"/white-red-arrow.png"}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}
         bgPos={"right"}
-        bgColor={"#b3b3b3"}
-      >
+        bgColor={"#b3b3b3"}>
         <Image
-          boxSize="500px"
+          boxSize='500px'
           w={"650px"}
           h={"500px"}
-          objectFit="cover"
-          alt="Contact Us"
+          objectFit='cover'
+          alt='Contact Us'
           src={"/comp4H.jpg"}
         />
-        <VStack dir="row" w={"50%"}>
+        <VStack dir='row' w={"50%"}>
           {/* <div style={{ backgroundColor: "#fff", justifyContent: "center" }}> */}
           {/* <Flex justifyContent="center"> */}
           <Box bg={"#fff"} p={20} marginLeft={-60} borderRadius={"50px"}>
-            <Heading zIndex={1}>Contact Us</Heading>
+            <Heading zIndex={1}>{t("CONTACT")}</Heading>
             {/* <Spacer/> */}
             <ContactForm />
           </Box>
@@ -323,20 +305,19 @@ export default function Home() {
         h={"350px"}
         w={"100%"}
         pos={"sticky"}
-        bg="white"
+        bg='white'
         // bgPosition
-        overflow="hidden"
+        overflow='hidden'
         bgPos={"bottom"}
-        bgImage={"/pageEnd.jpg"}
-      >
+        bgImage={"/pageEnd.jpg"}>
         {/* <Image alt="pageEnd" src="/pageEnd.jpg" /> */}
         <Box
-          position="absolute"
-          top="0"
-          left="0"
-          right="0"
-          bottom="0"
-          bgImage="linear-gradient(to top, rgba(255,255,255,.2), rgba(255,255,255,1))"
+          position='absolute'
+          top='0'
+          left='0'
+          right='0'
+          bottom='0'
+          bgImage='linear-gradient(to top, rgba(255,255,255,.2), rgba(255,255,255,1))'
           // bgSize="cover"
           // bgPosition="bottom"
         />

@@ -1,3 +1,6 @@
+/** @format */
+
+import { useTranslation } from "@/app/hooks/useTranslation";
 import {
   Box,
   chakra,
@@ -6,10 +9,12 @@ import {
   Text,
   useColorModeValue,
   VisuallyHidden,
-  Image,
+  Image
 } from "@chakra-ui/react";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <Box bg={"#b3b3b3"} color={useColorModeValue("gray.700", "gray.200")}>
       <Container
@@ -19,11 +24,10 @@ export default function Footer() {
         direction={{ base: "column", md: "row" }}
         spacing={4}
         justify={{ base: "center", md: "space-between" }}
-        align={{ base: "center", md: "center" }}
-      >
+        align={{ base: "center", md: "center" }}>
         <Image
-          src="/jm-logo-transparent-bg-min.png"
-          alt="Brand"
+          src='/jm-logo-transparent-bg-min.png'
+          alt='Brand'
           width={150}
           height={50}
         />

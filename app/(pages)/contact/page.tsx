@@ -14,10 +14,13 @@ import {
 } from "@chakra-ui/react";
 import Navbar from "@/app/components/Navbar/navbar";
 import ContactForm from "@/app/components/ContactForm/contactForm";
+import { useTranslation } from "@/app/hooks/useTranslation";
 // import "./footer.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Navbar isHomePage={false} />

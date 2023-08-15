@@ -20,7 +20,7 @@ import {
   useDisclosure,
   Image,
   useBreakpointValue,
-  Stack,
+  Stack
 } from "@chakra-ui/react";
 import Navbar from "@/app/components/Navbar/navbar";
 import ContactForm from "@/app/components/ContactForm/contactForm";
@@ -36,6 +36,8 @@ const handleModal = (brand: Object, setBrand: Function, open: Function) => {
   open();
 };
 import Link from "next/link";
+import { useTranslation } from "@/app/hooks/useTranslation";
+import { useSelector } from "react-redux";
 console.log("Bran: ", brandImages);
 
 /**
@@ -59,15 +61,20 @@ const trimParagraph = (paragraph: string) => {
   return trimmedParagraph;
 };
 
-const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
+const brandsGrid = (
+  onOpen: any,
+  setBrand: Function,
+  ownership: Boolean,
+  language: string
+) => {
   return (
     <>
       {brandImages.map((brand) =>
         brand.id !== 1 ? (
           brand.owned !== ownership ? null : (
             <>
-              <div className="card">
-                <div className="card-details">
+              <div className='card'>
+                <div className='card-details'>
                   <Image
                     src={brand.logo}
                     alt={brand.name}
@@ -77,14 +84,18 @@ const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
                     align={"center"}
                     objectFit={"contain"}
                   />
-                  <p className="text-body">
-                    {trimParagraph(brand.description)}...
+                  <p className='text-body'>
+                    {trimParagraph(
+                      (language && language === "en") || language == undefined
+                        ? brand.description
+                        : brand.descriptionES
+                    )}
+                    ...
                   </p>
                 </div>
                 <button
                   onClick={() => handleModal(brand, setBrand, onOpen)}
-                  className="card-button"
-                >
+                  className='card-button'>
                   More info
                 </button>
               </div>
@@ -98,23 +109,24 @@ const brandsGrid = (onOpen: any, setBrand: Function, ownership: Boolean) => {
 
 export default function BrandsPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t } = useTranslation();
   const [currentBrand, setcurrentBrand] = useState({
     name: "",
     logo: "",
     description: "",
-    id: 0,
+    id: 0
   });
-  console.log("currentBrand", currentBrand);
+  const { language } = useSelector((state: any) => state.mount);
+
   return (
     <>
       <Modal
         size={"xl"}
         isOpen={isOpen}
         onClose={onClose}
-        onCloseComplete={onClose}
-      >
-        <ModalOverlay bg="none" backdropFilter="auto" backdropBlur="2px" />
-        <ModalContent w="3500px">
+        onCloseComplete={onClose}>
+        <ModalOverlay bg='none' backdropFilter='auto' backdropBlur='2px' />
+        <ModalContent w='3500px'>
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
           <ModalBody p={10}>
@@ -147,18 +159,16 @@ export default function BrandsPage() {
                 style={{ paddingTop: 12 }}
                 href={{
                   pathname: "/products",
-                  query: { brandName: currentBrand.name },
-                }}
-              >
+                  query: { brandName: currentBrand.name }
+                }}>
                 <Button
                   // leftIcon={<EmailIcon />}
-                  colorScheme="red"
-                  variant="outline"
+                  colorScheme='red'
+                  variant='outline'
                   onClick={() => {
                     onClose();
                   }}
-                  minW={"130px"}
-                >
+                  minW={"130px"}>
                   See Products
                 </Button>
               </Link>
@@ -172,18 +182,23 @@ export default function BrandsPage() {
         bgImage={bannerImages[4].image}
         bgPos={"center"}
         w={"full"}
-        h={useBreakpointValue({ base: "30vh", sm: "30vh", lg: "50vh" })}
+        h={useBreakpointValue({
+          base: "30vh",
+          sm: "30vh",
+          lg: "50vh",
+          xl: "40vh",
+          md: "50vh",
+          m: "50vh"
+        })}
         backgroundSize={"cover"}
         marginBottom={50}
-        top={55}
-      >
+        top={55}>
         <VStack
           w={"full"}
           justify={"center"}
           px={useBreakpointValue({ base: 4, md: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
-          pos={"relative"}
-        >
+          pos={"relative"}>
           <Stack maxW={"xl"} align={"center"} spacing={6} pos={"relative"}>
             <Text
               color={"white"}
@@ -193,17 +208,16 @@ export default function BrandsPage() {
                 base: "2xl",
                 md: "4xl",
                 lg: "6xl",
-                sm: "xl",
+                sm: "xl"
               })}
               maxW={800}
-              textAlign={"end"}
-            >
+              textAlign={"end"}>
               Leading Brands
             </Text>
             <div
               style={{
                 borderWidth: "1px",
-                width: `${"Leading Brands".length - 3}em`,
+                width: `${"Leading Brands".length - 3}em`
               }}
             />
             <Text
@@ -216,40 +230,39 @@ export default function BrandsPage() {
                 base: "xl",
                 md: "xl",
                 lg: "xl",
-                sm: "xl",
+                sm: "xl"
               })}
               textAlign={"center"}
-              wordBreak={"break-word"}
-            >
+              wordBreak={"break-word"}>
               Selection of High-Quality Products
             </Text>
           </Stack>
         </VStack>
       </Flex>
-      <VStack pt={10} alignItems="center" justify={"center"} padding={5}>
-        <TextWithLine text="Our Family of Brands" />
-        <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.4)"}>
+      <VStack pt={10} alignItems='center' justify={"center"} padding={5}>
+        <TextWithLine text='Our Family of Brands' />
+        <Text as='h4' fontSize='xl' color={"rgba(1,1,1,0.4)"}>
           Under JM Internacional ownership, we deliver all you need.
         </Text>
         <Divider></Divider>
         <VStack maxWidth={"4xl"}>
-          <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
-            <div className="warp">
-              {brandsGrid(onOpen, setcurrentBrand, true)}
+          <Flex pb={20} pt={10} alignItems='center' justify={"center"} w='100%'>
+            <div className='warp'>
+              {brandsGrid(onOpen, setcurrentBrand, true, language)}
             </div>
           </Flex>
         </VStack>
       </VStack>
-      <VStack alignItems="center" justify={"center"} padding={5}>
-        <TextWithLine text="Our Allies" />
-        <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.4)"}>
+      <VStack alignItems='center' justify={"center"} padding={5}>
+        <TextWithLine text='Our Allies' />
+        <Text as='h4' fontSize='xl' color={"rgba(1,1,1,0.4)"}>
           Partners that deliver the best quality and assortment of products
         </Text>
         <Divider></Divider>
         <VStack maxWidth={"3xl"}>
-          <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
-            <div className="warp">
-              {brandsGrid(onOpen, setcurrentBrand, false)}
+          <Flex pb={20} pt={10} alignItems='center' justify={"center"} w='100%'>
+            <div className='warp'>
+              {brandsGrid(onOpen, setcurrentBrand, false, language)}
             </div>
           </Flex>
         </VStack>

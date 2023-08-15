@@ -1,5 +1,6 @@
 /** @format */
 
+import { useTranslation } from "@/app/hooks/useTranslation";
 import {
   Box,
   chakra,
@@ -19,14 +20,16 @@ import {
 } from "@chakra-ui/react";
 
 export default function ContactForm() {
+  const { t } = useTranslation();
+
   return (
     <FormControl>
-      <FormLabel>Name</FormLabel>
+      <FormLabel>{t("Name")}</FormLabel>
       <Input type='string'></Input>
-      <FormLabel pt={5}>Email address</FormLabel>
+      <FormLabel pt={5}>{t("Email")}</FormLabel>
       <Input type='email' />
       <Button marginTop={5} colorScheme={"red"}>
-        Submit
+        {t("Submit")}
       </Button>
     </FormControl>
   );

@@ -8,7 +8,8 @@ import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { FloatingWhatsApp as Whatsapp } from "react-floating-whatsapp";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { NextPage } from "next";
-import { RecoilRoot } from "recoil";
+import { Provider } from "react-redux";
+import store from "./store/store";
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -23,7 +24,7 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
   return (
     <html lang='en'>
       <head />
-      <RecoilRoot>
+      <Provider store={store}>
         {/* <context.Provider value={{ language: 0 }}> */}
         <CacheProvider>
           <body>
@@ -46,8 +47,7 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
             </main>
           </body>
         </CacheProvider>
-      </RecoilRoot>
-
+      </Provider>
       {/* </context.Provider> */}
     </html>
   );

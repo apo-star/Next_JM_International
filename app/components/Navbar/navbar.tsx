@@ -28,8 +28,8 @@ import {
 import { useEffect, useState } from "react";
 import "./navbar.css";
 import Link from "next/link";
-import { useRecoilState } from "recoil";
-import { lngState } from "@/app/atoms/language.atom";
+import { useDispatch } from "react-redux";
+import { mountAction } from "@/app/store/store";
 
 const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
   const [active, setActive] = useState(false);
@@ -58,7 +58,9 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
 
   const { isOpen, onToggle } = useDisclosure();
   const customStyle = useStyleConfig("Flex", {});
-  const [language, setLanguage] = useRecoilState(lngState);
+
+  const dispatch = useDispatch();
+
   return (
     <Box
       as='header'
@@ -97,7 +99,7 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
           flex={{ base: 1 }}
           justify={{ base: "center", md: "start" }}
           alignItems='center'>
-          <LinkChakra href='/'>
+          <LinkChakra as={Link} href='/'>
             <Image
               src='/jm-logo-transparent-bg-min.webp'
               alt='Brand'
@@ -119,7 +121,7 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
           display={{ base: "none", md: "inline-flex" }}>
           <Image
             onClick={() => {
-              setLanguage("es");
+              dispatch(mountAction.languageChange("es"));
             }}
             src='/spanish.svg'
             alt='spanish'
@@ -128,7 +130,9 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
           />
           <Image
             onClick={() => {
-              setLanguage("en");
+              dispatch(mountAction.languageChange("en"));
+
+              // setLanguage("en");
             }}
             src='/english.svg'
             alt='english'
@@ -158,6 +162,7 @@ const DesktopNav = () => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <LinkChakra
+                as={Link}
                 p={2}
                 href={navItem.href}
                 fontSize={"lg"}
@@ -278,7 +283,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           align={"start"}>
           {children &&
             children.map((child) => (
-              <LinkChakra key={child.label} py={2} href={child.href}>
+              <LinkChakra as={Link} key={child.label} py={2} href={child.href}>
                 {child.label}
               </LinkChakra>
             ))}

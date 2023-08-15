@@ -26,6 +26,7 @@ import {
 } from "./../../utils/assetIndex";
 import TextWithLine from "@/app/components/TextDecoration/textDecoration";
 import "./style.css";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,11 +64,13 @@ const getFilterBrand = async (info: any) => {
 
 export default function Products({ searchParams }: any) {
   const brandName = searchParams?.brandName;
+  const { t } = useTranslation();
+
   const [brand] = useState(brandName);
   const [products, setProducts] = useState<any>({});
   const [selectedProduct, setselectedProduct] = useState(1);
   const [currentBrand, setCurrentBrand] = useState({});
-  console.log("searchParams", searchParams);
+
   useEffect(() => {
     (async () => {
       if (brandName?.length > 0) {
