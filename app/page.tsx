@@ -252,7 +252,7 @@ export default function Home() {
             maxW={"md"}
             textAlign={"center"}
             color={"rgba(1,1,1,0.5)"}>
-            What your customers need, we'll provide for you.
+            What your customers need, we&apos;ll provide for you.
           </Text>
           <HStack pt={8}>
             <Image
