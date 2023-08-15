@@ -232,8 +232,8 @@ export default function Home() {
               </StatGroup>
             </Box>
             <Spacer />
-            <Box maxW='container.md'>
-              <ProductCarousel products={featuredProdcuts} perView={3} />
+            <Box maxW="container.sm">
+              <ProductCarousel products={featuredProdcuts} perView={useBreakpointValue({base: 1, sm: 1, xl: 3, l: 3, md: 1})} />
             </Box>
           </HStack>
         </VStack>
