@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { Heading, background } from "@chakra-ui/react";
 interface TextWithLineProps {
   text: string;
-  color: string;
-  lineColor: string;
+  color?: string;
+  lineColor?: string;
 }
 
 const TextWithLine: React.FC<TextWithLineProps> = ({ text, color, lineColor }) => {
