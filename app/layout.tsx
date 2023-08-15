@@ -8,6 +8,7 @@ import { ChakraProvider, Flex } from "@chakra-ui/react";
 import { FloatingWhatsApp as Whatsapp } from "react-floating-whatsapp";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { NextPage } from "next";
+import { RecoilRoot } from "recoil";
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -20,30 +21,33 @@ interface RootLayoutProps {
 const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
   const context = createContext<{ language: number }>({ language: 0 });
   return (
-    <html lang="en">
+    <html lang='en'>
       <head />
-      {/* <context.Provider value={{ language: 0 }}> */}
-      <CacheProvider>
-        <body>
-          {/* <header></header> */}
-          <main>
-            <ChakraProvider>
-              <ParallaxProvider>
-                <Flex direction="column" minH="100vh">
-                  {children}
-                </Flex>
-                <Whatsapp
-                  phoneNumber="+50762250666"
-                  accountName="JM Internacional"
-                  avatar="./jm-logo-transparent-bg-min.webp"
-                  style={{ backgroundColor: "white" }}
-                />
-                <Footer />
-              </ParallaxProvider>
-            </ChakraProvider>
-          </main>
-        </body>
-      </CacheProvider>
+      <RecoilRoot>
+        {/* <context.Provider value={{ language: 0 }}> */}
+        <CacheProvider>
+          <body>
+            {/* <header></header> */}
+            <main>
+              <ChakraProvider>
+                <ParallaxProvider>
+                  <Flex direction='column' minH='100vh'>
+                    {children}
+                  </Flex>
+                  <Whatsapp
+                    phoneNumber='+50762250666'
+                    accountName='JM Internacional'
+                    avatar='./jm-logo-transparent-bg-min.webp'
+                    style={{ backgroundColor: "white" }}
+                  />
+                  <Footer />
+                </ParallaxProvider>
+              </ChakraProvider>
+            </main>
+          </body>
+        </CacheProvider>
+      </RecoilRoot>
+
       {/* </context.Provider> */}
     </html>
   );

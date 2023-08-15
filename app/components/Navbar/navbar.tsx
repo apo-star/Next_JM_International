@@ -17,17 +17,19 @@ import {
   useDisclosure,
   Image,
   Link as LinkChakra,
-  useStyleConfig,
+  useStyleConfig
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon,
+  ChevronRightIcon
 } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import "./navbar.css";
 import Link from "next/link";
+import { useRecoilState } from "recoil";
+import { lngState } from "@/app/atoms/language.atom";
 
 const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
   const [active, setActive] = useState(false);
@@ -56,13 +58,13 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
 
   const { isOpen, onToggle } = useDisclosure();
   const customStyle = useStyleConfig("Flex", {});
+  const [language, setLanguage] = useRecoilState(lngState);
   return (
     <Box
-      as="header"
+      as='header'
       position={isHomePage ? "fixed" : "fixed"}
-      w="100%"
-      zIndex={10}
-    >
+      w='100%'
+      zIndex={10}>
       <Flex
         // overflowY="hidden"
         bg={!active && isHomePage ? transparentNavbar : blackNavbar}
@@ -72,17 +74,19 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
         minH={"80px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        align={"center"}
-      >
+        align={"center"}>
         <Flex
           flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
+          display={{ base: "flex", md: "none" }}>
           <IconButton
             onClick={onToggle}
             icon={
-              isOpen ? <CloseIcon color={"white"} w={3} h={3} /> : <HamburgerIcon color={"white"} w={5} h={5} />
+              isOpen ? (
+                <CloseIcon color={"white"} w={3} h={3} />
+              ) : (
+                <HamburgerIcon color={"white"} w={5} h={5} />
+              )
             }
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
@@ -92,12 +96,11 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
         <Flex
           flex={{ base: 1 }}
           justify={{ base: "center", md: "start" }}
-          alignItems="center"
-        >
-          <LinkChakra href="/">
+          alignItems='center'>
+          <LinkChakra href='/'>
             <Image
-              src="/jm-logo-transparent-bg-min.webp"
-              alt="Brand"
+              src='/jm-logo-transparent-bg-min.webp'
+              alt='Brand'
               width={150}
               height={50}
             />
@@ -113,10 +116,25 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
-          display={{ base: "none", md: "inline-flex" }}
-        >
-          <Image src="/spanish.svg" alt="spanish" width={35} height={35} />
-          <Image src="/english.svg" alt="english" width={35} height={35} />
+          display={{ base: "none", md: "inline-flex" }}>
+          <Image
+            onClick={() => {
+              setLanguage("es");
+            }}
+            src='/spanish.svg'
+            alt='spanish'
+            width={35}
+            height={35}
+          />
+          <Image
+            onClick={() => {
+              setLanguage("en");
+            }}
+            src='/english.svg'
+            alt='english'
+            width={35}
+            height={35}
+          />
         </Stack>
         <Spacer />
       </Flex>
@@ -147,13 +165,11 @@ const DesktopNav = () => {
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
-                }}
-              >
+                  color: linkHoverColor
+                }}>
                 {navItem.label}
               </LinkChakra>
             </PopoverTrigger>
-
             {navItem.children && (
               <PopoverContent
                 border={0}
@@ -161,8 +177,7 @@ const DesktopNav = () => {
                 bg={popoverContentBgColor}
                 p={4}
                 rounded={"xl"}
-                minW={"sm"}
-              >
+                minW={"sm"}>
                 <Stack>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
@@ -182,17 +197,15 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
     <Link
       href={{
         pathname: href,
-        query: { brandName: label },
+        query: { brandName: label }
       }}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
-    >
+      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}>
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
             _groupHover={{ color: "pink.400" }}
-            fontWeight={500}
-          >
+            fontWeight={500}>
             {label}
           </Text>
           <Text fontSize={"sm"}>{subLabel}</Text>
@@ -204,8 +217,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
           justify={"flex-end"}
           align={"center"}
-          flex={1}
-        >
+          flex={1}>
           <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
@@ -218,8 +230,7 @@ const MobileNav = () => {
     <Stack
       bg={useColorModeValue("white", "gray.800")}
       p={4}
-      display={{ md: "none" }}
-    >
+      display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -239,13 +250,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         justify={"space-between"}
         align={"center"}
         _hover={{
-          textDecoration: "none",
-        }}
-      >
+          textDecoration: "none"
+        }}>
         <Text
           fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
-        >
+          color={useColorModeValue("gray.600", "gray.200")}>
           {label}
         </Text>
         {children && (
@@ -266,8 +275,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           borderLeft={1}
           borderStyle={"solid"}
           borderColor={useColorModeValue("gray.200", "gray.700")}
-          align={"start"}
-        >
+          align={"start"}>
           {children &&
             children.map((child) => (
               <LinkChakra key={child.label} py={2} href={child.href}>
@@ -290,11 +298,11 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
-    href: "/",
+    href: "/"
   },
   {
     label: "Brands",
-    href: "/brands",
+    href: "/brands"
   },
   {
     label: "Products",
@@ -303,53 +311,53 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: "Quantum Trux Parts",
         subLabel: "An exclusive partner",
-        href: "/products",
+        href: "/products"
       },
       {
         label: "USA Pro",
         subLabel: "An exclusive partner",
-        href: "/products",
+        href: "/products"
       },
       {
         label: "Eagle Parts",
         subLabel: "An exclusive partner",
-        href: "/products",
+        href: "/products"
       },
       {
         label: "GoodYear",
         subLabel: "An exclusive partner",
-        href: "/products",
+        href: "/products"
       },
       {
         label: "GRC",
         subLabel: "An exclusive partner",
-        href: "/products",
+        href: "/products"
       },
       {
         label: "Firestone",
         subLabel: "An exclusive partner",
-        href: "/products",
+        href: "/products"
       },
       {
         label: "Wuhlermann",
         subLabel: "An exclusive partner",
-        href: "/products",
+        href: "/products"
       },
       {
         label: "Sampa",
         subLabel: "An exclusive partner",
-        href: "/products",
-      },
-    ],
+        href: "/products"
+      }
+    ]
   },
   {
     label: "About Us",
-    href: "/about",
+    href: "/about"
   },
   {
     label: "Contact Us",
-    href: "/contact",
-  },
+    href: "/contact"
+  }
 ];
 
 export default Navbar;
