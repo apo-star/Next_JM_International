@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,7 +9,7 @@ import {
   Scrollbar,
   A11y,
   EffectCube,
-  Autoplay,
+  Autoplay
 } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
@@ -22,13 +24,13 @@ type Brand = {
 
 export default function BrandCarousel({
   brands,
-  perView,
+  perView
 }: {
   brands: Array<Brand>;
   perView: number;
 }) {
   return (
-    <>
+    <Box maxW={"100vw"}>
       <Swiper
         spaceBetween={10}
         slidesPerView={perView}
@@ -38,36 +40,37 @@ export default function BrandCarousel({
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
         autoplay={{
-          delay: 2500,
+          delay: 2500
           // disableOnInteraction: false,
-        }}
-      >
-        {brands.map((brand: Brand) => (
-          brand.id === 1 ? null :  <SwiperSlide key={brand.id}>
-            <VStack p={4} alignItems={"center"} justifyContent={"center"}>
-              {/* <Box> */}
-              <Image
-                src={brand.logo}
-                alt={brand.name}
-                // objectFit="fill"
-                minH={"100px"}
-                minW={"150px"}
-                maxW={"170px"}
-                maxH={"100px"}
-                justifyContent={"center"}
-                align={"center"}
-                // mb={4}
-              />
-              {/* </Box> */}
-              {/* <Box>
+        }}>
+        {brands.map((brand: Brand) =>
+          brand.id === 1 ? null : (
+            <SwiperSlide key={brand.id}>
+              <VStack p={4} alignItems={"center"} justifyContent={"center"}>
+                {/* <Box> */}
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  // objectFit="fill"
+                  minH={"100px"}
+                  minW={"150px"}
+                  maxW={"170px"}
+                  maxH={"100px"}
+                  justifyContent={"center"}
+                  align={"center"}
+                  // mb={4}
+                />
+                {/* </Box> */}
+                {/* <Box>
                 <Text textAlign={"center"} fontSize="lg" fontWeight="bold">
                   {product.name}
                 </Text>
               </Box> */}
-            </VStack>
-          </SwiperSlide>
-        ))}
+              </VStack>
+            </SwiperSlide>
+          )
+        )}
       </Swiper>
-    </>
+    </Box>
   );
 }

@@ -183,8 +183,8 @@ export default function BrandsPage() {
         bgPos={"center"}
         w={"full"}
         h={useBreakpointValue({
-          base: "30vh",
-          sm: "30vh",
+          base: "35vh",
+          sm: "35vh",
           lg: "50vh",
           xl: "40vh",
           md: "50vh",

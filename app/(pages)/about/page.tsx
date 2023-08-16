@@ -14,7 +14,9 @@ import {
   Heading,
   Divider,
   HStack,
-  Image
+  Image,
+  SimpleGrid,
+  Box
 } from "@chakra-ui/react";
 import { brandImages } from "./../../utils/assetIndex";
 import TextWithLine from "@/app/components/TextDecoration/textDecoration";
@@ -32,7 +34,7 @@ export default function About() {
         bgImage='/pageEnd.webp'
         bgPos={"bottom"}
         w={"full"}
-        h={useBreakpointValue({ base: "20vh", sm: "20vh", lg: "40vh" })}
+        h={useBreakpointValue({ base: "35vh", sm: "35vh", lg: "50vh" })}
         backgroundSize={"cover"}
         pos={"relative"}>
         <VStack
@@ -83,12 +85,16 @@ export default function About() {
           </Stack>
         </VStack>
       </Flex>
-      <Flex w={"full"} justify={"center"} align={"center"}>
-        <VStack w={"full"}>
-          <HStack p={20} spacing={20} justify={"center"} w={"full"}>
-            <VStack maxW={"3xl"} spacing={"6"}>
+      <Flex w={"full"}>
+        <Box w={"full"}>
+          <SimpleGrid
+            spacing={10}
+            minChildWidth={200}
+            margin={5}
+            paddingTop={10}>
+            <VStack>
               <TextWithLine text='Our Motivation' />
-              <Divider />
+
               <Text
                 fontSize='xl'
                 textAlign={"justify"}
@@ -100,31 +106,35 @@ export default function About() {
                 notices the difference and appreciates it.
               </Text>
             </VStack>
-            <VStack>
+            <Box>
               <Image
                 borderRadius='180px'
                 maxH={"400px"}
-                minW={"700px"}
+                minW={"360px"}
                 objectFit='contain'
                 alt='Contact Us'
                 src={"/comp1H.jpg"}
                 className='displayImage'
               />
-            </VStack>
-          </HStack>
-          <HStack spacing={20} pt={8} justify={"center"}>
+            </Box>
+          </SimpleGrid>
+          <SimpleGrid
+            spacing={10}
+            minChildWidth={200}
+            margin={5}
+            paddingTop={10}>
             <VStack>
               <Image
                 borderRadius='180px'
                 maxH={"400px"}
-                minW={"700px"}
+                minW={"360px"}
                 objectFit='contain'
                 alt='Contact Us'
                 src={"/comp7H.jpg"}
                 className='displayImage'
               />
             </VStack>
-            <VStack maxW={"3xl"} spacing={"6"} p={20}>
+            <VStack>
               <TextWithLine text='Our Proposal' />
               <Divider />
               <Text
@@ -133,16 +143,35 @@ export default function About() {
                 color={"rgba(1,1,1,0.8)"}>
                 {t("ABOUT_SECOND")}
               </Text>
-              <HStack>
-                <Image src={brandImages[2].logo}></Image>
-                <Image src={brandImages[1].logo}></Image>
-                <Image src={brandImages[3].logo}></Image>
-              </HStack>
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <Image
+                  src={brandImages[2].logo}
+                  alt={brandImages[2].description}
+                  maxWidth={"150px"}
+                  maxHeight={"120px"}
+                  margin={3}
+                />
+                <Image
+                  src={brandImages[1].logo}
+                  alt={brandImages[2].description}
+                  maxWidth={"150px"}
+                  maxHeight={"120px"}
+                  margin={3}
+                />
+                <Image
+                  src={brandImages[3].logo}
+                  alt={brandImages[2].description}
+                  maxWidth={"150px"}
+                  maxHeight={"120px"}
+                  margin={3}
+                />
+              </div>
             </VStack>
-          </HStack>
+          </SimpleGrid>
+
           <HStack
             spacing={20}
-            p={20}
+            p={10}
             justify={"center"}
             w={"full"}
             bgColor={"rgba(0,0,0,.8)"}>
@@ -168,7 +197,7 @@ export default function About() {
               <Image src={brandImages[0].logo} alt={brandImages[0].name} />
             </VStack>
           </HStack>
-        </VStack>
+        </Box>
       </Flex>
     </>
   );
