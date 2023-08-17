@@ -5,7 +5,6 @@
 import { useEffect, useRef, useState } from "react";
 
 // Components imports
-import Carousel from "./components/Swiper/swiper";
 import BrandCarousel from "./components/Swiper/brandSwiper";
 import {
   Container,

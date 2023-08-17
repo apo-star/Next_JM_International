@@ -87,12 +87,16 @@ export default function About() {
       </Flex>
       <Flex w={"full"}>
         <Box w={"full"}>
-          <SimpleGrid
-            spacing={10}
-            minChildWidth={200}
-            margin={5}
-            paddingTop={10}>
-            <VStack>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 20,
+              marginBottom: 10
+            }}>
+            <VStack maxW={"50%"} marginRight={10} marginBottom={10}>
               <TextWithLine text='Our Motivation' />
 
               <Text
@@ -117,13 +121,18 @@ export default function About() {
                 className='displayImage'
               />
             </Box>
-          </SimpleGrid>
-          <SimpleGrid
-            spacing={10}
-            minChildWidth={200}
-            margin={5}
-            paddingTop={10}>
-            <VStack>
+          </div>
+          <div
+            className='container'
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 20,
+              marginBottom: 10
+            }}>
+            <VStack className='img'>
               <Image
                 borderRadius='180px'
                 maxH={"400px"}
@@ -134,7 +143,12 @@ export default function About() {
                 className='displayImage'
               />
             </VStack>
-            <VStack>
+            <VStack
+              maxW={"50%"}
+              marginLeft={10}
+              marginBottom={10}
+              marginTop={10}
+              className='text'>
               <TextWithLine text='Our Proposal' />
               <Divider />
               <Text
@@ -167,11 +181,10 @@ export default function About() {
                 />
               </div>
             </VStack>
-          </SimpleGrid>
+          </div>
 
           <HStack
             spacing={20}
-            p={10}
             justify={"center"}
             w={"full"}
             bgColor={"rgba(0,0,0,.8)"}>

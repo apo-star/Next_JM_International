@@ -50,7 +50,7 @@ export default function Carousel({
         }}>
         {products?.map((product: Product) => (
           <SwiperSlide key={product.id}>
-            <VStack p={4} alignItems={"center"} justifyContent={"center"}>
+            <VStack alignItems={"center"} justifyContent={"center"}>
               {/* <Box> */}
               <Image
                 src={product.images[0]}
