@@ -23,6 +23,7 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
   const context = createContext<{ language: number }>({ language: 0 });
   return (
     <html lang='en'>
+      <title>JM Internacional</title>
       <head />
       <Provider store={store}>
         {/* <context.Provider value={{ language: 0 }}> */}
