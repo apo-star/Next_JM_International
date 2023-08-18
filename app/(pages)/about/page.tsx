@@ -28,7 +28,7 @@ export default function About() {
   const { t } = useTranslation();
 
   return (
-    <>
+    <Box alignItems={"center"}>
       <Navbar isHomePage={true} />
       <Flex
         bgImage='/pageEnd.webp'
@@ -85,133 +85,125 @@ export default function About() {
           </Stack>
         </VStack>
       </Flex>
-      <Flex w={"full"}>
-        <Box w={"full"}>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 20,
-              marginBottom: 10
-            }}>
-            <VStack maxW={"50%"} marginRight={10} marginBottom={10}>
-              <TextWithLine text='Our Motivation' />
+      <Box width={"100%"} justifyContent={"center"} alignItems={"center"}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 20,
+            marginBottom: 10
+          }}>
+          <div className='container2'>
+            <TextWithLine text='Our Motivation' undecorate />
 
-              <Text
-                fontSize='xl'
-                textAlign={"justify"}
-                color={"rgba(1,1,1,0.8)"}>
-                The truck spare parts and accessories market is becoming more{" "}
-                <b>demanding and competitive</b> every day to win the preference
-                of mechanics, which is why parts distributors look for reliable
-                suppliers with good quality products. So the <b>mechanic</b>{" "}
-                notices the difference and appreciates it.
-              </Text>
-            </VStack>
-            <Box>
-              <Image
-                borderRadius='180px'
-                maxH={"400px"}
-                minW={"360px"}
-                objectFit='contain'
-                alt='Contact Us'
-                src={"/comp1H.jpg"}
-                className='displayImage'
-              />
-            </Box>
+            <Text fontSize='xl' textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
+              The truck spare parts and accessories market is becoming more{" "}
+              <b>demanding and competitive</b> every day to win the preference
+              of mechanics, which is why parts distributors look for reliable
+              suppliers with good quality products. So the <b>mechanic</b>{" "}
+              notices the difference and appreciates it.
+            </Text>
           </div>
-          <div
-            className='container'
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 20,
-              marginBottom: 10
-            }}>
-            <VStack className='img'>
+          <Box marginLeft={5}>
+            <Image
+              borderRadius='180px'
+              maxH={"400px"}
+              minW={"360px"}
+              objectFit='contain'
+              alt='Contact Us'
+              src={"/comp1H.jpg"}
+              className='displayImage'
+            />
+          </Box>
+        </div>
+        <div
+          className='container'
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 20,
+            marginBottom: 10
+          }}>
+          <VStack className='img' marginRight={10}>
+            <Image
+              borderRadius='180px'
+              maxH={"400px"}
+              minW={"360px"}
+              objectFit='contain'
+              alt='Contact Us'
+              src={"/comp7H.jpg"}
+              className='displayImage'
+            />
+          </VStack>
+          <div className='container2'>
+            <TextWithLine text='Our Proposal' undecorate />
+            <Divider />
+            <Text fontSize='xl' textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
+              {t("ABOUT_SECOND")}
+            </Text>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center"
+              }}>
               <Image
-                borderRadius='180px'
-                maxH={"400px"}
-                minW={"360px"}
-                objectFit='contain'
-                alt='Contact Us'
-                src={"/comp7H.jpg"}
-                className='displayImage'
+                src={brandImages[2].logo}
+                alt={brandImages[2].description}
+                maxWidth={"150px"}
+                maxHeight={"120px"}
+                margin={3}
               />
-            </VStack>
-            <VStack
-              maxW={"50%"}
-              marginLeft={10}
-              marginBottom={10}
-              marginTop={10}
-              className='text'>
-              <TextWithLine text='Our Proposal' />
-              <Divider />
-              <Text
-                fontSize='xl'
-                textAlign={"justify"}
-                color={"rgba(1,1,1,0.8)"}>
-                {t("ABOUT_SECOND")}
-              </Text>
-              <div style={{ display: "flex", flexWrap: "wrap" }}>
-                <Image
-                  src={brandImages[2].logo}
-                  alt={brandImages[2].description}
-                  maxWidth={"150px"}
-                  maxHeight={"120px"}
-                  margin={3}
-                />
-                <Image
-                  src={brandImages[1].logo}
-                  alt={brandImages[2].description}
-                  maxWidth={"150px"}
-                  maxHeight={"120px"}
-                  margin={3}
-                />
-                <Image
-                  src={brandImages[3].logo}
-                  alt={brandImages[2].description}
-                  maxWidth={"150px"}
-                  maxHeight={"120px"}
-                  margin={3}
-                />
-              </div>
-            </VStack>
+              <Image
+                src={brandImages[1].logo}
+                alt={brandImages[2].description}
+                maxWidth={"150px"}
+                maxHeight={"120px"}
+                margin={3}
+              />
+              <Image
+                src={brandImages[3].logo}
+                alt={brandImages[2].description}
+                maxWidth={"150px"}
+                maxHeight={"120px"}
+                margin={3}
+              />
+            </div>
           </div>
+        </div>
 
-          <HStack
-            spacing={20}
-            justify={"center"}
-            w={"full"}
-            bgColor={"rgba(0,0,0,.8)"}>
-            <VStack maxW={"4xl"} spacing={"6"}>
-              <Heading size={"2xl"} color={"white"}>
-                We Are Your Ally
-              </Heading>
-              <Divider />
-              <Text fontSize='xl' textAlign={"justify"} color={"white"}>
-                Given the above, by marketing our products, you eliminate
-                complaints and claims, generating the trust and loyalty of the
-                mechanics. But, JM Internacional gives you much more: product
-                guarantee, more than 2,000 products in our warehouses available
-                for immediate dispatch and launch of new products every month,
-                all certified by our quality. We are located in Panama, which
-                allows us to have frequent departures of land and sea cargo to
-                all of Latin America and the Caribbean. In these times timely
-                communication is vital. So we have these tools for our products:
-                Website with online catalogs, social networks. Staying one step
-                ahead of the rest is easy, just check out our total quality. JM
-                International is your best option.
-              </Text>
-              <Image src={brandImages[0].logo} alt={brandImages[0].name} />
-            </VStack>
-          </HStack>
-        </Box>
-      </Flex>
-    </>
+        <HStack
+          spacing={20}
+          justify={"center"}
+          w={"full"}
+          bgColor={"rgba(0,0,0,.8)"}>
+          <VStack spacing={"6"} padding={10}>
+            <Heading size={"2xl"} color={"white"}>
+              We Are Your Ally
+            </Heading>
+            <Divider />
+            <Text fontSize='xl' textAlign={"justify"} color={"white"}>
+              Given the above, by marketing our products, you eliminate
+              complaints and claims, generating the trust and loyalty of the
+              mechanics. But, JM Internacional gives you much more: product
+              guarantee, more than 2,000 products in our warehouses available
+              for immediate dispatch and launch of new products every month, all
+              certified by our quality. We are located in Panama, which allows
+              us to have frequent departures of land and sea cargo to all of
+              Latin America and the Caribbean. In these times timely
+              communication is vital. So we have these tools for our products:
+              Website with online catalogs, social networks. Staying one step
+              ahead of the rest is easy, just check out our total quality. JM
+              International is your best option.
+            </Text>
+            <Image src={brandImages[0].logo} alt={brandImages[0].name} />
+          </VStack>
+        </HStack>
+      </Box>
+    </Box>
   );
 }

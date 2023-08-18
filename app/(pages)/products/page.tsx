@@ -154,8 +154,9 @@ export default function Products({ searchParams }: any) {
                     <Image
                       src={products?.products[selectedProduct - 1]?.images[0]}
                       alt={products?.products[selectedProduct - 1]?.images[0]}
-                      width={200}
-                      height={250}
+                      width={250}
+                      height={300}
+                      objectFit={"contain"}
                     />
                   </VStack>
                 )}
