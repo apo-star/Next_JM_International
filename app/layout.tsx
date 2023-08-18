@@ -38,7 +38,7 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
                   <Whatsapp
                     phoneNumber='+50762250666'
                     accountName='JM Internacional'
-                    avatar='./jm-logo-transparent-bg-min.webp'
+                    avatar='./jm-black-bg.jpg'
                     style={{ backgroundColor: "white" }}
                   />
                   <Footer />

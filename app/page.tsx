@@ -70,15 +70,15 @@ export default function Home() {
     setModalToggle(state);
   };
 
+  const value = useBreakpointValue({
+    sm: 2,
+    xl: 3,
+    l: 4,
+    md: 5
+  })
+
   const display = () => {
     let active = false;
-    const value = useBreakpointValue({
-      sm: 2,
-      xl: 3,
-      l: 4,
-      md: 5
-    });
-
     if (value === 2) {
       active = true;
     } else if (value === undefined) {
