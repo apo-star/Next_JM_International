@@ -1,14 +1,21 @@
+"use client";
 /** @format */
+
+import { platform } from "os";
 
 import { configureStore } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-const navigatorLanguage = navigator?.language || navigator?.userLanguage;
+
+let navigatorLanguage = "es";
+if (typeof window !== "undefined") {
+  navigatorLanguage = navigator?.language;
+}
 // create a slice
 export const mountSlice = createSlice({
   name: "mount",
   initialState: {
     isMount: false,
-    language: navigatorLanguage
+    language: navigatorLanguage,
   },
   reducers: {
     mountChange: (state) => {
@@ -16,14 +23,14 @@ export const mountSlice = createSlice({
     },
     languageChange: (state, action) => {
       state.language = action.payload;
-    }
-  }
+    },
+  },
 });
 // config the store
 const store = configureStore({
   reducer: {
-    mount: mountSlice.reducer
-  }
+    mount: mountSlice.reducer,
+  },
 });
 
 // export default the store
