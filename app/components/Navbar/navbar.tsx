@@ -197,14 +197,13 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel }: NavItem) => { 
   return (
     <Link
       href={{
         pathname: href,
         query: { brandName: label }
-      }}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}>
+      }}>
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text

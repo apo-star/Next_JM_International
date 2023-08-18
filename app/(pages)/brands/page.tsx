@@ -48,7 +48,7 @@ console.log("Bran: ", brandImages);
  */
 
 const trimParagraph = (paragraph: string) => {
-  const words = paragraph.split(" ");
+  const words = paragraph?.split(" ");
 
   const first10Words = words.slice(0, 10);
 
@@ -65,7 +65,7 @@ const brandsGrid = (
   onOpen: any,
   setBrand: Function,
   ownership: Boolean,
-  language: string
+  language: string | undefined
 ) => {
   return (
     <>
@@ -86,9 +86,9 @@ const brandsGrid = (
                   />
                   <p className='text-body'>
                     {trimParagraph(
-                      (language && language === "en") || language == undefined
-                        ? brand.description
-                        : brand.descriptionES
+                      (language && language === "en")
+                        ? brand?.description
+                        : brand?.descriptionES
                     )}
                     ...
                   </p>

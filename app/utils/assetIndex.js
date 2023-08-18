@@ -6,7 +6,8 @@ export const brandImages = [
     name: "JM Internacional",
     logo: "/jm-logo-transparent-bg-min.webp",
     owned: true,
-    description: ""
+    description: "",
+    descriptionES: ""
   },
   {
     id: 2,
