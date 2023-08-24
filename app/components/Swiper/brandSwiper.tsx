@@ -28,7 +28,7 @@ export default function BrandCarousel({
 }: {
   brands: Array<Brand>;
   perView: number;
-}) {
+  }) {
   return (
     <Box maxW={"100vw"}>
       <Swiper

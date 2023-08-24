@@ -12,3 +12,66 @@
     display: none;
   }
 }
+
+/* Estilos base para el carrusel */
+.carousel {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 18%; /* Ajusta el ancho según tus necesidades */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-right: 20px; /* Espacio entre elementos */
+  transition: margin 0.3s ease-in-out;
+}
+
+/* Estilos para ocultar el overflow */
+.carousel-container {
+  overflow: hidden;
+}
+
+/* Estilos para el título de la sección */
+.section-title {
+  margin-bottom: 10px;
+}
+
+/* Estilos para las imágenes */
+.carousel-img {
+  max-width: 150px;
+  height: 150px;
+  margin-bottom: 10px; /* Espacio entre imagen y descripción */
+  align-items: center;
+  object-fit: contain;
+}
+
+.description{
+  flex-grow: 1;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.3s ease; /* Agrega transición para suavizar el efecto */
+}
+
+.carousel-item:hover p {
+  white-space: normal; /* Muestra el texto completo en hover */
+}
+
+/* Media query para dispositivos pequeños */
+@media (max-width: 768px) {
+  .carousel {
+    flex-direction: column;
+  }
+  
+  .carousel-item {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-right: 0; /* Espacio entre elementos */
+  }
+}
