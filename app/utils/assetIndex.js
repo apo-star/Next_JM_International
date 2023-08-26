@@ -91,12 +91,14 @@ export const products = [
     products: [
       {
         id: 1,
+        name: "Eagle Parts",
         title: "EAG-TCR5572",
         images: ["/EAG-TCR5572 - 400px.jpg"],
         description: "Cuña de rueda trasera, mediana Wheel Clamp"
       },
       {
         id: 2,
+        name: "Eagle Parts",
         title: "EAG-TTT3414",
         images: ["/EAG-TTT3414 - 400px.png"],
         description:
@@ -104,12 +106,14 @@ export const products = [
       },
       {
         id: 3,
+        name: "Eagle Parts",
         title: "EAG-SSB2718",
         images: ["/EAG-SSB2781 - 400px.png"],
         description: ""
       },
       {
         id: 4,
+        name: "Eagle Parts",
         title: "EAG-RTF6864",
         images: ["/EAG-RTF6864 - 400px.png"],
         description:
@@ -117,9 +121,131 @@ export const products = [
       },
       {
         id: 5,
+        name: "Eagle Parts",
         title: "EAG-SBT2889",
         images: ["/EAG-SBT2899 - 400px.png"],
         description: "Barra fija para Hutchens Rigid Torque Arm"
+      },
+      {
+        id: 6,
+        name: "Eagle Parts",
+        title: "EAG-FQR3003",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Quinta Rueda Tipo Holland Con base incluida.",
+        descriptionES: "Fifth Wheel, Holland type w/ base included"
+      },
+      {
+        id: 7,
+        name: "Eagle Parts",
+        title: "EAG-FQR0050",
+        images: ["/QTM-SLN5781.png"],
+        description: "Pin Para Quinta Rueda",
+        descriptionES: "Fifth Wheel Coupling Pin"
+      },
+      {
+        id: 8,
+        name: "Eagle Parts",
+        title: "EAG-FQR7296",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Kit de Repación para Quinta Rueda Holland",
+        descriptionES: "Holland Fifth Wheel Minor Repair Kit"
+      },
+      {
+        id: 9,
+        name: "Eagle Parts",
+        title: "EAG-FPF6110",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Juego Patas de Furgon, Reforzadas, 30T",
+        descriptionES: "30 Tons Landing Gear"
+      },
+      {
+        id: 10,
+        name: "Eagle Parts",
+        title: "EAG-FPF0001",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Patin para Patas Furgón",
+        descriptionES: "Landing Gear Sand Shoe"
+      },
+      {
+        id: 11,
+        name: "Eagle Parts",
+        title: "EAG-HRR2727",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Resorte de 3 Hojas de media curva",
+        descriptionES: "Trailer Spring 3 Leaf, Medium 4-1/2″ Arch."
+      },
+      {
+        id: 12,
+        name: "Eagle Parts",
+        title: "EAG-SBT2639",
+        images: ["/QTM-SLN5781.png"],
+        description: "Barra Tensora Hembra con Buje de 2.75, hueco 5/8″",
+        descriptionES: "Two Piece Torque Rod End"
+      },
+      {
+        id: 13,
+        name: "Eagle Parts",
+        title: "EAG-SSB2830",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "BALANCIN FREUHAUF",
+        descriptionES: "Fruehauf F-2 Equalizer"
+      },
+      {
+        id: 14,
+        name: "Eagle Parts",
+        title: "EAG-SBT5680",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description:
+          "Barra Tensora macho (Hasta 35″) con Altura 8″ y Rosca 1-1/4″-12",
+        descriptionES: "Torque Rod End (Up to 35″), H:  8″, THREADS:  1-1/4″-12"
+      },
+      {
+        id: 15,
+        name: "Eagle Parts",
+        title: "EAG-SCS2919PU",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Sapo Mediano (Superior) Poliuretano",
+        descriptionES: "Mack Insulator Pad Poly"
+      },
+      {
+        id: 16,
+        name: "Eagle Parts",
+        title: "EAG-DTD0411R",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Terminal de direccion Inter Largo",
+        descriptionES: "Outer Tie Rod End (RH) 9.18″"
+      },
+      {
+        id: 17,
+        name: "Eagle Parts",
+        title: "EAG-DTB4272",
+        images: ["/QTM-SLN5781.png"],
+        description: "Tercer Brazo Mack CH (34.75″ nominal /centro a centro)",
+        descriptionES: "Drag Link for Mack  - 34.75″"
+      },
+      {
+        id: 18,
+        name: "Eagle Parts",
+        title: "EAG-DBT2514",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Brazo de Torque Fijo",
+        descriptionES: "Rigid Torque Arm 15-7/16 Center To Center"
+      },
+      {
+        id: 19,
+        name: "Eagle Parts",
+        title: "EAG-DTB3426",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Tercer Brazo (Barra de Arrastre) 18 3/4″ centro a centro",
+        descriptionES: "Drag Link for Mack - 18.75″"
+      },
+      {
+        id: 20,
+        name: "Eagle Parts",
+        title: "EAG-DTB5366",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Tercer Brazo Navistar Stud Center-Stud Center: 18.14”",
+        descriptionES: "Drag Link for International - 18.14”"
       }
     ]
   },
@@ -130,12 +256,14 @@ export const products = [
     products: [
       {
         id: 1,
+        name: "Quantum Trux Parts",
         title: "QTM-EMC1003",
         images: ["/QTM-EMC1003 - 400px.png"],
         description: "Cruceta 6 U-Joint 1710 Series"
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-EMB1101",
         images: ["/QTM-EMB1101 - 400px.png"],
         description:
@@ -143,12 +271,14 @@ export const products = [
       },
       {
         id: 3,
+        name: "Quantum Trux Parts",
         title: "QTM-ARV2100",
         images: ["/QTM-ARV2100 - 400px.png"],
         description: "Valvula de Reparto R-12H Relay Valve R-12H"
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-BBT8706",
         images: ["/QTM-BBT8706 - 400px.png"],
         description:
@@ -156,10 +286,277 @@ export const products = [
       },
       {
         id: 5,
+        name: "Quantum Trux Parts",
         title: "QTM-LLU4009B",
         images: ["/QTM-LLU4009B - 400px.png"],
         description:
           "Lámpara de 32 LED de 4in / 12 V BLANCA 4in LED Lamp, 32 LEDS, 12v, WHITE"
+      },
+      {
+        id: 6,
+        name: "Quantum Trux Parts",
+        title: "QTM-EMC1006",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Cruceta de 6' Mixta Serie 1710",
+        descriptionES: "U-Joint 1710 Series Half Round Yoke"
+      },
+      {
+        id: 7,
+        name: "Quantum Trux Parts",
+        title: "QTM-EMG1022",
+        images: ["/1R12-538.png"],
+        description: "Grapas para crucetas SPL170X",
+        descriptionES: "SPL170 Strap & Bolt Kit SPL170X"
+      },
+      {
+        id: 8,
+        name: "Quantum Trux Parts",
+        title: "QTM-EMC1017",
+        images: ["/EAG-SBT2899 - 400px.png"],
+        description: "Cruceta",
+        descriptionES: "U Joint SPL90 Series Greasable"
+      },
+      {
+        id: 9,
+        name: "Quantum Trux Parts",
+        title: "QTM-EMB1102",
+        images: ["/EAG-SSB2781 - 400px.png"],
+        description: "Balinera de Centro (Soporte de Cardán) Serie 1710",
+        descriptionES: "Driveshaft Center Support Bearing"
+      },
+      {
+        id: 10,
+        name: "Quantum Trux Parts",
+        title: "QTM-EMR1104",
+        images: ["/EAG-TTT3414 - 400px.png"],
+        description: "Caucho Balinera de Centro HB88508",
+        descriptionES: "Rubber Cushion for HB88508"
+      },
+      {
+        id: 11,
+        name: "Quantum Trux Parts",
+        title: "QTM-ASA2021",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Secador de Aire, AD9",
+        descriptionES:
+          "Air Dryer (Supply Port (1) 1/2 'P.T.  Delivery Port (1) 1/2' P.T.)"
+      },
+      {
+        id: 12,
+        name: "Quantum Trux Parts",
+        title: "QTM-APV2051",
+        images: ["/1R12-538 1.png"],
+        description: "Válvula E6 con Pedal y Base",
+        descriptionES: "E6 Foot Valve with Pedal and Base"
+      },
+      {
+        id: 13,
+        name: "Quantum Trux Parts",
+        title: "QTM-ATC2751",
+        images: ["/1R12-538 2.png"],
+        description: "Válvula de control-Doble Válvula (Pto & Dump Pump)",
+        descriptionES: "PTO/Dump Pump Combo Valve"
+      },
+      {
+        id: 14,
+        name: "Quantum Trux Parts",
+        title: "QTM-AVN2715",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Valvula Niveladora Tipo Retardo CV",
+        descriptionES: "Leveling Delay Type CV"
+      },
+      {
+        id: 15,
+        name: "Quantum Trux Parts",
+        title: "QTM-AFS2653",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Valvula de Freno ABS Completa",
+        descriptionES: "ABS Axle Package Assy"
+      },
+      {
+        id: 16,
+        name: "Quantum Trux Parts",
+        title: "QTM-RRT3108",
+        images: ["/QTM-RRT3108.png"],
+        description: "Retenedora de Rueda  para ejes de 34,000",
+        descriptionES: "Oil Bath Wheel Seal "
+      },
+      {
+        id: 17,
+        name: "Quantum Trux Parts",
+        title: "QTM-RTR3215",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "TAPA DE 6 HUECOS",
+        descriptionES: "Cast Aluminum Hub Cap"
+      },
+      {
+        id: 18,
+        name: "Quantum Trux Parts",
+        title: "QTM-CMP6008",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description:
+          "Manigueta Exterior de Puerta para Freightliner Columbia y Century (Llavín incluído) Izq.",
+        descriptionES: "Door Handle, LH Columbia Class (1998-2003)"
+      },
+      {
+        id: 19,
+        name: "Quantum Trux Parts",
+        title: "QTM-CCP6050",
+        images: ["/QTM-SLN5781.png"],
+        description: "Cerradura para Puerta Derecha para Mack DM, R y U",
+        descriptionES: "Door Latch (RH) for Mack R/RB/RD/DM Models"
+      },
+      {
+        id: 20,
+        name: "Quantum Trux Parts",
+        title: "QTM-CES6149",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Espejo para Capota VOLVO Cromado Izq.",
+        descriptionES: "Hood Mirror for VOLVO CHROME L"
+      },
+      {
+        id: 21,
+        name: "Quantum Trux Parts",
+        title: "QTM-CPA6216",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Parrilla para International PROSTAR",
+        descriptionES: "Truck Front Grill forPROSTAR International"
+      },
+      {
+        id: 22,
+        name: "Quantum Trux Parts",
+        title: "QTM-CBS6317",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Bisel Cromado para International Serie 9,000 Izq.",
+        descriptionES: "Headlight Bezel for  International 9,000 Series (LH)"
+      },
+      {
+        id: 23,
+        name: "Quantum Trux Parts",
+        title: "QTM-XDE8002",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Codo de 5″ x90 de patas largas",
+        descriptionES:
+          "Exhaust Elbow-5″ 90 Degree Elbow 20″ x 20″ ID-OD – Aluminized"
+      },
+      {
+        id: 24,
+        name: "Quantum Trux Parts",
+        title: "QTM-XAH8364",
+        images: ["/QTM-SLN5781.png"],
+        description: "Abrazadera de 5″ Para Turbo Con Labio",
+        descriptionES: "5″ Turbo Outlet Clamp"
+      },
+      {
+        id: 25,
+        name: "Quantum Trux Parts",
+        title: "QTM-XRD8033",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Reducción 5″ a 4″",
+        descriptionES:
+          "Connector-Reducer Coupler Aluminized 5″ ID to 4″ ID x 6″ Long"
+      },
+      {
+        id: 26,
+        name: "Quantum Trux Parts",
+        title: "QTM-XFT8251",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Tubo Flexible de 5″ (25 pies por rollo)",
+        descriptionES: "Heavy Weight Flexible Tubing 5″ x 25'"
+      },
+      {
+        id: 27,
+        name: "Quantum Trux Parts",
+        title: "QTM-XSM8300",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Silenciador 51″x10″x5″x5″44.5″",
+        descriptionES: "Horizontal or Vertical Muffler 51″x10″x5″x5″44.5″"
+      },
+      {
+        id: 28,
+        name: "Quantum Trux Parts",
+        title: "QTM-CTR6760",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "anque de Refrigerante para MACK GU Y CV",
+        descriptionES: "Coolant tank for MACK GU Y CV"
+      },
+      {
+        id: 29,
+        name: "Quantum Trux Parts",
+        title: "QTM-CTC6714",
+        images: ["/QTM-SLN5781.png"],
+        description: "Tapa Tanque de Expansión de Líquido Refrigerante M2",
+        descriptionES: "Surge Tank Cap M2"
+      },
+      {
+        id: 30,
+        name: "Quantum Trux Parts",
+        title: "QTM-RRF8506",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Radiador",
+        descriptionES:
+          "Radiator Freightliner Century, Columbia and Classic XL 2008-2011 (987x958.1x58x63.5/63.5)"
+      },
+      {
+        id: 31,
+        name: "Quantum Trux Parts",
+        title: "QTM-RIC8551",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description:
+          "Intercooler for Freightliner FLD112 FLD 120 FL112(946x554x50x102/102)",
+        descriptionES:
+          "Intercooler for Freightliner FLD112 FLD 120 FL112(946x554x50x102/102)"
+      },
+      {
+        id: 32,
+        name: "Quantum Trux Parts",
+        title: "QTM-CTR6764",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Tanque de Refrigerante para Freightliner FLD120",
+        descriptionES: "Coolant tank for Freightliner FLD120"
+      },
+      {
+        id: 33,
+        name: "Quantum Trux Parts",
+        title: "QTM-LFI4102",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Lámpara Frontal International Serie 9,000 Izq",
+        descriptionES:
+          "Headlight Assembly Left for International Series 9100,9200,9400 and 9900 "
+      },
+      {
+        id: 34,
+        name: "Quantum Trux Parts",
+        title: "QTM-LDL5004",
+        images: ["/QTM-SLN5781.png"],
+        description: "Lámpara Direccional para Mack (mismo para Izq. Y Der.)",
+        descriptionES: "Directional Lamp Mack CH/CL/CX/CV Models"
+      },
+      {
+        id: 35,
+        name: "Quantum Trux Parts",
+        title: "QTM-LWL5057R",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Lámpara de LED Circular  con Borde Rojo 51W, 17 diodos ",
+        descriptionES: "Circular LED Light. Red Trim, 51 W, 17 LEDS"
+      },
+      {
+        id: 36,
+        name: "Quantum Trux Parts",
+        title: "QTM-LEL5156",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description:
+          "Lámpara Escolta LED DC12-24V, 40 LEDS, Doble Flash/4 Flash con base magnetica y conexión al enchufe de Cigarrillo.",
+        descriptionES:
+          "Escorta LED Lamp DC12-24V, 40 LEDS, Double Flash/4 Flash with magnetic base and connection to the Cigarette plug."
+      },
+      {
+        id: 37,
+        name: "Quantum Trux Parts",
+        title: "QTM-LLP4002R",
+        images: ["/EAG-TCR5572 - 400px.png"],
+        description: "Lámpara de 8 LED de 4″ / 12 V Roja ",
+        descriptionES: "Coolant tank for Freightliner FLD120"
       }
     ]
   },
@@ -375,6 +772,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Quantum Trux Parts",
         title: "QTM-EMC1006",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Cruceta de 6' Mixta Serie 1710",
@@ -382,6 +780,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-EMG1022",
         images: ["/1R12-538.png"],
         description: "Grapas para crucetas SPL170X",
@@ -389,6 +788,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Quantum Trux Parts",
         title: "QTM-EMC1017",
         images: ["/EAG-SBT2899 - 400px.png"],
         description: "Cruceta",
@@ -396,6 +796,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-EMB1102",
         images: ["/EAG-SSB2781 - 400px.png"],
         description: "Balinera de Centro (Soporte de Cardán) Serie 1710",
@@ -403,6 +804,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Quantum Trux Parts",
         title: "QTM-EMR1104",
         images: ["/EAG-TTT3414 - 400px.png"],
         description: "Caucho Balinera de Centro HB88508",
@@ -417,6 +819,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Quantum Trux Parts",
         title: "QTM-ASA2021",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Secador de Aire, AD9",
@@ -425,6 +828,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-APV2051",
         images: ["/1R12-538 1.png"],
         description: "Válvula E6 con Pedal y Base",
@@ -432,6 +836,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Quantum Trux Parts",
         title: "QTM-ATC2751",
         images: ["/1R12-538 2.png"],
         description: "Válvula de control-Doble Válvula (Pto & Dump Pump)",
@@ -439,6 +844,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-AVN2715",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Valvula Niveladora Tipo Retardo CV",
@@ -446,6 +852,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Quantum Trux Parts",
         title: "QTM-AFS2653",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Valvula de Freno ABS Completa",
@@ -460,13 +867,15 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Eagle Parts",
         title: "EAG-TCR5572",
-        images: ["/EAG-TCR5572 - 400px.png"],
+        images: ["/EAG-TCR5572 - 400px.png"], // EXISTE
         description: "Cuña de Rueda Estilo 'F' de 3/4",
         descriptionES: "Wheel Clamp, F Style, 1-1/2 X 2-7/8 X 2-1/2 X 3/4"
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-RRT3108",
         images: ["/QTM-RRT3108.png"],
         description: "Retenedora de Rueda  para ejes de 34,000",
@@ -474,6 +883,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Eagle Parts",
         title: "EAG-RRT8408",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Rines 22.5x8.25 de Tornillos.",
@@ -481,6 +891,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-RTR3215",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "TAPA DE 6 HUECOS",
@@ -489,6 +900,7 @@ export const featuredProdcuts = [
       {
         id: 5,
         title: "EAG-TWS8980",
+        name: "Eagle Parts",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Tornillo Milimetrico",
         descriptionES: "Metric Stud"
@@ -502,6 +914,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Quantum Trux Parts",
         title: "QTM-LMA5550",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Motor de Arranque (Starter) 42MT, 12V, 11 dientes",
@@ -509,6 +922,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-SLN5781",
         images: ["/QTM-SLN5781.png"],
         description: "Selenoide 42MT",
@@ -516,6 +930,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Quantum Trux Parts",
         title: "QTM-LIR5302",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Interruptor de Relay, 4 terminales, continuo, Dynatard",
@@ -523,6 +938,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-LIM5501",
         images: ["/EAG-TCR5572 - 400px.png"],
         description:
@@ -531,6 +947,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Quantum Trux Parts",
         title: "QTM-LAT5600",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Alternador 130Amp",
@@ -545,6 +962,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Quantum Trux Parts",
         title: "QTM-CMP6008",
         images: ["/EAG-TCR5572 - 400px.png"],
         description:
@@ -553,6 +971,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-CCP6050",
         images: ["/QTM-SLN5781.png"],
         description: "Cerradura para Puerta Derecha para Mack DM, R y U",
@@ -560,6 +979,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Quantum Trux Parts",
         title: "QTM-CES6149",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Espejo para Capota VOLVO Cromado Izq.",
@@ -567,6 +987,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-CPA6216",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Parrilla para International PROSTAR",
@@ -574,6 +995,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Quantum Trux Parts",
         title: "QTM-CBS6317",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Bisel Cromado para International Serie 9,000 Izq.",
@@ -588,6 +1010,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Quantum Trux Parts",
         title: "QTM-XDE8002",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Codo de 5″ x90 de patas largas",
@@ -596,6 +1019,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-XAH8364",
         images: ["/QTM-SLN5781.png"],
         description: "Abrazadera de 5″ Para Turbo Con Labio",
@@ -603,6 +1027,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Quantum Trux Parts",
         title: "QTM-XRD8033",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Reducción 5″ a 4″",
@@ -611,6 +1036,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-XFT8251",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Tubo Flexible de 5″ (25 pies por rollo)",
@@ -618,6 +1044,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Quantum Trux Parts",
         title: "QTM-XSM8300",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Silenciador 51″x10″x5″x5″44.5″",
@@ -632,6 +1059,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Eagle Parts",
         title: "EAG-FQR3003",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Quinta Rueda Tipo Holland Con base incluida.",
@@ -639,6 +1067,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Eagle Parts",
         title: "EAG-FQR0050",
         images: ["/QTM-SLN5781.png"],
         description: "Pin Para Quinta Rueda",
@@ -646,6 +1075,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Eagle Parts",
         title: "EAG-FQR7296",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Kit de Repación para Quinta Rueda Holland",
@@ -653,6 +1083,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Eagle Parts",
         title: "EAG-FPF6110",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Juego Patas de Furgon, Reforzadas, 30T",
@@ -660,6 +1091,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Eagle Parts",
         title: "EAG-FPF0001",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Patin para Patas Furgón",
@@ -674,6 +1106,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Eagle Parts",
         title: "EAG-HRR2727",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Resorte de 3 Hojas de media curva",
@@ -681,6 +1114,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Eagle Parts",
         title: "EAG-SBT2639",
         images: ["/QTM-SLN5781.png"],
         description: "Barra Tensora Hembra con Buje de 2.75, hueco 5/8″",
@@ -688,6 +1122,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Eagle Parts",
         title: "EAG-SSB2830",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "BALANCIN FREUHAUF",
@@ -695,6 +1130,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Eagle Parts",
         title: "EAG-SBT5680",
         images: ["/EAG-TCR5572 - 400px.png"],
         description:
@@ -703,6 +1139,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Eagle Parts",
         title: "EAG-SCS2919PU",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Sapo Mediano (Superior) Poliuretano",
@@ -717,6 +1154,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Eagle Parts",
         title: "EAG-DTD0411R",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Terminal de direccion Inter Largo",
@@ -724,6 +1162,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Eagle Parts",
         title: "EAG-DTB4272",
         images: ["/QTM-SLN5781.png"],
         description: "Tercer Brazo Mack CH (34.75″ nominal /centro a centro)",
@@ -731,6 +1170,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Eagle Parts",
         title: "EAG-DBT2514",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Brazo de Torque Fijo",
@@ -738,6 +1178,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Eagle Parts",
         title: "EAG-DTB3426",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Tercer Brazo (Barra de Arrastre) 18 3/4″ centro a centro",
@@ -745,6 +1186,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Eagle Parts",
         title: "EAG-DTB5366",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Tercer Brazo Navistar Stud Center-Stud Center: 18.14”",
@@ -759,6 +1201,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Quantum Trux Parts",
         title: "QTM-CTR6760",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "anque de Refrigerante para MACK GU Y CV",
@@ -766,6 +1209,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-CTC6714",
         images: ["/QTM-SLN5781.png"],
         description: "Tapa Tanque de Expansión de Líquido Refrigerante M2",
@@ -773,6 +1217,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Quantum Trux Parts",
         title: "QTM-RRF8506",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Radiador",
@@ -781,6 +1226,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-RIC8551",
         images: ["/EAG-TCR5572 - 400px.png"],
         description:
@@ -790,6 +1236,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Quantum Trux Parts",
         title: "QTM-CTR6764",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Tanque de Refrigerante para Freightliner FLD120",
@@ -804,6 +1251,7 @@ export const featuredProdcuts = [
     products: [
       {
         id: 1,
+        name: "Quantum Trux Parts",
         title: "QTM-LFI4102",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Lámpara Frontal International Serie 9,000 Izq",
@@ -812,6 +1260,7 @@ export const featuredProdcuts = [
       },
       {
         id: 2,
+        name: "Quantum Trux Parts",
         title: "QTM-LDL5004",
         images: ["/QTM-SLN5781.png"],
         description: "Lámpara Direccional para Mack (mismo para Izq. Y Der.)",
@@ -819,6 +1268,7 @@ export const featuredProdcuts = [
       },
       {
         id: 3,
+        name: "Quantum Trux Parts",
         title: "QTM-LWL5057R",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Lámpara de LED Circular  con Borde Rojo 51W, 17 diodos ",
@@ -826,6 +1276,7 @@ export const featuredProdcuts = [
       },
       {
         id: 4,
+        name: "Quantum Trux Parts",
         title: "QTM-LEL5156",
         images: ["/EAG-TCR5572 - 400px.png"],
         description:
@@ -835,6 +1286,7 @@ export const featuredProdcuts = [
       },
       {
         id: 5,
+        name: "Quantum Trux Parts",
         title: "QTM-LLP4002R",
         images: ["/EAG-TCR5572 - 400px.png"],
         description: "Lámpara de 8 LED de 4″ / 12 V Roja ",

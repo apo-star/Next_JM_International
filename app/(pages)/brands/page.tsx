@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 /** @format */
 
@@ -37,7 +39,8 @@ const handleModal = (brand: Object, setBrand: Function, open: Function) => {
 };
 import Link from "next/link";
 import { useTranslation } from "@/app/hooks/useTranslation";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { mountAction } from "@/app/store/store";
 console.log("Bran: ", brandImages);
 
 /**
@@ -86,7 +89,7 @@ const brandsGrid = (
                   />
                   <p className='text-body'>
                     {trimParagraph(
-                      (language && language === "en")
+                      language && language === "en"
                         ? brand?.description
                         : brand?.descriptionES
                     )}
@@ -110,6 +113,7 @@ const brandsGrid = (
 export default function BrandsPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const [currentBrand, setcurrentBrand] = useState({
     name: "",
     logo: "",
@@ -160,7 +164,10 @@ export default function BrandsPage() {
                 href={{
                   pathname: "/products",
                   query: { brandName: currentBrand.name }
-                }}>
+                }}
+                onClick={() =>
+                  dispatch(mountAction.updateProduct(currentBrand.name))
+                }>
                 <Button
                   // leftIcon={<EmailIcon />}
                   colorScheme='red'

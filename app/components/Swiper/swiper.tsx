@@ -52,18 +52,19 @@ export default function Carousel({
           <SwiperSlide key={product.id}>
             <VStack alignItems={"center"} justifyContent={"center"}>
               {/* <Box> */}
-              <Image
-                src={product.images[0]}
-                alt={product.name}
-                objectFit='contain'
-                width={"100px"}
-                height={"150px"}
-                justifyContent={"center"}
-                align={"center"}
-                onClick={() => setSelect(product.id)}
+              <button onClick={() => setSelect(product.id)}>
+                <Image
+                  src={product.images[0]}
+                  alt={product.name}
+                  objectFit='contain'
+                  width={"100px"}
+                  height={"150px"}
+                  justifyContent={"center"}
+                  align={"center"}
 
-                // mb={4}
-              />
+                  // mb={4}
+                />
+              </button>
               {/* </Box> */}
               {/* <Box>
                 <Text textAlign={"center"} fontSize="lg" fontWeight="bold">

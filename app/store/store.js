@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 /** @format */
 
@@ -16,6 +18,7 @@ export const mountSlice = createSlice({
   initialState: {
     isMount: false,
     language: navigatorLanguage,
+    product: ""
   },
   reducers: {
     mountChange: (state) => {
@@ -24,13 +27,17 @@ export const mountSlice = createSlice({
     languageChange: (state, action) => {
       state.language = action.payload;
     },
-  },
+    updateProduct: (state, action) => {
+      console.log("Action: ", action);
+      state.product = action.payload;
+    }
+  }
 });
 // config the store
 const store = configureStore({
   reducer: {
-    mount: mountSlice.reducer,
-  },
+    mount: mountSlice.reducer
+  }
 });
 
 // export default the store

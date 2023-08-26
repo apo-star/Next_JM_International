@@ -25,7 +25,7 @@ export default function Contact() {
     <>
       <Navbar isHomePage={false} />
       <Flex
-        bgImage='/comp7H.jpg'
+        bgImage='/comp6H.jpg'
         bgPos={"bottom"}
         w={"full"}
         h={useBreakpointValue({ base: "30vh", sm: "30vh", lg: "50vh" })}

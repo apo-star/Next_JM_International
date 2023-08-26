@@ -51,6 +51,8 @@ import { useTranslation } from "./hooks/useTranslation";
 import Link from "next/link";
 
 import "./styles.home.css";
+import { mountAction } from "./store/store";
+import { useDispatch } from "react-redux";
 
 const inter = Inter({ subsets: ["latin"] });
 const brands = [
@@ -90,6 +92,7 @@ export default function Home() {
   };
 
   const Carusel = ({ sections }: any) => {
+    const dispatch = useDispatch();
     const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
     useEffect(() => {
@@ -114,9 +117,10 @@ export default function Home() {
             <Link
               key={product.id}
               href={{
-                pathname: "/products",
-                query: { brandName: product.title }
+                pathname: "/products"
+                // query: { brandName: product.name }
               }}
+              onClick={() => dispatch(mountAction.updateProduct(product.name))}
               className='carousel-item'>
               <div
                 style={{

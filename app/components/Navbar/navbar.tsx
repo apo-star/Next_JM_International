@@ -197,13 +197,14 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => { 
+const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+  const dispatch = useDispatch();
   return (
     <Link
       href={{
-        pathname: href,
-        query: { brandName: label }
-      }}>
+        pathname: href
+      }}
+      onClick={() => dispatch(mountAction.updateProduct(label))}>
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text

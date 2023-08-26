@@ -27,11 +27,12 @@ import {
 import TextWithLine from "@/app/components/TextDecoration/textDecoration";
 import "./style.css";
 import { useTranslation } from "@/app/hooks/useTranslation";
+import { useSelector } from "react-redux";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const getFilterProduct = async (info: any) => {
-  const noSpaces = info.brandName.replace(/\s/g, "");
+  const noSpaces = info.p.replace(/\s/g, "");
   const dataProductos = info.DATA.filter(
     (prod: any) => prod.brand.toUpperCase() === noSpaces.toUpperCase()
   );
@@ -41,26 +42,30 @@ const getFilterProduct = async (info: any) => {
 
 const getFilterBrand = async (info: any) => {
   const dataProductos = info.brandImages.filter(
-    (prod: any) => prod.name.toUpperCase() === info.brandName.toUpperCase()
+    (prod: any) => prod.name.toUpperCase() === info.p.toUpperCase()
   );
-
   return dataProductos ?? info.brandImages[0];
 };
 
 export default function Products({ searchParams }: any) {
-  const brandName = searchParams?.brandName;
   const { t } = useTranslation();
+  const state = useSelector((state: any) => state.mount);
 
-  const [brand] = useState(brandName);
   const [products, setProducts] = useState<any>({});
   const [selectedProduct, setselectedProduct] = useState(0);
   const [currentBrand, setCurrentBrand] = useState<any>({});
 
   useEffect(() => {
     (async () => {
-      if (brandName?.length > 0) {
-        const brandInfo = await getFilterBrand({ brandImages, brandName });
-        const productFilter = await getFilterProduct({ DATA, brandName });
+      if (state?.product?.length > 0) {
+        const brandInfo = await getFilterBrand({
+          brandImages,
+          p: state.product
+        });
+        const productFilter = await getFilterProduct({
+          DATA,
+          p: state.product
+        });
         if (productFilter.length > 0) {
           setProducts(productFilter[0]);
         }
@@ -73,9 +78,8 @@ export default function Products({ searchParams }: any) {
       }
     })();
     return () => {};
-  }, [searchParams]);
+  }, [state, state?.product]);
   console.log("selectedProduct", selectedProduct);
-  // console.log("Current: ", currentBrand);
   return (
     <>
       <Navbar isHomePage={false} />
@@ -152,8 +156,14 @@ export default function Products({ searchParams }: any) {
                 {products?.products?.length > 0 && (
                   <VStack p={4} alignItems={"center"} justifyContent={"center"}>
                     <Image
-                      src={products?.products[selectedProduct - 1]?.images[0]}
-                      alt={products?.products[selectedProduct - 1]?.images[0]}
+                      src={
+                        products?.products[selectedProduct - 1]?.images[0] ??
+                        products?.products[0]?.images[0]
+                      }
+                      alt={
+                        products?.products[selectedProduct - 1]?.images[0] ??
+                        products?.products[0]?.images[0]
+                      }
                       width={250}
                       height={300}
                       objectFit={"contain"}
