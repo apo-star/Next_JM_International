@@ -18,7 +18,8 @@ export const mountSlice = createSlice({
   initialState: {
     isMount: false,
     language: navigatorLanguage,
-    product: ""
+    product: "",
+    indexProduct:""
   },
   reducers: {
     mountChange: (state) => {
@@ -29,7 +30,8 @@ export const mountSlice = createSlice({
     },
     updateProduct: (state, action) => {
       console.log("Action: ", action);
-      state.product = action.payload;
+      state.product = action.payload.products;
+      state.indexProduct = action.payload.index
     }
   }
 });

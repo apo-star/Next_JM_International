@@ -13,7 +13,7 @@ import {
   SimpleGrid,
   Text,
   VStack,
-  useBreakpointValue
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import Navbar from "@/app/components/Navbar/navbar";
 import ProductCarousel from "@/app/components/Swiper/productSwiper";
@@ -22,7 +22,7 @@ import { useState, useEffect } from "react";
 import {
   brandImages,
   products as DATA,
-  bannerImages
+  bannerImages,
 } from "./../../utils/assetIndex";
 import TextWithLine from "@/app/components/TextDecoration/textDecoration";
 import "./style.css";
@@ -60,13 +60,19 @@ export default function Products({ searchParams }: any) {
       if (state?.product?.length > 0) {
         const brandInfo = await getFilterBrand({
           brandImages,
-          p: state.product
+          p: state.product,
         });
         const productFilter = await getFilterProduct({
           DATA,
-          p: state.product
+          p: state.product,
         });
         if (productFilter.length > 0) {
+          if (state?.indexProduct?.length > 0) {
+          const selectProcut = productFilter[0].products.findIndex(
+            (element: any) => element.title === state.indexProduct
+          );
+          setselectedProduct(selectProcut + 1 ?? 0);
+        }
           setProducts(productFilter[0]);
         }
         if (brandInfo.length > 0) {
@@ -77,9 +83,9 @@ export default function Products({ searchParams }: any) {
         setCurrentBrand(brandImages[1]);
       }
     })();
+
     return () => {};
-  }, [state, state?.product]);
-  console.log("selectedProduct", selectedProduct);
+  }, [state, state?.product,state?.indexProduct]);
   return (
     <>
       <Navbar isHomePage={false} />
@@ -91,13 +97,15 @@ export default function Products({ searchParams }: any) {
         backgroundSize={"cover"}
         pos={"relative"}
         marginBottom={50}
-        top={55}>
+        top={55}
+      >
         <VStack
           w={"full"}
           justify={"center"}
           px={useBreakpointValue({ base: 4, md: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
-          pos={"relative"}>
+          pos={"relative"}
+        >
           <Heading
             color={"white"}
             fontWeight={700}
@@ -106,16 +114,17 @@ export default function Products({ searchParams }: any) {
               base: "2xl",
               md: "4xl",
               lg: "6xl",
-              sm: "xl"
+              sm: "xl",
             })}
             maxW={800}
-            textAlign={"end"}>
+            textAlign={"end"}
+          >
             Products
           </Heading>
           <div
             style={{
               borderWidth: "1px",
-              width: `${"Products".length}em`
+              width: `${"Products".length}em`,
             }}
           />
           <Text
@@ -128,10 +137,11 @@ export default function Products({ searchParams }: any) {
               base: "xl",
               md: "xl",
               lg: "xl",
-              sm: "xl"
+              sm: "xl",
             })}
             textAlign={"center"}
-            wordBreak={"break-word"}>
+            wordBreak={"break-word"}
+          >
             Selection of High-Quality Partners
           </Text>
         </VStack>
@@ -142,17 +152,18 @@ export default function Products({ searchParams }: any) {
         margin={10}
         paddingTop={10}
         justifyContent={"center"}
-        alignItems={"center"}>
+        alignItems={"center"}
+      >
         <Box marginLeft={10} justifyContent={"center"} alignItems={"center"}>
           <Box justifyContent={"center"} w={"100%"}>
-            <div className='card' style={{ width: "300px" }}>
+            <div className="card" style={{ width: "300px" }}>
               {/* {products?.products?.length > 0 && (
                 <ProductCarousel
                   products={products?.products ?? []}
                   perView={1}
                 />
               )} */}
-              <div className='card-content'>
+              <div className="card-content">
                 {products?.products?.length > 0 && (
                   <VStack p={4} alignItems={"center"} justifyContent={"center"}>
                     <Image
@@ -175,10 +186,11 @@ export default function Products({ searchParams }: any) {
           </Box>
           <Box margin={10} justifyContent={"center"} alignItems={"center"}>
             <Text
-              fontSize='xl'
+              fontSize="xl"
               maxW={"100%"}
               textAlign={"center"}
-              color={"rgba(1,1,1,0.5)"}>
+              color={"rgba(1,1,1,0.5)"}
+            >
               Other products from this brand
             </Text>
             {products?.products?.length > 0 && (
@@ -204,11 +216,12 @@ export default function Products({ searchParams }: any) {
             <Box w={"100%"} justifyContent={"center"}>
               {products?.products?.length > 0 && (
                 <Image
-                  alt='brand'
-                  objectFit='contain'
+                  alt="brand"
+                  objectFit="contain"
                   width={"200px"}
                   height={"250px"}
-                  src={products.logo}></Image>
+                  src={products.logo}
+                ></Image>
               )}
             </Box>
           </Box>
@@ -216,7 +229,7 @@ export default function Products({ searchParams }: any) {
       </SimpleGrid>
       <Flex pt={10} width={"100%"} justifyContent={"center"} h={"100%"}>
         <VStack pb={20} justify={"center"} align={"center"}>
-          <TextWithLine text='About The Vendor' />
+          <TextWithLine text="About The Vendor" />
           <Box maxW={"80%"}>
             <Text pt={5} textAlign={"justify"} maxW={"5xl"}>
               {currentBrand?.description ?? ""}

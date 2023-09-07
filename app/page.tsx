@@ -8,7 +8,6 @@ import { useEffect, useRef, useState } from "react";
 import BrandCarousel from "./components/Swiper/brandSwiper";
 import {
   Container,
-  Image,
   SimpleGrid,
   Spacer,
   Stat,
@@ -16,7 +15,8 @@ import {
   StatGroup,
   StatHelpText,
   StatLabel,
-  StatNumber
+  StatNumber,
+  Image as ImageC
 } from "@chakra-ui/react";
 import Navbar from "./components/Navbar/navbar";
 
@@ -53,6 +53,7 @@ import Link from "next/link";
 import "./styles.home.css";
 import { mountAction } from "./store/store";
 import { useDispatch } from "react-redux";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 const brands = [
@@ -105,13 +106,13 @@ export default function Home() {
     }, [currentSectionIndex, sections.length]);
 
     const currentSection = sections[currentSectionIndex];
-
+    
     return (
       <div className='carousel-container'>
         <VStack marginBottom={10}>
           <TextWithLine text={currentSection.section} />
         </VStack>
-
+        
         <div className='carousel'>
           {currentSection.products.map((product: any) => (
             <Link
@@ -120,7 +121,7 @@ export default function Home() {
                 pathname: "/products"
                 // query: { brandName: product.name }
               }}
-              onClick={() => dispatch(mountAction.updateProduct(product.name))}
+              onClick={() => dispatch(mountAction.updateProduct({products:product.name,index:product.title}))}
               className='carousel-item'>
               <div
                 style={{
@@ -129,7 +130,7 @@ export default function Home() {
                   alignItems: "center",
                   display: "flex"
                 }}>
-                <Image
+                <ImageC
                   className='carousel-img'
                   src={product.images[0]}
                   alt={product.title}
@@ -307,14 +308,14 @@ export default function Home() {
             </Box>
 
             <div className='row-card'>
-              <Image
+              <ImageC
                 boxSize='300px'
                 objectFit='contain'
                 alt='Contact Us'
                 src={"/quantumCatalogo2022.jpg"}
                 margin={10}
               />
-              <Image
+              <ImageC
                 boxSize='300px'
                 objectFit='contain'
                 alt='Contact Us'
@@ -333,7 +334,7 @@ export default function Home() {
           bgRepeat={"no-repeat"}
           bgPos={"right"}
           bgColor={"#b3b3b3"}>
-          <Image
+          <ImageC
             className='image-contact'
             boxSize='500px'
             w={"650px"}
