@@ -200,7 +200,7 @@ export default function Home() {
           spacing={8}
           padding={3}
         >
-          <Heading color={"white"} as="h1" size="2xl" textAlign={"center"}>
+          <Heading color={"white"} as="h1" size="2xl" maxW={"2xl"} textAlign={"center"}>
             {t("TRAILER_TRUK")}
           </Heading>
           <Divider maxWidth={500} />

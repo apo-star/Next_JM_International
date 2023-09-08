@@ -247,7 +247,7 @@ export default function BrandsPage() {
         </VStack>
       </Flex>
       <VStack pt={10} alignItems='center' justify={"center"} padding={5}>
-        <TextWithLine text='Our Family of Brands' />
+        <TextWithLine text='Brands We Represent' />
         <Text as='h4' fontSize='xl' color={"rgba(1,1,1,0.4)"}>
           Under JM Internacional ownership, we deliver all you need.
         </Text>
@@ -261,7 +261,7 @@ export default function BrandsPage() {
         </VStack>
       </VStack>
       <VStack alignItems='center' justify={"center"} padding={5}>
-        <TextWithLine text='Our Allies' />
+        <TextWithLine text='We Are Authorized Distributors' />
         <Text as='h4' fontSize='xl' color={"rgba(1,1,1,0.4)"}>
           Partners that deliver the best quality and assortment of products
         </Text>

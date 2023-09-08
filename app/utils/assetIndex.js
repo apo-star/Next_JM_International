@@ -39,7 +39,7 @@ export const brandImages = [
   {
     id: 5,
     name: "GoodYear",
-    logo: "/goodyear.png",
+    logo: "/goodyear.jfif",
     owned: false,
     description:
       "Goodyear air springs for your truck or trailer will offer a quiet, more cushioned ride resulting in greater comfort, peace of mind, and safety. Due to less vibration, truck and trailer suspension components will last longer while providing durability and improved protection from shock and vibration for the vehicle, passenger, and cargo.",
@@ -65,8 +65,8 @@ export const brandImages = [
   },
   {
     id: 8,
-    name: "Wuhlermann",
-    logo: "/Wuhlermann.png",
+    name: "Triseal",
+    logo: "/triseal.jfif",
     owned: false,
     description:
       "Wuhlermann air springs are manefactured in Bursa city, Turkey. To responds the increasing demands from the markets we are producing more than 1000 types of air springs in its product range as roll type air springs, service assembly type air springs, complete type air springs, cabin air springs, convoluted air springs, American Types and piston sorts.",
@@ -735,8 +735,8 @@ export const products = [
     ]
   },
   {
-    brand: "wuhlermann",
-    logo: "/Wuhlermann.png",
+    brand: "triseal",
+    logo: "/triseal.jpeg",
     id: 8,
     products: [
       {

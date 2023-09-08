@@ -68,11 +68,11 @@ export default function Products({ searchParams }: any) {
         });
         if (productFilter.length > 0) {
           if (state?.indexProduct?.length > 0) {
-          const selectProcut = productFilter[0].products.findIndex(
-            (element: any) => element.title === state.indexProduct
-          );
-          setselectedProduct(selectProcut + 1 ?? 0);
-        }
+            const selectProcut = productFilter[0].products.findIndex(
+              (element: any) => element.title === state.indexProduct
+            );
+            setselectedProduct(selectProcut + 1 ?? 0);
+          }
           setProducts(productFilter[0]);
         }
         if (brandInfo.length > 0) {
@@ -85,7 +85,7 @@ export default function Products({ searchParams }: any) {
     })();
 
     return () => {};
-  }, [state, state?.product,state?.indexProduct]);
+  }, [state, state?.product, state?.indexProduct]);
   return (
     <>
       <Navbar isHomePage={false} />
@@ -205,12 +205,12 @@ export default function Products({ searchParams }: any) {
 
         <Box w={"100%"} justifyContent={"center"} marginLeft={10}>
           {products?.products?.length > 0 && (
-            <Heading>{products?.products[selectedProduct]?.title}</Heading>
+            <Heading>{products?.products[selectedProduct - 1]?.title}</Heading>
           )}
           <Box maxW={"80%"} justifyContent={"center"} alignItems={"center"}>
             {products?.products?.length > 0 && (
               <Text textAlign={"left"}>
-                {products?.products[selectedProduct]?.description}
+                {products?.products[selectedProduct - 1]?.description}
               </Text>
             )}
             <Box w={"100%"} justifyContent={"center"}>

@@ -97,7 +97,7 @@ export default function About() {
           }}>
           <div className='container2'>
             <TextWithLine text='Our Motivation' undecorate />
-
+            <Divider />
             <Text fontSize='xl' textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
               The truck spare parts and accessories market is becoming more{" "}
               <b>demanding and competitive</b> every day to win the preference
@@ -200,7 +200,7 @@ export default function About() {
               ahead of the rest is easy, just check out our total quality. JM
               International is your best option.
             </Text>
-            <Image src={brandImages[0].logo} alt={brandImages[0].name} />
+            <Image maxH={"300px"} src={brandImages[0].logo} alt={brandImages[0].name} />
           </VStack>
         </HStack>
       </Box>
