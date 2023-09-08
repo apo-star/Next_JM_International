@@ -9,7 +9,7 @@ import {
   Scrollbar,
   A11y,
   EffectCube,
-  Autoplay
+  Autoplay,
 } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
@@ -24,11 +24,11 @@ type Brand = {
 
 export default function BrandCarousel({
   brands,
-  perView
+  perView,
 }: {
   brands: Array<Brand>;
   perView: number;
-  }) {
+}) {
   return (
     <Box maxW={"100vw"}>
       <Swiper
@@ -40,9 +40,10 @@ export default function BrandCarousel({
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
         autoplay={{
-          delay: 2500
+          delay: 2500,
           // disableOnInteraction: false,
-        }}>
+        }}
+      >
         {brands.map((brand: Brand) =>
           brand.id === 1 ? null : (
             <SwiperSlide key={brand.id}>
@@ -51,10 +52,12 @@ export default function BrandCarousel({
                 <Image
                   src={brand.logo}
                   alt={brand.name}
-                  // objectFit="fill"
+                  objectFit="contain"
+                  marginLeft={10}
+                  marginRight={10}
                   minH={"100px"}
                   minW={"150px"}
-                  maxW={"170px"}
+                  maxW={"100%"}
                   maxH={"100px"}
                   justifyContent={"center"}
                   align={"center"}
