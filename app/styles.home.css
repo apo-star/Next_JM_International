@@ -18,16 +18,21 @@
   display: flex;
   overflow: hidden;
   white-space: nowrap;
-  width: 100%;
+  max-width: 100%;
+  margin-left: 50;
+  margin-right: 50;
+  align-items: center;
+
 }
 
 .carousel-item {
   flex-shrink: 0;
-  width: 18%; 
+  width: 18%;
+  max-width: 300px; 
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-right: 20px; /* Espacio entre elementos */
+  margin-right: 10px; /* Espacio entre elementos */
   transition: margin 0.3s ease-in-out;
 }
 
@@ -55,12 +60,7 @@
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  transition: all 0.3s ease; /* Agrega transición para suavizar el efecto */
-}
-
-.carousel-item:hover p {
-  white-space: normal; /* Muestra el texto completo en hover */
+  white-space: nowrap; /* Agrega transición para suavizar el efecto */
 }
 
 /* Media query para dispositivos pequeños */
