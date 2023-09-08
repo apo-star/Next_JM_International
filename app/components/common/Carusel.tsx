@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import TextWithLine from "../TextDecoration/textDecoration";
 import { mountAction } from "@/app/store/store";
-
+import "./style.css";
 const Carusel = ({ sections }: any) => {
   const dispatch = useDispatch();
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
@@ -95,6 +95,7 @@ const Carusel = ({ sections }: any) => {
           /> */}
       </div>
       <div
+        className="dots"
         style={{
           width: "100%",
           display: "flex",
@@ -117,18 +118,24 @@ const Carusel = ({ sections }: any) => {
             console.log("INDEX: ", index);
             console.log("currentSectionIndex: ", currentSectionIndex);
             return (
-              <div
-                key={index}
+              <button
                 style={{
-                  backgroundColor:
-                    index === currentSectionIndex ? "red" : "#C9C6C6",
-                  width: 10,
-                  height: 10,
-                  borderRadius: 10,
-                  margin: 10,
+                  width: 20,
                 }}
+                key={index}
                 onClick={() => handleIndicatorPress(index)}
-              />
+              >
+                <div
+                  style={{
+                    backgroundColor:
+                      index === currentSectionIndex ? "red" : "#C9C6C6",
+                    width: 10,
+                    height: 10,
+                    borderRadius: 10,
+                    margin: 10,
+                  }}
+                />
+              </button>
             );
           })}
         </div>

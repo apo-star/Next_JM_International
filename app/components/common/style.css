@@ -1,0 +1,6 @@
+/* Media query para dispositivos pequeños */
+@media screen and (max-width: 800px) {
+   .dots{
+    display: none !important;
+   }
+}
