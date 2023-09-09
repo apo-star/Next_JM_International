@@ -19,7 +19,7 @@ export const mountSlice = createSlice({
     isMount: false,
     language: navigatorLanguage,
     product: "",
-    indexProduct:""
+    indexProduct: "",
   },
   reducers: {
     mountChange: (state) => {
@@ -29,17 +29,16 @@ export const mountSlice = createSlice({
       state.language = action.payload;
     },
     updateProduct: (state, action) => {
-      console.log("Action: ", action);
       state.product = action.payload.products;
-      state.indexProduct = action.payload.index
-    }
-  }
+      state.indexProduct = action.payload.index;
+    },
+  },
 });
 // config the store
 const store = configureStore({
   reducer: {
-    mount: mountSlice.reducer
-  }
+    mount: mountSlice.reducer,
+  },
 });
 
 // export default the store

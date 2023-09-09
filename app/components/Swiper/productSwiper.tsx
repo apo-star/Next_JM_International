@@ -9,7 +9,7 @@ import {
   Scrollbar,
   A11y,
   EffectCube,
-  Autoplay
+  Autoplay,
 } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
@@ -25,12 +25,11 @@ type Product = {
 
 export default function ProductCarousel({
   products,
-  perView
+  perView,
 }: {
   products: Array<Product>;
   perView: number;
 }) {
-  // console.log("products", products);
   return (
     <>
       <Swiper
@@ -42,9 +41,10 @@ export default function ProductCarousel({
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
         autoplay={{
-          delay: 2500
+          delay: 2500,
           // disableOnInteraction: false,
-        }}>
+        }}
+      >
         {products?.map((product: Product) => (
           <SwiperSlide key={product.id}>
             <VStack p={4} alignItems={"center"} justifyContent={"center"}>
@@ -52,7 +52,7 @@ export default function ProductCarousel({
               <Image
                 src={product.images[0]}
                 alt={product.title}
-                objectFit='contain'
+                objectFit="contain"
                 width={"150px"}
                 height={"200px"}
                 justifyContent={"center"}

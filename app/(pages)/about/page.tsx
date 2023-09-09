@@ -16,7 +16,7 @@ import {
   HStack,
   Image,
   SimpleGrid,
-  Box
+  Box,
 } from "@chakra-ui/react";
 import { brandImages } from "./../../utils/assetIndex";
 import TextWithLine from "@/app/components/TextDecoration/textDecoration";
@@ -31,25 +31,28 @@ export default function About() {
     <Box alignItems={"center"}>
       <Navbar isHomePage={true} />
       <Flex
-        bgImage='/pageEnd.webp'
+        bgImage="/pageEnd.webp"
         bgPos={"bottom"}
         w={"full"}
         h={useBreakpointValue({ base: "35vh", sm: "35vh", lg: "50vh" })}
         backgroundSize={"cover"}
-        pos={"relative"}>
+        pos={"relative"}
+      >
         <VStack
           w={"full"}
           justify={"center"}
           px={useBreakpointValue({ base: 4, md: 8 })}
           bgGradient={"linear(to-r, blackAlpha.600, transparent)"}
-          pos={"relative"}>
+          pos={"relative"}
+        >
           <Stack
             maxW={"xl"}
             align={"flex-start"}
             spacing={6}
             pos={"relative"}
-            alignItems='center'
-            justify={"center"}>
+            alignItems="center"
+            justify={"center"}
+          >
             <Heading
               color={"white"}
               fontWeight={700}
@@ -58,15 +61,16 @@ export default function About() {
                 base: "2xl",
                 md: "3xl",
                 lg: "5xl",
-                sm: "xl"
+                sm: "xl",
               })}
-              maxW={800}>
+              maxW={800}
+            >
               About Us
             </Heading>
             <div
               style={{
                 borderWidth: "1px",
-                width: `${"About us".length - 1}em`
+                width: `${"About us".length - 1}em`,
               }}
             />
             <Text
@@ -77,9 +81,10 @@ export default function About() {
                 base: "2xl",
                 md: "2xl",
                 lg: "xl",
-                sm: "xl"
+                sm: "xl",
               })}
-              maxW={800}>
+              maxW={800}
+            >
               Why we are your best option
             </Text>
           </Stack>
@@ -90,15 +95,16 @@ export default function About() {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
             alignItems: "center",
             marginTop: 20,
-            marginBottom: 10
-          }}>
-          <div className='container2'>
-            <TextWithLine text='Our Motivation' undecorate />
+            marginBottom: 10,
+          }}
+        >
+          <div className="container2">
+            <TextWithLine text="Our Motivation" undecorate />
             <Divider />
-            <Text fontSize='xl' textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
+            <Text fontSize="xl" textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
               The truck spare parts and accessories market is becoming more{" "}
               <b>demanding and competitive</b> every day to win the preference
               of mechanics, which is why parts distributors look for reliable
@@ -106,51 +112,53 @@ export default function About() {
               notices the difference and appreciates it.
             </Text>
           </div>
-          <Box marginLeft={5}>
+          <Box>
             <Image
-              borderRadius='180px'
+              borderRadius="180px"
               maxH={"400px"}
               minW={"360px"}
-              objectFit='contain'
-              alt='Contact Us'
+              objectFit="contain"
+              alt="Contact Us"
               src={"/comp1H.jpg"}
-              className='displayImage'
+              className="displayImage"
             />
           </Box>
         </div>
         <div
-          className='container'
+          className="container"
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
             alignItems: "center",
             marginTop: 20,
-            marginBottom: 10
-          }}>
-          <VStack className='img' marginRight={10}>
+            marginBottom: 10,
+          }}
+        >
+          <VStack className="img">
             <Image
-              borderRadius='180px'
+              borderRadius="180px"
               maxH={"400px"}
               minW={"360px"}
-              objectFit='contain'
-              alt='Contact Us'
+              objectFit="contain"
+              alt="Contact Us"
               src={"/comp7H.jpg"}
-              className='displayImage'
+              className="displayImage"
             />
           </VStack>
-          <div className='container2'>
-            <TextWithLine text='Our Proposal' undecorate />
+          <div className="container2">
+            <TextWithLine text="Our Proposal" undecorate />
             <Divider />
-            <Text fontSize='xl' textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
+            <Text fontSize="xl" textAlign={"justify"} color={"rgba(1,1,1,0.8)"}>
               {t("ABOUT_SECOND")}
             </Text>
             <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                justifyContent: "center"
-              }}>
+                justifyContent: "center",
+              }}
+            >
               <Image
                 src={brandImages[2].logo}
                 alt={brandImages[2].description}
@@ -180,13 +188,14 @@ export default function About() {
           spacing={20}
           justify={"center"}
           w={"full"}
-          bgColor={"rgba(0,0,0,.8)"}>
+          bgColor={"rgba(0,0,0,.8)"}
+        >
           <VStack spacing={"6"} padding={10}>
             <Heading size={"2xl"} color={"white"}>
               We Are Your Ally
             </Heading>
             <Divider />
-            <Text fontSize='xl' textAlign={"justify"} color={"white"}>
+            <Text fontSize="xl" textAlign={"justify"} color={"white"}>
               Given the above, by marketing our products, you eliminate
               complaints and claims, generating the trust and loyalty of the
               mechanics. But, JM Internacional gives you much more: product
@@ -200,7 +209,11 @@ export default function About() {
               ahead of the rest is easy, just check out our total quality. JM
               International is your best option.
             </Text>
-            <Image maxH={"300px"} src={brandImages[0].logo} alt={brandImages[0].name} />
+            <Image
+              maxH={"300px"}
+              src={brandImages[0].logo}
+              alt={brandImages[0].name}
+            />
           </VStack>
         </HStack>
       </Box>

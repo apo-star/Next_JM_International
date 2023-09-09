@@ -52,7 +52,7 @@ export default function Products({ searchParams }: any) {
   const state = useSelector((state: any) => state.mount);
 
   const [products, setProducts] = useState<any>({});
-  const [selectedProduct, setselectedProduct] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(0);
   const [currentBrand, setCurrentBrand] = useState<any>({});
 
   useEffect(() => {
@@ -68,10 +68,13 @@ export default function Products({ searchParams }: any) {
         });
         if (productFilter.length > 0) {
           if (state?.indexProduct?.length > 0) {
-            const selectProcut = productFilter[0].products.findIndex(
+            const selectProduct = productFilter[0].products.findIndex(
               (element: any) => element.title === state.indexProduct
             );
-            setselectedProduct(selectProcut + 1 ?? 0);
+            setSelectedProduct(selectProduct + 1 ?? 0);
+          }
+          if (state?.indexProduct === 0) {
+            setSelectedProduct(1);
           }
           setProducts(productFilter[0]);
         }
@@ -86,6 +89,12 @@ export default function Products({ searchParams }: any) {
 
     return () => {};
   }, [state, state?.product, state?.indexProduct]);
+
+  console.log(
+    "products?.products[selectedProduct - 1]?.replacement",
+    products?.products
+  );
+
   return (
     <>
       <Navbar isHomePage={false} />
@@ -154,7 +163,7 @@ export default function Products({ searchParams }: any) {
         justifyContent={"center"}
         alignItems={"center"}
       >
-        <Box marginLeft={10} justifyContent={"center"} alignItems={"center"}>
+        <Box justifyContent={"center"} alignItems={"center"}>
           <Box justifyContent={"center"} w={"100%"}>
             <div className="card" style={{ width: "300px" }}>
               {/* {products?.products?.length > 0 && (
@@ -197,7 +206,7 @@ export default function Products({ searchParams }: any) {
               <Carousel
                 products={products?.products ?? []}
                 perView={3}
-                setSelect={setselectedProduct}
+                setSelect={setSelectedProduct}
               />
             )}
           </Box>
@@ -207,11 +216,28 @@ export default function Products({ searchParams }: any) {
           {products?.products?.length > 0 && (
             <Heading>{products?.products[selectedProduct - 1]?.title}</Heading>
           )}
-          <Box maxW={"80%"} justifyContent={"center"} alignItems={"center"}>
+          <Box maxW={"50%"} justifyContent={"center"} alignItems={"center"}>
             {products?.products?.length > 0 && (
-              <Text textAlign={"left"}>
-                {products?.products[selectedProduct - 1]?.description}
-              </Text>
+              <>
+                <Text textAlign={"justify"} marginTop={5}>
+                  {products?.products[selectedProduct - 1]?.description}
+                </Text>
+                {products?.products[selectedProduct - 1]?.replacement?.length >
+                0 ? (
+                  <div style={{ marginTop: 10 }}>
+                    <Text>Repuesto de: </Text>
+                    <ul style={{ marginLeft: 30 }}>
+                      {products?.products[selectedProduct - 1]?.replacement.map(
+                        (text: string) => (
+                          <li key={text} color={"red"}>
+                            {text}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                ) : null}
+              </>
             )}
             <Box w={"100%"} justifyContent={"center"}>
               {products?.products?.length > 0 && (

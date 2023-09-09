@@ -17,13 +17,13 @@ import {
   useDisclosure,
   Image,
   Link as LinkChakra,
-  useStyleConfig
+  useStyleConfig,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import "./navbar.css";
@@ -63,10 +63,11 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
 
   return (
     <Box
-      as='header'
+      as="header"
       position={isHomePage ? "fixed" : "fixed"}
-      w='100%'
-      zIndex={10}>
+      w="100%"
+      zIndex={10}
+    >
       <Flex
         // overflowY="hidden"
         bg={!active && isHomePage ? transparentNavbar : blackNavbar}
@@ -76,11 +77,13 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
         minH={"80px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        align={"center"}>
+        align={"center"}
+      >
         <Flex
           flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}>
+          display={{ base: "flex", md: "none" }}
+        >
           <IconButton
             onClick={onToggle}
             icon={
@@ -98,11 +101,12 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
         <Flex
           flex={{ base: 1 }}
           justify={{ base: "center", md: "start" }}
-          alignItems='center'>
-          <LinkChakra as={Link} href='/'>
+          alignItems="center"
+        >
+          <LinkChakra as={Link} href="/">
             <Image
-              src='/jm-logo-transparent-bg-min.webp'
-              alt='Brand'
+              src="/jm-logo-transparent-bg-min.webp"
+              alt="Brand"
               width={150}
               height={50}
             />
@@ -118,13 +122,14 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
-          display={{ base: "none", md: "inline-flex" }}>
+          display={{ base: "none", md: "inline-flex" }}
+        >
           <Image
             onClick={() => {
               dispatch(mountAction.languageChange("es"));
             }}
-            src='/spanish.svg'
-            alt='spanish'
+            src="/spanish.svg"
+            alt="spanish"
             width={35}
             height={35}
           />
@@ -134,8 +139,8 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
 
               // setLanguage("en");
             }}
-            src='/english.svg'
-            alt='english'
+            src="/english.svg"
+            alt="english"
             width={35}
             height={35}
           />
@@ -161,19 +166,36 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
-              <LinkChakra
-                as={Link}
-                p={2}
-                href={navItem.href}
-                fontSize={"lg"}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor
-                }}>
-                {navItem.label}
-              </LinkChakra>
+              {navItem?.href?.length ? (
+                <LinkChakra
+                  as={Link}
+                  p={2}
+                  href={navItem.href}
+                  fontSize={"lg"}
+                  fontWeight={500}
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: "none",
+                    color: linkHoverColor,
+                  }}
+                >
+                  {navItem.label}
+                </LinkChakra>
+              ) : (
+                // IGNORA ESTA PORQUERIA QUE HICE AQUI
+                // MUY POCO SE PODIA MODIFICAR EL LINK FEO ESE XD
+                // POR ESO MEJOR HACER LAS COSAS A MANO XD
+                <p
+                  className="chakra-link css-1gx2l8x"
+                  id="popover-trigger-:Rjl4qoqpbr5H1:"
+                  aria-haspopup="dialog"
+                  aria-controls="popover-content-:Rjl4qoqpbr5H1:"
+                  aria-expanded="false"
+                  style={{ top: -8, position: "relative" }}
+                >
+                  {navItem.label}
+                </p>
+              )}
             </PopoverTrigger>
             {navItem.children && (
               <PopoverContent
@@ -182,7 +204,8 @@ const DesktopNav = () => {
                 bg={popoverContentBgColor}
                 p={4}
                 rounded={"xl"}
-                minW={"sm"}>
+                minW={"sm"}
+              >
                 <Stack>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
@@ -199,18 +222,23 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const dispatch = useDispatch();
+
   return (
     <Link
       href={{
-        pathname: href
+        pathname: href,
       }}
-      onClick={() => dispatch(mountAction.updateProduct(label))}>
+      onClick={() =>
+        dispatch(mountAction.updateProduct({ products: label, index: 0 }))
+      }
+    >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
             _groupHover={{ color: "pink.400" }}
-            fontWeight={500}>
+            fontWeight={500}
+          >
             {label}
           </Text>
           <Text fontSize={"sm"}>{subLabel}</Text>
@@ -222,7 +250,8 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
           justify={"flex-end"}
           align={"center"}
-          flex={1}>
+          flex={1}
+        >
           <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
@@ -235,7 +264,8 @@ const MobileNav = () => {
     <Stack
       bg={useColorModeValue("white", "gray.800")}
       p={4}
-      display={{ md: "none" }}>
+      display={{ md: "none" }}
+    >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -255,11 +285,13 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         justify={"space-between"}
         align={"center"}
         _hover={{
-          textDecoration: "none"
-        }}>
+          textDecoration: "none",
+        }}
+      >
         <Text
           fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}>
+          color={useColorModeValue("gray.600", "gray.200")}
+        >
           {label}
         </Text>
         {children && (
@@ -280,7 +312,8 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           borderLeft={1}
           borderStyle={"solid"}
           borderColor={useColorModeValue("gray.200", "gray.700")}
-          align={"start"}>
+          align={"start"}
+        >
           {children &&
             children.map((child) => (
               <LinkChakra as={Link} key={child.label} py={2} href={child.href}>
@@ -303,66 +336,66 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
-    href: "/"
+    href: "/",
   },
   {
     label: "Brands",
-    href: "/brands"
+    href: "/brands",
   },
   {
     label: "Products",
-    href: "/products",
+    href: "",
     children: [
       {
         label: "Quantum Trux Parts",
         subLabel: "An exclusive partner",
-        href: "/products"
+        href: "/products",
       },
       {
         label: "USA Pro",
         subLabel: "An exclusive partner",
-        href: "/products"
+        href: "/products",
       },
       {
         label: "Eagle Parts",
         subLabel: "An exclusive partner",
-        href: "/products"
+        href: "/products",
       },
       {
         label: "GoodYear",
         subLabel: "An exclusive partner",
-        href: "/products"
+        href: "/products",
       },
       {
         label: "GRC",
         subLabel: "An exclusive partner",
-        href: "/products"
+        href: "/products",
       },
       {
         label: "Firestone",
         subLabel: "An exclusive partner",
-        href: "/products"
+        href: "/products",
       },
       {
         label: "Wuhlermann",
         subLabel: "An exclusive partner",
-        href: "/products"
+        href: "/products",
       },
       {
         label: "Sampa",
         subLabel: "An exclusive partner",
-        href: "/products"
-      }
-    ]
+        href: "/products",
+      },
+    ],
   },
   {
     label: "About Us",
-    href: "/about"
+    href: "/about",
   },
   {
     label: "Contact Us",
-    href: "/contact"
-  }
+    href: "/contact",
+  },
 ];
 
 export default Navbar;

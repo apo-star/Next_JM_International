@@ -115,8 +115,6 @@ const Carusel = ({ sections }: any) => {
           }}
         >
           {sections.map((_: any, index: any) => {
-            console.log("INDEX: ", index);
-            console.log("currentSectionIndex: ", currentSectionIndex);
             return (
               <button
                 style={{
