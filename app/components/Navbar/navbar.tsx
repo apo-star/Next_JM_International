@@ -107,8 +107,8 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
             <Image
               src="/jm-logo-transparent-bg-min.webp"
               alt="Brand"
-              width={150}
-              height={50}
+              width={200}
+              height={100}
             />
           </LinkChakra>
           <Spacer />
@@ -372,12 +372,7 @@ const NAV_ITEMS: Array<NavItem> = [
         href: "/products",
       },
       {
-        label: "Firestone",
-        subLabel: "An exclusive partner",
-        href: "/products",
-      },
-      {
-        label: "Wuhlermann",
+        label: "Triseal",
         subLabel: "An exclusive partner",
         href: "/products",
       },

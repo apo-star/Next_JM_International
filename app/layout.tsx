@@ -37,7 +37,7 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
                     {children}
                   </Flex>
                   <Whatsapp
-                    phoneNumber='+50762250666'
+                    phoneNumber='+50761309045'
                     accountName='JM Internacional'
                     avatar='./jm-black-bg.jpg'
                     style={{ backgroundColor: "white" }}

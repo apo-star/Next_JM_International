@@ -16,7 +16,8 @@ export const brandImages = [
     owned: true,
     description:
       "Eagle Chassis Parts is our line of wide portfolio of products for the chassis of your heavy equipment. These include brake shoes and brake shoe kits, brake drums, rims, wheel clamps, wheel studs, inner nuts, landing gear, fifth wheels, springs, suspension bushings, suspension bars, equalizers, spring hangers, insulator pads, trunnion, bases, spring saddles, U-bolt kits, spring pins, tie rod end, drag links, King pin sets. Eagle Chassis Parts is supplied by original equipment manufacturers and each component has been previously tested so that the quality and performance is adequate for our American roads, which demand high performance products.",
-    descriptionES: "PRUEBA",
+    descriptionES:
+      "Eagle Chassis Parts es nuestra línea de amplio portafolio de productos para el chasis de su equipo pesado. Estos incluyen zapatas de freno y juegos de zapatas de freno, tambores de freno, llantas, abrazaderas de rueda, espárragos de rueda, tuercas internas, patas de aterrizaje, quintas ruedas, resortes, bujes de suspensión, barras de suspensión, ecualizadores, soportes de resorte, almohadillas aislantes, trunnion, bases, sillas de resorte, juegos de pernos en U, pasadores de resorte, extremos de varilla de dirección, barras de arrastre, juegos de pasadores rey. Eagle Chassis Parts es suministrado por fabricantes de equipos originales y cada componente ha sido previamente probado para asegurar que la calidad y el rendimiento sean adecuados para nuestras carreteras estadounidenses, que exigen productos de alto rendimiento.",
   },
   {
     id: 3,
@@ -25,7 +26,8 @@ export const brandImages = [
     owned: true,
     description:
       "Quantum is our line of spare parts and accessories for heavy equipment. Among them are parts for drive shaft, air systems, axles and wheels, electrical components, accessories for doors, mirrors and chrome accessories, tarps and cargo straps, exhaust, hood latches, mud flaps and mud flaps hangers, cables, radiator, flywheels, fuel transfer pumps, crown and pinion, filters and filter covers, bumper and fenders, backup alarms and telescopic cylinders. The Quantum line is supplied by original equipment manufacturers, with excellent quality and performance.",
-    descriptionES: "PRUEBA",
+    descriptionES:
+      "Quantum es nuestra línea de repuestos y accesorios para equipos pesados. Entre ellos se encuentran piezas para el eje de transmisión, sistemas de aire, ejes y ruedas, componentes eléctricos, accesorios para puertas, espejos y accesorios cromados, lonas y correas de carga, escapes, seguros para el capó, guardabarros y soportes para guardabarros, cables, radiador, volantes de inercia, bombas de transferencia de combustible, coronas y piñones, filtros y cubiertas para filtros, parachoques y guardabarros, alarmas de retroceso y cilindros telescópicos. La línea Quantum es suministrada por fabricantes de equipos originales, con excelente calidad y rendimiento.",
   },
   {
     id: 4,
@@ -34,7 +36,8 @@ export const brandImages = [
     owned: true,
     description:
       "USA Pro is our new line of engine parts. Extensively tested and guaranteed performance. This line includes products such as: engine liners, connecting rod bearings, camshaft components, valve guides, exhaust valves, intake valves, valve seats, pistons and piston rings, seals, gaskets, fuel pumps, water temperature sensors, coolant tanks, oil coolers, injector sleeves, oil pumps, oil sensors, engine valves, turbos, crankshaft components, sprinklers. Our USA Pro products go above and beyond to ensure your heavy equipment keeps working.",
-    descriptionES: "PRUEBA",
+    descriptionES:
+      "USA Pro es nuestra nueva línea de piezas de motor. Ampliamente probada y garantizada para un rendimiento óptimo. Esta línea incluye productos como revestimientos de motor, cojinetes de biela, componentes de árbol de levas, guías de válvula, válvulas de escape, válvulas de admisión, asientos de válvula, pistones y segmentos de pistón, sellos, juntas, bombas de combustible, sensores de temperatura del agua, tanques de refrigerante, enfriadores de aceite, casquillos de inyector, bombas de aceite, sensores de aceite, válvulas de motor, turbos, componentes de cigüeñal y rociadores. Nuestros productos USA Pro van más allá para garantizar que su equipo pesado siga funcionando a la perfección.",
   },
   {
     id: 5,
@@ -43,7 +46,7 @@ export const brandImages = [
     owned: false,
     description:
       "Goodyear air springs for your truck or trailer will offer a quiet, more cushioned ride resulting in greater comfort, peace of mind, and safety. Due to less vibration, truck and trailer suspension components will last longer while providing durability and improved protection from shock and vibration for the vehicle, passenger, and cargo.",
-    descriptionES: "PRUEBA",
+    descriptionES: "Los resortes de aire Goodyear para su camión o remolque ofrecerán un viaje más tranquilo y acolchado, lo que resultará en mayor comodidad, tranquilidad y seguridad. Debido a una menor vibración, los componentes de suspensión del camión y el remolque durarán más, al tiempo que proporcionarán durabilidad y una protección mejorada contra golpes y vibraciones para el vehículo, los pasajeros y la carga.",
   },
   {
     id: 6,
@@ -52,34 +55,25 @@ export const brandImages = [
     owned: false,
     description:
       "The demand placed on today's heavy trucks, trailers and buses place severe stress on their suspension systems. Now more than ever it is essential to have high performance shocks that you can trust. That's why so many heavy trucks are running on FleetlineTM GRC® shocks. FleetlineTM products are made to be direct replacements for Original Equipment shocks because they are designed to meet or exceed OEM specifications and quality standards.",
-    descriptionES: "PRUEBA",
+    descriptionES: "La demanda que se coloca en los camiones pesados, remolques y autobuses actuales ejerce un estrés severo en sus sistemas de suspensión. Ahora, más que nunca, es esencial contar con amortiguadores de alto rendimiento en los que pueda confiar. Por eso, muchos camiones pesados están utilizando los amortiguadores FleetlineTM GRC®. Los productos FleetlineTM están diseñados para ser reemplazos directos de los amortiguadores de Equipo Original, ya que están diseñados para cumplir o superar las especificaciones y estándares de calidad del OEM.",
   },
   {
     id: 7,
-    name: "Firestone",
-    logo: "/Firestone.png",
-    owned: false,
-    description:
-      "Since the 1930’s, Firestone has designed and manufactured more air springs for more applications than any other company in the world. As a result, almost all Class 8 trucks and many of the trailers on the road today now ride on air springs. Firestone engineers lead the way in developing and testing anti-vibration solutions for a variety of commercial vehicle applications, including truck cabins and interiors, seats, chassis mounts and powertrain mounts.",
-    descriptionES: "PRUEBA",
-  },
-  {
-    id: 8,
     name: "Triseal",
     logo: "/triseal.jfif",
     owned: false,
     description:
-      "Wuhlermann air springs are manefactured in Bursa city, Turkey. To responds the increasing demands from the markets we are producing more than 1000 types of air springs in its product range as roll type air springs, service assembly type air springs, complete type air springs, cabin air springs, convoluted air springs, American Types and piston sorts.",
-    descriptionES: "PRUEBA",
+      "Pending description...",
+    descriptionES: "Descripción pendiente...",
   },
   {
-    id: 9,
+    id: 8,
     name: "Sampa",
     logo: "/sampa.png",
     owned: false,
     description:
       "Sampa was established in 1994 as a distributer in a 100 m2 shop with a production and industry expertise that dates back to 1950. Since then, the company has transformed into a unique manufacturing, procurement and sales giant, operating on a 100.000 m2 integrated factory campus. Sampa now develops and manufactures long-lasting, highly durable parts with unique materials for the aftermarket, suitable for European and American heavy-duty vehicles, trailers, buses, and minivans.",
-    descriptionES: "PRUEBA",
+    descriptionES: "Sampa fue fundada en 1994 como distribuidor en una tienda de 100 m2, con experiencia en producción e industria que se remonta a 1950. Desde entonces, la empresa se ha transformado en un gigante único en fabricación, adquisiciones y ventas, operando en un campus de fábrica integrada de 100.000 m2. Sampa ahora desarrolla y fabrica piezas de larga duración y altamente resistentes con materiales únicos para el mercado de repuestos, adecuadas para vehículos pesados, remolques, autobuses y furgonetas europeos y estadounidenses.",
   },
 ];
 
@@ -752,34 +746,6 @@ export const products = [
         id: 3,
         title: "SP 559781-KA",
         images: ["/SP 559781-KA.png"],
-        description:
-          "60 Series DetEmpaque para Esmerilar Detroit Diesel S60, 11.1 riot Diesel Head Gasket",
-      },
-    ],
-  },
-  {
-    brand: "fireston",
-    logo: "/Firestone.png",
-    id: 7,
-    products: [
-      {
-        id: 1,
-        title: "W01-358-9648",
-        images: ["/W01-358-9648-A.png"],
-        description:
-          "60 Series DetEmpaque para Esmerilar Detroit Diesel S60, 11.1 riot Diesel Head Gasket",
-      },
-      {
-        id: 2,
-        title: "W01-358-9781",
-        images: ["/W01-358-9781-A.png"],
-        description:
-          "60 Series DetEmpaque para Esmerilar Detroit Diesel S60, 11.1 riot Diesel Head Gasket",
-      },
-      {
-        id: 3,
-        title: "WO02358787",
-        images: ["/WO02358787-A.png"],
         description:
           "60 Series DetEmpaque para Esmerilar Detroit Diesel S60, 11.1 riot Diesel Head Gasket",
       },

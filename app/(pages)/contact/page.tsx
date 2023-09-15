@@ -74,8 +74,8 @@ export default function Contact() {
               })}
               textAlign={"center"}
               wordBreak={"break-word"}>
-              We would Be Happy To Assist You Call Us +1 000 000 000 Email:
-              XXXX@XXXXXX.com
+              We would Be Happy To Assist You Call Us +507 6130-9045/+507 261-1863 or through our Email:
+              jminternacional.ventas@gmail.com
             </Text>
           </Stack>
         </VStack>

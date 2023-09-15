@@ -63,12 +63,13 @@ const trimParagraph = (paragraph: string) => {
   return trimmedParagraph;
 };
 
-const brandsGrid = (
+const BrandsGrid = (
   onOpen: any,
   setBrand: Function,
   ownership: Boolean,
   language: string | undefined
 ) => {
+  const { t } = useTranslation();
   return (
     <>
       {brandImages.map((brand) =>
@@ -99,7 +100,7 @@ const brandsGrid = (
                   onClick={() => handleModal(brand, setBrand, onOpen)}
                   className="card-button"
                 >
-                  More info
+                  {t("MORE_INFO")}
                 </button>
               </div>
             </>
@@ -230,7 +231,7 @@ export default function BrandsPage() {
               maxW={800}
               textAlign={"end"}
             >
-              Leading Brands
+              {t("LEADING_BRANDS")}
             </Text>
             <div
               style={{
@@ -253,21 +254,21 @@ export default function BrandsPage() {
               textAlign={"center"}
               wordBreak={"break-word"}
             >
-              Selection of High-Quality Products
+              {t("Selection of High-Quality Products")}
             </Text>
           </Stack>
         </VStack>
       </Flex>
       <VStack pt={10} alignItems="center" justify={"center"} padding={5}>
-        <TextWithLine text="Brands We Represent" />
+        <TextWithLine text={t("TITLE_BRANDS")} />
         <Text as="h4" fontSize="xl" color={"rgba(1,1,1,0.4)"}>
-          Under JM Internacional ownership, we deliver all you need.
+          {t("Under JM Internacional ownership, we deliver all you need.")}
         </Text>
         <Divider></Divider>
         <VStack maxWidth={"4xl"}>
           <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
             <div className="warp">
-              {brandsGrid(onOpen, setcurrentBrand, true, language)}
+              {BrandsGrid(onOpen, setcurrentBrand, true, language)}
             </div>
           </Flex>
         </VStack>
@@ -281,7 +282,7 @@ export default function BrandsPage() {
         <VStack maxWidth={"3xl"}>
           <Flex pb={20} pt={10} alignItems="center" justify={"center"} w="100%">
             <div className="warp">
-              {brandsGrid(onOpen, setcurrentBrand, false, language)}
+              {BrandsGrid(onOpen, setcurrentBrand, false, language)}
             </div>
           </Flex>
         </VStack>

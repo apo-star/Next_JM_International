@@ -142,7 +142,7 @@ export default function About() {
               minW={"360px"}
               objectFit="contain"
               alt="Contact Us"
-              src={"/comp7H.jpg"}
+              src={"/comp2H.jpg"}
               className="displayImage"
             />
           </VStack>

@@ -1,5 +1,6 @@
 /** @format */
 
+import { useRef } from "react";
 import { useTranslation } from "@/app/hooks/useTranslation";
 import {
   Box,
@@ -10,27 +11,51 @@ import {
   useColorModeValue,
   Image,
   Input,
-  Button
+  Button,
 } from "@chakra-ui/react";
 import {
   FormControl,
   FormLabel,
   FormErrorMessage,
-  FormHelperText
+  FormHelperText,
 } from "@chakra-ui/react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
   const { t } = useTranslation();
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        form?.current,
+        "YOUR_PUBLIC_KEY"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   return (
-    <FormControl>
-      <FormLabel>{t("Name")}</FormLabel>
-      <Input type='string'></Input>
-      <FormLabel pt={5}>{t("Email")}</FormLabel>
-      <Input type='email' />
-      <Button marginTop={5} colorScheme={"red"}>
-        {t("Submit")}
-      </Button>
-    </FormControl>
+    <>
+      <form ref={form} onSubmit={sendEmail}>
+        <FormLabel>{t("Name")}</FormLabel>
+        <Input type="string" name="Name"></Input>
+        <FormLabel pt={5}>{t("Email")}</FormLabel>
+        <Input type="email" name="Email" />
+        <Button type="submit" value="Send" marginTop={5} colorScheme={"red"}>
+          {t("Submit")}
+        </Button>
+      </form>
+    </>
   );
 }

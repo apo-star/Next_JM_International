@@ -13,7 +13,7 @@ const TextWithLine: React.FC<TextWithLineProps> = ({
   text,
   color,
   lineColor,
-  undecorate
+  undecorate,
 }) => {
   return (
     <div>
@@ -21,14 +21,14 @@ const TextWithLine: React.FC<TextWithLineProps> = ({
         {text && text}
       </Heading>
       {!undecorate ? (
-        <>
+        <div style={{ paddingLeft: 15}}>
           <div
             style={{
               width: `${text?.length + 2}em`,
               borderWidth: `2.5px`,
               borderColor: lineColor ? lineColor : "red",
               borderTopLeftRadius: "10px",
-              borderTopRightRadius: "10px"
+              borderTopRightRadius: "10px",
             }}
           />
           <div
@@ -38,10 +38,10 @@ const TextWithLine: React.FC<TextWithLineProps> = ({
               borderColor: lineColor ? lineColor : "red",
               borderBottomLeftRadius: "10px",
               borderBottomRightRadius: "10px",
-              marginLeft: "1em"
+              marginLeft: "1em",
             }}
           />
-        </>
+        </div>
       ) : null}
     </div>
   );
