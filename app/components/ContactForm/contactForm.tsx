@@ -23,9 +23,9 @@ import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
   const { t } = useTranslation();
-  const form = useRef();
+  const form : any = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault();
 
     emailjs
