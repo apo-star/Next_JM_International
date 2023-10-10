@@ -120,6 +120,7 @@ export default function BrandsPage() {
     logo: "",
     description: "",
     id: 0,
+    owned: false,
   });
   const { language } = useSelector((state: any) => state.mount);
 
@@ -176,17 +177,19 @@ export default function BrandsPage() {
                   )
                 }
               >
-                <Button
-                  // leftIcon={<EmailIcon />}
-                  colorScheme="red"
-                  variant="outline"
-                  onClick={() => {
-                    onClose();
-                  }}
-                  minW={"130px"}
-                >
-                  See Products
-                </Button>
+                {currentBrand.owned && (
+                  <Button
+                    // leftIcon={<EmailIcon />}
+                    colorScheme="red"
+                    variant="outline"
+                    onClick={() => {
+                      onClose();
+                    }}
+                    minW={"130px"}
+                  >
+                    See Products
+                  </Button>
+                )}
               </Link>
             </VStack>
           </ModalFooter>

@@ -46,7 +46,8 @@ export const brandImages = [
     owned: false,
     description:
       "Goodyear air springs for your truck or trailer will offer a quiet, more cushioned ride resulting in greater comfort, peace of mind, and safety. Due to less vibration, truck and trailer suspension components will last longer while providing durability and improved protection from shock and vibration for the vehicle, passenger, and cargo.",
-    descriptionES: "Los resortes de aire Goodyear para su camión o remolque ofrecerán un viaje más tranquilo y acolchado, lo que resultará en mayor comodidad, tranquilidad y seguridad. Debido a una menor vibración, los componentes de suspensión del camión y el remolque durarán más, al tiempo que proporcionarán durabilidad y una protección mejorada contra golpes y vibraciones para el vehículo, los pasajeros y la carga.",
+    descriptionES:
+      "Los resortes de aire Goodyear para su camión o remolque ofrecerán un viaje más tranquilo y acolchado, lo que resultará en mayor comodidad, tranquilidad y seguridad. Debido a una menor vibración, los componentes de suspensión del camión y el remolque durarán más, al tiempo que proporcionarán durabilidad y una protección mejorada contra golpes y vibraciones para el vehículo, los pasajeros y la carga.",
   },
   {
     id: 6,
@@ -55,25 +56,34 @@ export const brandImages = [
     owned: false,
     description:
       "The demand placed on today's heavy trucks, trailers and buses place severe stress on their suspension systems. Now more than ever it is essential to have high performance shocks that you can trust. That's why so many heavy trucks are running on FleetlineTM GRC® shocks. FleetlineTM products are made to be direct replacements for Original Equipment shocks because they are designed to meet or exceed OEM specifications and quality standards.",
-    descriptionES: "La demanda que se coloca en los camiones pesados, remolques y autobuses actuales ejerce un estrés severo en sus sistemas de suspensión. Ahora, más que nunca, es esencial contar con amortiguadores de alto rendimiento en los que pueda confiar. Por eso, muchos camiones pesados están utilizando los amortiguadores FleetlineTM GRC®. Los productos FleetlineTM están diseñados para ser reemplazos directos de los amortiguadores de Equipo Original, ya que están diseñados para cumplir o superar las especificaciones y estándares de calidad del OEM.",
+    descriptionES:
+      "La demanda que se coloca en los camiones pesados, remolques y autobuses actuales ejerce un estrés severo en sus sistemas de suspensión. Ahora, más que nunca, es esencial contar con amortiguadores de alto rendimiento en los que pueda confiar. Por eso, muchos camiones pesados están utilizando los amortiguadores FleetlineTM GRC®. Los productos FleetlineTM están diseñados para ser reemplazos directos de los amortiguadores de Equipo Original, ya que están diseñados para cumplir o superar las especificaciones y estándares de calidad del OEM.",
   },
   {
     id: 7,
     name: "Triseal",
     logo: "/triseal.jfif",
     owned: false,
-    description:
-      "Pending description...",
+    description: "Pending description...",
     descriptionES: "Descripción pendiente...",
   },
   {
-    id: 8,
+    id: 9,
+    name: "Eaton",
+    logo: "/roadranger-eaton.jfif",
+    owned: false,
+    description: "Pending description...",
+    descriptionES: "Descripción pendiente...",
+  },
+  {
+    id: 9,
     name: "Sampa",
     logo: "/sampa.png",
     owned: false,
     description:
       "Sampa was established in 1994 as a distributer in a 100 m2 shop with a production and industry expertise that dates back to 1950. Since then, the company has transformed into a unique manufacturing, procurement and sales giant, operating on a 100.000 m2 integrated factory campus. Sampa now develops and manufactures long-lasting, highly durable parts with unique materials for the aftermarket, suitable for European and American heavy-duty vehicles, trailers, buses, and minivans.",
-    descriptionES: "Sampa fue fundada en 1994 como distribuidor en una tienda de 100 m2, con experiencia en producción e industria que se remonta a 1950. Desde entonces, la empresa se ha transformado en un gigante único en fabricación, adquisiciones y ventas, operando en un campus de fábrica integrada de 100.000 m2. Sampa ahora desarrolla y fabrica piezas de larga duración y altamente resistentes con materiales únicos para el mercado de repuestos, adecuadas para vehículos pesados, remolques, autobuses y furgonetas europeos y estadounidenses.",
+    descriptionES:
+      "Sampa fue fundada en 1994 como distribuidor en una tienda de 100 m2, con experiencia en producción e industria que se remonta a 1950. Desde entonces, la empresa se ha transformado en un gigante único en fabricación, adquisiciones y ventas, operando en un campus de fábrica integrada de 100.000 m2. Sampa ahora desarrolla y fabrica piezas de larga duración y altamente resistentes con materiales únicos para el mercado de repuestos, adecuadas para vehículos pesados, remolques, autobuses y furgonetas europeos y estadounidenses.",
   },
 ];
 
@@ -840,7 +850,7 @@ export const featuredProdcuts = [
   {
     id: 2,
     section: "Sistema de aire",
-    sectionES: "Air sistem",
+    sectionES: "Air System",
     products: [
       {
         id: 1,

@@ -28,7 +28,7 @@ import {
 import { useEffect, useState } from "react";
 import "./navbar.css";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { mountAction } from "@/app/store/store";
 
 const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
@@ -106,7 +106,8 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
           <LinkChakra as={Link} href="/">
             <Image
               src="/jm-logo-transparent-bg-min.webp"
-              alt="Brand"
+              alt="JM Internacional Logo"
+              minW={200}
               width={200}
               height={100}
             />
@@ -136,8 +137,6 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
           <Image
             onClick={() => {
               dispatch(mountAction.languageChange("en"));
-
-              // setLanguage("en");
             }}
             src="/english.svg"
             alt="english"
@@ -159,6 +158,7 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue("white", "gray.200");
   const linkHoverColor = useColorModeValue("red", "red");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const { language } = useSelector((state: any) => state.mount);
 
   return (
     <Stack direction={"row"} spacing={7}>
@@ -179,7 +179,9 @@ const DesktopNav = () => {
                     color: linkHoverColor,
                   }}
                 >
-                  {navItem.label}
+                  {language && language == "en"
+                    ? navItem.label
+                    : navItem.labelES}
                 </LinkChakra>
               ) : (
                 // IGNORA ESTA PORQUERIA QUE HICE AQUI
@@ -193,7 +195,9 @@ const DesktopNav = () => {
                   aria-expanded="false"
                   style={{ top: -8, position: "relative" }}
                 >
-                  {navItem.label}
+                  {language && language == "en"
+                    ? navItem.label
+                    : navItem.labelES}
                 </p>
               )}
             </PopoverTrigger>
@@ -220,8 +224,9 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel, subLabelES }: NavItem) => {
   const dispatch = useDispatch();
+  const { language } = useSelector((state: any) => state.mount);
 
   return (
     <Link
@@ -239,9 +244,11 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             _groupHover={{ color: "pink.400" }}
             fontWeight={500}
           >
-            {label}
+            {language && language == "en" ? subLabel : subLabelES}
           </Text>
-          <Text fontSize={"sm"}>{subLabel}</Text>
+          <Text fontSize={"sm"}>
+            {language && language == "en" ? subLabel : subLabelES}
+          </Text>
         </Box>
         <Flex
           transition={"all .3s ease"}
@@ -262,7 +269,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue("white", "gray.800")}
+      bg={useColorModeValue("rgba(0,0,0,.9)", "gray.800")}
       p={4}
       display={{ md: "none" }}
     >
@@ -273,26 +280,25 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, labelES, children, href }: NavItem) => {
+  const { language } = useSelector((state: any) => state.mount);
   const { isOpen, onToggle } = useDisclosure();
+  const dispatch = useDispatch();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
         as={LinkChakra}
-        href={href ?? "/"}
+        href={href}
         justify={"space-between"}
         align={"center"}
         _hover={{
           textDecoration: "none",
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
-        >
-          {label}
+        <Text fontWeight={600} color={useColorModeValue("white", "gray.200")}>
+          {language && language == "en" ? label : labelES}
         </Text>
         {children && (
           <Icon
@@ -316,10 +322,32 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <LinkChakra as={Link} key={child.label} py={2} href={child.href}>
-                {child.label}
-              </LinkChakra>
+              <Text
+                color={"white"}
+                key={child.label}
+                onClick={() => {
+                  dispatch(
+                    mountAction.updateProduct({ products: label, index: 0 })
+                  );
+                }}
+              >
+                {language && language == "en" ? child.label : child.labelES}adad
+              </Text>
             ))}
+          <Text
+            onClick={() => {
+              dispatch(mountAction.languageChange("es"));
+            }}
+          >
+            ES
+          </Text>
+          <Text
+            onClick={() => {
+              dispatch(mountAction.languageChange("en"));
+            }}
+          >
+            EN
+          </Text>
         </Stack>
       </Collapse>
     </Stack>
@@ -328,7 +356,9 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
 
 interface NavItem {
   label: string;
+  labelES?: string;
   subLabel?: string;
+  subLabelES?: string;
   children?: Array<NavItem>;
   href?: string;
 }
@@ -336,59 +366,46 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
+    labelES: "Home",
     href: "/",
   },
   {
     label: "Brands",
+    labelES: "Marcas",
     href: "/brands",
   },
   {
     label: "Products",
-    href: "",
+    labelES: "Productos",
     children: [
       {
         label: "Quantum Trux Parts",
         subLabel: "An exclusive partner",
+        subLabelES: "Marca Exclusiva",
         href: "/products",
       },
       {
         label: "USA Pro",
         subLabel: "An exclusive partner",
+        subLabelES: "Marca Exclusiva",
         href: "/products",
       },
       {
         label: "Eagle Parts",
         subLabel: "An exclusive partner",
-        href: "/products",
-      },
-      {
-        label: "GoodYear",
-        subLabel: "An exclusive partner",
-        href: "/products",
-      },
-      {
-        label: "GRC",
-        subLabel: "An exclusive partner",
-        href: "/products",
-      },
-      {
-        label: "Triseal",
-        subLabel: "An exclusive partner",
-        href: "/products",
-      },
-      {
-        label: "Sampa",
-        subLabel: "An exclusive partner",
+        subLabelES: "Marca Exclusiva",
         href: "/products",
       },
     ],
   },
   {
     label: "About Us",
+    labelES: "Nosotros",
     href: "/about",
   },
   {
     label: "Contact Us",
+    labelES: "Contacto",
     href: "/contact",
   },
 ];

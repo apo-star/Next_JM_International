@@ -1,11 +1,14 @@
 import { Image, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TextWithLine from "../TextDecoration/textDecoration";
 import { mountAction } from "@/app/store/store";
 import "./style.css";
+import { useTranslation } from "@/app/hooks/useTranslation";
+
 const Carusel = ({ sections }: any) => {
+  const { language } = useSelector((state: any) => state.mount);
   const dispatch = useDispatch();
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
@@ -37,7 +40,13 @@ const Carusel = ({ sections }: any) => {
   return (
     <div className="carousel-container">
       <VStack marginBottom={10}>
-        <TextWithLine text={currentSection.section} />
+        <TextWithLine
+          text={
+            language && language === "en"
+              ? currentSection.section
+              : currentSection.sectionES
+          }
+        />
       </VStack>
 
       <div className="carousel">
@@ -82,7 +91,11 @@ const Carusel = ({ sections }: any) => {
             </div>
 
             <h3>{product.title}</h3>
-            <p className="description">{product.description}</p>
+            <p className="description">
+              {language && language === "en"
+                ? product.description
+                : product.descriptionES}
+            </p>
           </Link>
         ))}
         {/* <IconButton
