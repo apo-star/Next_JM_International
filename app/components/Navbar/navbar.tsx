@@ -244,7 +244,7 @@ const DesktopSubNav = ({ label, href, subLabel, subLabelES }: NavItem) => {
             _groupHover={{ color: "pink.400" }}
             fontWeight={500}
           >
-            {language && language == "en" ? subLabel : subLabelES}
+            {label}
           </Text>
           <Text fontSize={"sm"}>
             {language && language == "en" ? subLabel : subLabelES}

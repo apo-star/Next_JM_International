@@ -31,7 +31,6 @@ export default function About() {
     <Box alignItems={"center"}>
       <Navbar isHomePage={true} />
       <Flex
-        bgImage="/pageEnd.webp"
         bgPos={"bottom"}
         w={"full"}
         h={useBreakpointValue({ base: "35vh", sm: "35vh", lg: "50vh" })}

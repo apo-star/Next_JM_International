@@ -99,7 +99,7 @@ export default function Products({ searchParams }: any) {
     <>
       <Navbar isHomePage={false} />
       <Flex
-        bgImage={"/pageEnd.webp"}
+        bgImage={"/pageEnd.jpg"}
         bgPos={"bottom"}
         w={"full"}
         h={useBreakpointValue({ base: "30vh", sm: "30vh", lg: "50vh" })}
