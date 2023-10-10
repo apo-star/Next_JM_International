@@ -90,11 +90,6 @@ export default function Products({ searchParams }: any) {
     return () => {};
   }, [state, state?.product, state?.indexProduct]);
 
-  console.log(
-    "products?.products[selectedProduct - 1]?.replacement",
-    products?.products
-  );
-
   return (
     <>
       <Navbar isHomePage={false} />
@@ -220,7 +215,9 @@ export default function Products({ searchParams }: any) {
             {products?.products?.length > 0 && (
               <>
                 <Text textAlign={"justify"} marginTop={5}>
-                  {products?.products[selectedProduct - 1]?.description}
+                  {state.language && state.language == "en"
+                    ? products?.products[selectedProduct - 1]?.description
+                    : products?.products[selectedProduct - 1]?.descriptionES}
                 </Text>
                 {products?.products[selectedProduct - 1]?.replacement?.length >
                 0 ? (
@@ -258,7 +255,9 @@ export default function Products({ searchParams }: any) {
           <TextWithLine text="About The Vendor" />
           <Box maxW={"80%"}>
             <Text pt={5} textAlign={"justify"} maxW={"5xl"}>
-              {currentBrand?.description ?? ""}
+              {state.language && state.language == "en"
+                ? currentBrand?.description
+                : currentBrand?.descriptionES}
             </Text>
           </Box>
         </VStack>
