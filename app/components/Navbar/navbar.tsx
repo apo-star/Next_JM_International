@@ -18,6 +18,7 @@ import {
   Image,
   Link as LinkChakra,
   useStyleConfig,
+  HStack,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -267,6 +268,7 @@ const DesktopSubNav = ({ label, href, subLabel, subLabelES }: NavItem) => {
 };
 
 const MobileNav = () => {
+  const dispatch = useDispatch();
   return (
     <Stack
       bg={useColorModeValue("rgba(0,0,0,.9)", "gray.800")}
@@ -276,6 +278,26 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      <HStack>
+        <Image
+          onClick={() => {
+            dispatch(mountAction.languageChange("es"));
+          }}
+          src="/spanish.svg"
+          alt="spanish"
+          width={35}
+          height={35}
+        />
+        <Image
+          onClick={() => {
+            dispatch(mountAction.languageChange("en"));
+          }}
+          src="/english.svg"
+          alt="english"
+          width={35}
+          height={35}
+        />
+      </HStack>
     </Stack>
   );
 };
@@ -331,23 +353,9 @@ const MobileNavItem = ({ label, labelES, children, href }: NavItem) => {
                   );
                 }}
               >
-                {language && language == "en" ? child.label : child.labelES}adad
+                {language && language == "en" ? child.label : child.labelES}
               </Text>
             ))}
-          <Text
-            onClick={() => {
-              dispatch(mountAction.languageChange("es"));
-            }}
-          >
-            ES
-          </Text>
-          <Text
-            onClick={() => {
-              dispatch(mountAction.languageChange("en"));
-            }}
-          >
-            EN
-          </Text>
         </Stack>
       </Collapse>
     </Stack>
