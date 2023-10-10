@@ -250,14 +250,21 @@ export default function Home() {
                 boxSize="300px"
                 objectFit="contain"
                 alt="Contact Us"
-                src={"/quantumCatalogo2022.jpg"}
+                src={"/quantumCatalogo2023.jpg"}
                 margin={10}
               />
               <ImageC
                 boxSize="300px"
                 objectFit="contain"
                 alt="Contact Us"
-                src={"/eagCatalogo2022.jpg"}
+                src={"/eagCatalogo2023.jpg"}
+                margin={10}
+              />
+              <ImageC
+                boxSize="300px"
+                objectFit="contain"
+                alt="Contact Us"
+                src={"/usaCatalogo2023.jpg"}
                 margin={10}
               />
             </div>
