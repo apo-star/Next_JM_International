@@ -796,6 +796,7 @@ export const featuredProdcuts = [
     id: 1,
     sectionES: "Eje de mando",
     section: "Drive shaft",
+    brandImageId: 3,
     products: [
       {
         id: 1,
@@ -851,6 +852,7 @@ export const featuredProdcuts = [
     id: 2,
     sectionES: "Sistema de aire",
     section: "Air System",
+    brandImageId: 3,
     products: [
       {
         id: 1,
@@ -904,6 +906,7 @@ export const featuredProdcuts = [
     id: 3,
     sectionES: "Eje y rueda",
     section: "Axis and wheels",
+    brandImageId: 2,
     products: [
       {
         id: 1,
@@ -956,6 +959,7 @@ export const featuredProdcuts = [
     id: 4,
     sectionES: "Partes electricas",
     section: "Electrical parts",
+    brandImageId: 3,
     products: [
       {
         id: 1,
@@ -1008,6 +1012,7 @@ export const featuredProdcuts = [
     id: 5,
     sectionES: "Accesorios para puertas y espejos",
     section: "Accessories for doors and mirrors",
+    brandImageId: 3,
     products: [
       {
         id: 1,
@@ -1061,6 +1066,7 @@ export const featuredProdcuts = [
     id: 6,
     sectionES: "Escape",
     section: "Exhaust",
+    brandImageId: 3,
     products: [
       {
         id: 1,
@@ -1113,6 +1119,7 @@ export const featuredProdcuts = [
     id: 7,
     sectionES: "Quinta rueda y patas de furgon",
     section: "Fifth wheel and landing gear",
+    brandImageId: 2,
     products: [
       {
         id: 1,
@@ -1164,6 +1171,7 @@ export const featuredProdcuts = [
     id: 8,
     section: "Suspension",
     sectionES: "Suspensión",
+    brandImageId: 2,
     products: [
       {
         id: 1,
@@ -1215,8 +1223,9 @@ export const featuredProdcuts = [
   },
   {
     id: 9,
-    section: "Componentes de dirección",
-    sectionES: "Steering parts",
+    sectionES: "Componentes de dirección",
+    section: "Steering parts",
+    brandImageId: 2,
     products: [
       {
         id: 1,
@@ -1275,6 +1284,7 @@ export const featuredProdcuts = [
     id: 10,
     sectionES: "Tanques de reserva",
     section: "Surge tanks and radiators",
+    brandImageId: 3,
     products: [
       {
         id: 1,
@@ -1331,6 +1341,7 @@ export const featuredProdcuts = [
     id: 11,
     sectionES: "Lamparas y escoltas",
     section: "Lamps and strobe lights",
+    brandImageId: 3,
     products: [
       {
         id: 1,

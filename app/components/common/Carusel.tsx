@@ -6,6 +6,7 @@ import TextWithLine from "../TextDecoration/textDecoration";
 import { mountAction } from "@/app/store/store";
 import "./style.css";
 import { useTranslation } from "@/app/hooks/useTranslation";
+import { brandImages } from "@/app/utils/assetIndex";
 
 const Carusel = ({ sections }: any) => {
   const { language } = useSelector((state: any) => state.mount);
@@ -46,6 +47,11 @@ const Carusel = ({ sections }: any) => {
               ? currentSection.section
               : currentSection.sectionES
           }
+        />
+        <Image
+          className="section-brand"
+          src={brandImages[currentSection.brandImageId].logo}
+          alt={currentSection.title}
         />
       </VStack>
 
