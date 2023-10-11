@@ -50,7 +50,10 @@ const Carusel = ({ sections }: any) => {
         />
         <Image
           className="section-brand"
-          src={brandImages[currentSection.brandImageId].logo}
+          src={
+            brandImages?.find((item) => item.id == currentSection?.brandImageId)
+              .logo
+          }
           alt={currentSection.title}
         />
       </VStack>
