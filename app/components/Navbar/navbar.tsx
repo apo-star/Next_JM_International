@@ -344,17 +344,30 @@ const MobileNavItem = ({ label, labelES, children, href }: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <Text
-                color={"white"}
+              <LinkChakra
                 key={child.label}
-                onClick={() => {
-                  dispatch(
-                    mountAction.updateProduct({ products: label, index: 0 })
-                  );
-                }}
+                as={Link}
+                p={2}
+                href={child.href}
+                fontSize={"lg"}
+                fontWeight={500}
               >
-                {language && language == "en" ? child.label : child.labelES}
-              </Text>
+                <Text
+                  color={"white"}
+                  key={child.label}
+                  onClick={() => {
+                    dispatch(
+                      mountAction.updateProduct({
+                        products: child.label,
+                        index: 0,
+                      })
+                    );
+                  }}
+                >
+                  {/* {language && language == "en" ? child.label : child.labelES} */}
+                  {child.label}
+                </Text>
+              </LinkChakra>
             ))}
         </Stack>
       </Collapse>
