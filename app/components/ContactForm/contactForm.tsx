@@ -23,17 +23,20 @@ import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
   const { t } = useTranslation();
-  const form : any = useRef();
+  const form: any = useRef();
 
   const sendEmail = (e: any) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        //ServiceID
+        "service_j359rfl",
+        //Template ID
+        "template_416d50r",
         form?.current,
-        "YOUR_PUBLIC_KEY"
+        // Public Key
+        "_hPsUefRsIdqfy4Tt"
       )
       .then(
         (result) => {

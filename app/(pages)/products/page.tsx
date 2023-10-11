@@ -241,10 +241,10 @@ export default function Products({ searchParams }: any) {
                 <Image
                   alt="brand"
                   objectFit="contain"
-                  width={"200px"}
-                  height={"250px"}
+                  width={"300px"}
+                  height={"350px"}
                   src={products.logo}
-                ></Image>
+                />
               )}
             </Box>
           </Box>
