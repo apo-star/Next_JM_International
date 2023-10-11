@@ -38,6 +38,16 @@ const Carusel = ({ sections }: any) => {
     setCurrentSectionIndex(index);
   };
 
+  const matchingBrandImage = (brandImageId: number) => {
+    let match = brandImages?.find((item) => item.id === brandImageId);
+
+    if (match?.logo) {
+      return match.logo;
+    }
+
+    return "";
+  };
+
   return (
     <div className="carousel-container">
       <VStack marginBottom={10}>
@@ -50,10 +60,7 @@ const Carusel = ({ sections }: any) => {
         />
         <Image
           className="section-brand"
-          src={
-            brandImages?.find((item) => item.id == currentSection?.brandImageId)
-              .logo
-          }
+          src={matchingBrandImage(currentSection?.brandImageId)}
           alt={currentSection.title}
         />
       </VStack>
