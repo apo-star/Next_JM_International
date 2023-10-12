@@ -207,11 +207,11 @@ export default function Products({ searchParams }: any) {
           </Box>
         </Box>
 
-        <Box w={"100%"} justifyContent={"center"} marginLeft={10}>
+        <VStack w={"100%"} justifyContent={"center"} alignItems={"center"}>
           {products?.products?.length > 0 && (
-            <Heading>{products?.products[selectedProduct - 1]?.title}</Heading>
+            <Heading textAlign={"center"}>{products?.products[selectedProduct - 1]?.title}</Heading>
           )}
-          <Box maxW={"50%"} justifyContent={"center"} alignItems={"center"}>
+          <VStack maxW={"100%"} justifyContent={"center"} alignItems={"center"}>
             {products?.products?.length > 0 && (
               <>
                 <Text textAlign={"justify"} marginTop={5}>
@@ -221,7 +221,7 @@ export default function Products({ searchParams }: any) {
                 </Text>
                 {products?.products[selectedProduct - 1]?.replacement?.length >
                 0 ? (
-                  <div style={{ marginTop: 10 }}>
+                  <Box style={{ marginTop: 10 }}>
                     <Text>Repuesto de: </Text>
                     <ul style={{ marginLeft: 30 }}>
                       {products?.products[selectedProduct - 1]?.replacement.map(
@@ -231,8 +231,8 @@ export default function Products({ searchParams }: any) {
                           </li>
                         )
                       )}
-                    </ul>
-                  </div>
+                    </ul>   
+                  </Box>
                 ) : null}
               </>
             )}
@@ -247,8 +247,8 @@ export default function Products({ searchParams }: any) {
                 />
               )}
             </Box>
-          </Box>
-        </Box>
+          </VStack>
+        </VStack>
       </SimpleGrid>
       <Flex pt={10} width={"100%"} justifyContent={"center"} h={"100%"}>
         <VStack pb={20} justify={"center"} align={"center"}>
