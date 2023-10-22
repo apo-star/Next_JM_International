@@ -2,23 +2,8 @@
 
 import { useRef } from "react";
 import { useTranslation } from "@/app/hooks/useTranslation";
-import {
-  Box,
-  chakra,
-  Container,
-  Stack,
-  Text,
-  useColorModeValue,
-  Image,
-  Input,
-  Button,
-} from "@chakra-ui/react";
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-} from "@chakra-ui/react";
+import { Input, Button } from "@chakra-ui/react";
+import { FormLabel } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
@@ -49,7 +34,7 @@ export default function ContactForm() {
   };
 
   return (
-    <>
+    <div>
       <form ref={form} onSubmit={sendEmail}>
         <FormLabel>{t("Name")}</FormLabel>
         <Input type="string" name="Name"></Input>
@@ -59,6 +44,6 @@ export default function ContactForm() {
           {t("Submit")}
         </Button>
       </form>
-    </>
+    </div>
   );
 }

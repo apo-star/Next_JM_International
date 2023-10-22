@@ -26,7 +26,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import "./navbar.css";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
@@ -61,6 +61,10 @@ const Navbar = ({ isHomePage }: { isHomePage: Boolean }) => {
   const customStyle = useStyleConfig("Flex", {});
 
   const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    dispatch(mountAction.languageChange("en"));
+  }, [dispatch]);
 
   return (
     <Box
