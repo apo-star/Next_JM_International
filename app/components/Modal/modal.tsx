@@ -32,6 +32,15 @@ const FormModal = (props: { setOpen: Function; open: boolean }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.open]);
 
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "50761309045"
+    const message = encodeURIComponent("Hola, estoy interesado en tus productos.")
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`
+    window.open(whatsappURL, '_blank')
+  };
+
+
   return (
     <>
       <Modal
@@ -55,6 +64,7 @@ const FormModal = (props: { setOpen: Function; open: boolean }) => {
                 leftIcon={<PhoneIcon />}
                 colorScheme="whatsapp"
                 size={"md"}
+                onClick={handleWhatsAppClick}
               >
                 Whatsapp
               </Button>
